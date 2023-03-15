@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3)).then((value) =>
-    Navigator.pushReplacement(context, SwipeLeftAnimationRoute(milliseconds: 300, widget: WalkThroughScreen1()))
+    Navigator.pushReplacement(context, SwipeLeftAnimationRoute(milliseconds: 300, widget: WalkThrough1()))
      );
     super.initState();
   }
