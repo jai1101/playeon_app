@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const AppName = "Barwiz";
+const AppName = "Playeon";
 
 const primaryColor1 = Color(0xFFDAB898);
 const primaryColor2 = Color(0xFF1D1D3D);

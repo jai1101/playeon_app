@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/walkthrough.dart';
 import 'package:playeon/widgets/common.dart';
 
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class WalkThroughScreen3 extends StatefulWidget {
+  const WalkThroughScreen3({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<WalkThroughScreen3> createState() => _WalkThroughScreen3State();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _WalkThroughScreen3State extends State<WalkThroughScreen3> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3)).then((value) =>
-    Navigator.pushReplacement(context, SwipeLeftAnimationRoute(milliseconds: 300, widget: WalkThroughScreen1()))
+     Future.delayed(Duration(seconds: 4)).then((value) =>
+    Navigator.pushReplacement(context, SwipeUpAnimationRoute(milliseconds: 300, widget: WalkThroughScreen3()))
      );
     super.initState();
   }
