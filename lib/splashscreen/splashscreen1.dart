@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/splashscreen/LoginScreen.dart';
 import 'package:playeon/splashscreen/walkthrough.dart';
 import 'package:playeon/widgets/common.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,10 +14,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3)).then((value) =>
-    Navigator.pushReplacement(context, SwipeLeftAnimationRoute(milliseconds: 300, widget: WalkThrough1()))
-     );
+        Navigator.pushReplacement(
+            context,
+            SwipeLeftAnimationRoute(
+                milliseconds: 300, widget: LoginScreen())));
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Positioned.fill(
             child: Image.asset("assets/images/img_bg.png"),
           ),
-           Positioned.fill(
+          Positioned.fill(
             child: Image.asset("assets/icons/ic_filter.png"),
           ),
           Column(

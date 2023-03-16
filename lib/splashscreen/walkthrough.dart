@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:playeon/splashscreen/walkthrough2.dart';
 
@@ -16,9 +14,11 @@ class WalkThrough1 extends StatefulWidget {
 class _WalkThrough1State extends State<WalkThrough1> {
   @override
   void initState() {
-     Future.delayed(Duration(seconds: 3)).then((value) =>
-    Navigator.pushReplacement(context, SwipeLeftAnimationRoute(milliseconds: 300, widget: walkthrough2()))
-     );
+    Future.delayed(Duration(seconds: 3)).then((value) =>
+        Navigator.pushReplacement(
+            context,
+            SwipeLeftAnimationRoute(
+                milliseconds: 300, widget: walkthrough2())));
     super.initState();
   }
 

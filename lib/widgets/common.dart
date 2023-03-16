@@ -138,3 +138,65 @@ class SwipeUpAnimationRoute extends PageRouteBuilder {
           },
         ); 
 }
+class MyButton extends StatelessWidget {
+  final String? btnTxt;
+  final double? btnHeight;
+  final double? btnWidth;
+  final Function()? onTap;
+  final Color? btnColor;
+  final Color? txtColor;
+  final double? btnRadius;
+  final double? fontSize;
+  final FontWeight? weight;
+  final Color? borderColor;
+  final fontFamily;
+
+  MyButton({
+    this.btnTxt = "Test",
+    this.borderColor = primaryColor1,
+    this.weight = FontWeight.w600,
+    this.fontSize = 20,
+    this.btnRadius = 8,
+    this.onTap,
+    this.btnHeight,
+    this.btnWidth,
+    this.btnColor = primaryColor1,
+    this.txtColor = textColorW,
+    this.fontFamily = fontMedium,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: btnHeight,
+      width: btnWidth != null ? btnWidth : null,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          primary: btnColor, //textStyle: TextStyle(color: Color(0xff000000)),
+          // shape: RoundedRectangleBorder(
+          //     side: BorderSide(
+          //         color: borderColor != null ? borderColor! : btnColor!,
+          //         width: 2),
+          //     borderRadius: BorderRadius.circular(btnRadius!)),
+        ),
+        onPressed: onTap ?? null,
+        child: Center(
+          child: FittedBox(
+            child: VariableText(
+              text: btnTxt,
+              fontcolor: txtColor,
+              weight: weight!,
+              max_lines: 1,
+              fontsize: fontSize,
+              fontFamily: fontFamily,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+

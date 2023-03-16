@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 import 'walkthrough3.dart';
 
-class  walkthrough3 extends StatefulWidget {
+class walkthrough3 extends StatefulWidget {
   const walkthrough3({super.key});
 
   @override
@@ -35,7 +34,6 @@ class _walkthrough3State extends State<walkthrough3> {
           Positioned.fill(
             child: Image.asset("assets/images/img_w3bitmap.png"),
           ),
-          
           Positioned.fill(
             child: Image.asset("assets/icons/ic_w3rect.png"),
           ),
