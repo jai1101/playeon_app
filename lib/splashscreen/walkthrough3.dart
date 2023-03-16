@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/splashscreen/walkthrough2.dart';
 
+import 'MovieScreen.dart';
 import 'walkthrough3.dart';
 
 class walkthrough3 extends StatefulWidget {
@@ -64,7 +66,15 @@ class _walkthrough3State extends State<walkthrough3> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("assets/icons/ic_w3next.png", scale: 2.7),
+                   ElevatedButton (
+                    child: Text('Next'),
+                     style: ElevatedButton.styleFrom(shape: StadiumBorder() , ),
+                    onPressed : (){
+                      Navigator.push(context , MaterialPageRoute(builder:(context) => const MovieScreen()));
+                    }
+
+                  )
+                  // Image.asset("assets/icons/ic_w3next.png", scale: 2.7),
                 ],
               ),
             ],

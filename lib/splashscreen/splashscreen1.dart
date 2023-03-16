@@ -27,10 +27,10 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset("assets/images/img_bg.png"),
+            child: Image.asset("assets/images/img_spbg.png"),
           ),
           Positioned.fill(
-            child: Image.asset("assets/icons/ic_filter.png"),
+            child: Image.asset("assets/icons/ic_spfilter.png"),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("assets/icons/ic_logo.png", scale: 2.7),
+                  Image.asset("assets/icons/ic_splogo.png", scale: 2.7),
                 ],
               ),
             ],

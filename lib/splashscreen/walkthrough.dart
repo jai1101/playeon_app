@@ -13,14 +13,14 @@ class WalkThrough1 extends StatefulWidget {
 
 class _WalkThrough1State extends State<WalkThrough1> {
   @override
-  void initState() {
-    Future.delayed(Duration(seconds: 3)).then((value) =>
-        Navigator.pushReplacement(
-            context,
-            SwipeLeftAnimationRoute(
-                milliseconds: 300, widget: walkthrough2())));
-    super.initState();
-  }
+  // void initState() {
+  //   Future.delayed(Duration(seconds: 3)).then((value) =>
+  //       Navigator.pushReplacement(
+  //           context,
+  //           SwipeLeftAnimationRoute(
+  //               milliseconds: 300, widget: walkthrough2())));
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,15 @@ class _WalkThrough1State extends State<WalkThrough1> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("assets/icons/ic_w1next.png", scale: 2.7),
+                   ElevatedButton (
+                    child: Text('Next'),
+                     style: ElevatedButton.styleFrom(shape: StadiumBorder() , ),
+                    onPressed : (){
+                      Navigator.push(context , MaterialPageRoute(builder:(context) => const walkthrough2()));
+                    }
+
+                  )
+                  // Image.asset("assets/icons/ic_w1next.png", scale: 2.7),
                 ],
               ),
             ],
