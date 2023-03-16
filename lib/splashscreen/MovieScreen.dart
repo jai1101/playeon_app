@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 class MovieScreen extends StatefulWidget {
   const MovieScreen({super.key});

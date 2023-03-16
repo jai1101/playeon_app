@@ -1,19 +1,15 @@
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/walkthrough3.dart';
-import 'package:playeon/widgets/style.dart';
 
-import '../widgets/common.dart';
-import 'walkthrough2.dart';
-
-class walkthrough2 extends StatefulWidget {
-  const walkthrough2({super.key});
+class WalkThrough2 extends StatefulWidget {
+  const WalkThrough2({super.key});
 
   @override
-  State<walkthrough2> createState() => _walkthrough2State();
+  State<WalkThrough2> createState() => _WalkThrough2State();
 }
 
-class _walkthrough2State extends State<walkthrough2> {
-  
+
+class _WalkThrough2State extends State<WalkThrough2> {
   // @override
   // void initState() {
   //   Future.delayed(Duration(seconds: 3)).then((value) =>
@@ -70,17 +66,19 @@ class _walkthrough2State extends State<walkthrough2> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton (
-                    child: Text('Next'),
-                     style: ElevatedButton.styleFrom(shape: StadiumBorder() , ),
-                    onPressed : (){
-                      Navigator.push(context , MaterialPageRoute(builder:(context) => const walkthrough3()));
-                    }
+                  ElevatedButton(
+                      child: Text('Next'),
+                      style: ElevatedButton.styleFrom(
+                        shape: StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const WalkThrough2()));
+                      })
 
-                  )
-                  
                   // Image.asset("assets/icons/ic_w2next.png", scale: 2.7),
-
                 ],
               ),
             ],

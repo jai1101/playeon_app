@@ -1,7 +1,9 @@
-// ignore_for_file: unused_import
+// ignore: duplicate_ignore
+// ignore: file_names
 
-import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/LoginScreen.dart';
+// ignore_for_file: use_full_hex_values_for_flutter_colors, prefer_const_constructors, file_names
+
+import 'package:flutter/material.dart' ;
 import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
@@ -15,75 +17,119 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // void initState() {
-  //   Future.delayed(Duration(seconds: 3)).then((value) =>
-  //       Navigator.pushReplacement(
-  //           context,
-  //           SwipeLeftAnimationRoute(
-  //               milliseconds: 300, widget: SignupScreen())));
-  //   super.initState();
-  // }
-
-  @override
+  
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  
+  
+  Future<void> login(String email , password) async {
+    try{
+          
+            Response response = await post(
+             Uri,parse("url_api"),
+          //   body:{
+          //               "email" : email,
+          //               "pasword" : password
+          //   }
+           );
+           if(response.statusCode == 200){
+            print("account created Successfully");
+           }
+           else{
+            print("failed");
+           }
+    }
+    catch(e){
+      print(e.toString());
+    }
+  }
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_login_rect1.png"),
-          ),
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_login_rectg2.png"),
-          ),
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_login_rect2.png"),
-          ),
-          
-          Positioned.fill(
-            child: Image.asset("assets/images/img__login_bg.png"),
-          ),
-          // Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Row(
-          //       children: [
-          //         VariableText(
-          //           text: "Login",
-          //           fontcolor: primaryColorB,
-          //           fontsize: size.height * 0.015,
-          //         )
-          //       ],
-          //     ),
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         TextFormField(
-          //           decoration: InputDecoration(
-          //               hintText: "Email",
-          //               fillColor: Color(0xffF8F9FA),
-          //               filled: true,
-          //               prefixIcon: Icon(
-          //                 Icons.alternate_email,
-          //                 color: Color(0xff32F48),
-          //               ),
-          //               focusedBorder: OutlineInputBorder(
-          //                 borderSide: BorderSide(
-          //                   color: Color(0xffE4E7EB),
-          //                 ),
-          //               ),
-          //               enabledBorder: OutlineInputBorder(
-          //                 borderSide: BorderSide(
-          //                   color: Color(0xffE4E7EB),
-          //                 ),
-          //               )),
-          //         ),
-          //       ],
-          //     ),
-          //   ],
-          // ),
-        ],
-      ),
-    );
+     appBar: AppBar(
+      title: Text("Sign up page"),
+     ),
+     body: Padding(
+       padding: const EdgeInsets.all(20),
+       child: Container( 
+        width: 300.0,
+    height: 500.0,
+    decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/images/img_login_bg.png"),
+                    fit: BoxFit.cover
+        ),
+    ),
+      child: Column(
+         crossAxisAlignment: CrossAxisAlignment.center,
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: [
+          TextFormField(
+            controller: emailController,
+            decoration: InputDecoration(
+              hintText: 'email'
+             ),
+          )
+          ,
+          SizedBox(height: 20,),
+          TextFormField(
+            controller: passwordController,
+            decoration: InputDecoration(
+              hintText: 'Password'
+             ),
+          )
+          ,
+           SizedBox(height: 20,),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  " Don't have an accont? ",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Rubik',
+                      color: Colors.grey),
+                ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignupScreen()));
+                      },
+                      child: 
+                Text(
+                  "Create an Account",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Rubik',
+                      color: Colors.grey,),
+                ),),
+              ],
+            ),
+          GestureDetector (
+            onTap: () => {
+              login(emailController.text.toString(), passwordController.text.toString());
+            },
+             child: Container(
+              height: 50,
+             decoration: BoxDecoration(color: Colors.green ,
+                   ),
+             child: Center(child: Text("Login")),
+             ),
+           )
+         ],
+         ),
+       ),
+     ),
+                          );
   }
+  
+  
 }

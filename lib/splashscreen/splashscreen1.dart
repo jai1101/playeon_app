@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:playeon/splashscreen/LoginScreen.dart';
-import 'package:playeon/splashscreen/walkthrough.dart';
+
 import 'package:playeon/widgets/common.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,10 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3)).then((value) =>
-        Navigator.pushReplacement(
-            context,
-            SwipeLeftAnimationRoute(
-                milliseconds: 300, widget: LoginScreen())));
+        Navigator.pushReplacement(context,
+            SwipeLeftAnimationRoute(milliseconds: 300, widget: LoginScreen())));
     super.initState();
   }
 

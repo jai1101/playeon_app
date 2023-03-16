@@ -1,8 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:playeon/splashscreen/walkthrough2.dart';
 
-import '../widgets/common.dart';
-import 'walkthrough.dart';
+
 
 class WalkThrough1 extends StatefulWidget {
   const WalkThrough1({super.key});
@@ -71,14 +72,17 @@ class _WalkThrough1State extends State<WalkThrough1> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   ElevatedButton (
-                    child: Text('Next'),
-                     style: ElevatedButton.styleFrom(shape: StadiumBorder() , ),
-                    onPressed : (){
-                      Navigator.push(context , MaterialPageRoute(builder:(context) => const walkthrough2()));
-                    }
-
-                  )
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const WalkThrough2()));
+                      },
+                      child: Text('Next'))
                   // Image.asset("assets/icons/ic_w1next.png", scale: 2.7),
                 ],
               ),

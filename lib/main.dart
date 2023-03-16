@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'splashscreen/splashscreen1.dart';
@@ -19,5 +21,5 @@ class MyApp extends StatelessWidget {
       ),
       home: SplashScreen(),
     );
-  } 
+  }
 }

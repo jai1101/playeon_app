@@ -1,17 +1,20 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:playeon/splashscreen/walkthrough2.dart';
 
 import 'MovieScreen.dart';
 import 'walkthrough3.dart';
 
-class walkthrough3 extends StatefulWidget {
-  const walkthrough3({super.key});
+class WalkThrough3 extends StatefulWidget {
+  const WalkThrough3({super.key});
 
   @override
-  State<walkthrough3> createState() => _walkthrough3State();
+  State<WalkThrough3> createState() => _WalkThrough3State();
 }
 
-class _walkthrough3State extends State<walkthrough3> {
+// ignore: camel_case_types
+class _WalkThrough3State extends State<WalkThrough3> {
   @override
   void initState() {
     //  Future.delayed(Duration(seconds: 4)).then((value) =>
@@ -66,14 +69,17 @@ class _walkthrough3State extends State<walkthrough3> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   ElevatedButton (
-                    child: Text('Next'),
-                     style: ElevatedButton.styleFrom(shape: StadiumBorder() , ),
-                    onPressed : (){
-                      Navigator.push(context , MaterialPageRoute(builder:(context) => const MovieScreen()));
-                    }
-
-                  )
+                  ElevatedButton(
+                      child: Text('Next'),
+                      style: ElevatedButton.styleFrom(
+                        shape: StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MovieScreen()));
+                      })
                   // Image.asset("assets/icons/ic_w3next.png", scale: 2.7),
                 ],
               ),
