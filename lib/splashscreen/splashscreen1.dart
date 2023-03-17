@@ -24,26 +24,41 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset("assets/images/img_spbg.png"),
-          ),
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_spfilter.png"),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/icons/ic_splogo.png", scale: 2.7),
-                ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset("assets/images/img_spbg.png",fit: BoxFit.fill),
+            ),
+            
+            Positioned.fill(
+              child: Image.asset("assets/icons/ic_spfilter.png",fit: BoxFit.fill),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    
+                    Image.asset("assets/icons/ic_splogo.png", scale: 2.7),
+                  ],
+                ),
+                SizedBox(
+                  height: 70,
+                   child: Text("Copyright © 2017",
+                   style: TextStyle(
+                fontFamily: 'Arial',
+                fontSize: 18,
+                color: Colors.transparent,
+                
               ),
-            ],
-          ),
-        ],
+              textAlign: TextAlign.center,),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

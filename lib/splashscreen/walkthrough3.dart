@@ -1,10 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/walkthrough2.dart';
 
 import 'MovieScreen.dart';
-import 'walkthrough3.dart';
+
+
+
 
 class WalkThrough3 extends StatefulWidget {
   const WalkThrough3({super.key});
@@ -27,65 +28,69 @@ class _WalkThrough3State extends State<WalkThrough3> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          SizedBox(
-              width: size.width,
-              height: size.height * 0.5,
-              child: Image.asset(
-                "assets/images/img_w3bg.png",
-                fit: BoxFit.fill,
-              )),
-          Positioned.fill(
-            child: Image.asset("assets/images/img_w3bitmap.png"),
-          ),
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_w3rect.png"),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/icons/ic_w3txt.png", scale: 2.7),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/icons/ic_w3play.png", scale: 2.7),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      child: Text('Next'),
-                      style: ElevatedButton.styleFrom(
-                        shape: StadiumBorder(),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MovieScreen()));
-                      })
-                  // Image.asset("assets/icons/ic_w3next.png", scale: 2.7),
-                ],
-              ),
-            ],
-          ),
-        ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            SizedBox(
+                width: size.width,
+                height: size.height * 0.5,
+                child: Image.asset(
+                  "assets/images/img_w3bg.png",
+                  fit: BoxFit.fill,
+                )),
+            
+            Positioned.fill(
+              child: Image.asset("assets/images/img_w3bitmap.png",fit: BoxFit.fill),
+            ),
+            
+           
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("assets/icons/ic_w3txt.png", scale: 2.7),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("assets/icons/ic_w3play.png", scale: 2.7),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+      
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                        child: Text('Get Stared'),
+                        style: ElevatedButton.styleFrom(
+                          shape: StadiumBorder(),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MovieScreen()));
+                        })
+                   
+                  ],
+                ),
+              ],
+            ),
+          ],
+        
+        ),
       ),
     );
   }

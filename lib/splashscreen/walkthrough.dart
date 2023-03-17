@@ -27,68 +27,71 @@ class _WalkThrough1State extends State<WalkThrough1> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          SizedBox(
-              width: size.width,
-              height: size.height * 0.5,
-              child: Image.asset(
-                "assets/images/img_war.png",
-                fit: BoxFit.fill,
-              )),
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_filter.png"),
-          ),
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_rect2.png"),
-          ),
-          Positioned.fill(
-            child: Image.asset("assets/icons/ic_w1rect.png"),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/icons/ic_w1txt.png", scale: 2.7),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/icons/ic_w1playgon.png", scale: 2.7),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: StadiumBorder(),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const WalkThrough2()));
-                      },
-                      child: Text('Next'))
-                  // Image.asset("assets/icons/ic_w1next.png", scale: 2.7),
-                ],
-              ),
-            ],
-          ),
-        ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            SizedBox(
+                width: size.width,
+                height: size.height * 0.5,
+                child: Image.asset(
+                  "assets/images/img_war.png",
+                  fit: BoxFit.fill,
+                )),
+            Positioned.fill(
+              child: Image.asset("assets/icons/ic_w1rect2.png",fit: BoxFit.fill,),
+            ),
+            Positioned.fill(
+              child: Image.asset("assets/images/img_w1bg.png",fit: BoxFit.fill,),
+            ),
+            Positioned.fill(
+              child: Image.asset("assets/icons/ic_w1rect.png",fit: BoxFit.fill,),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("assets/icons/ic_w1txt.png", scale: 2.7),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("assets/icons/ic_w1playgon.png", scale: 2.7),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: StadiumBorder(),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const WalkThrough2()));
+                        },
+                        child: Text('Next')),
+                        
+                   
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
