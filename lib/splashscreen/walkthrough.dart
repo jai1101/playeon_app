@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:playeon/splashscreen/walkthrough2.dart';
 
+import '../widgets/common.dart';
+
 
 
 class WalkThrough1 extends StatefulWidget {
@@ -70,24 +72,52 @@ class _WalkThrough1State extends State<WalkThrough1> {
                 SizedBox(
                   height: 30,
                 ),
+
+            //      MyButton(
+            //         btnHeight: size.height*0.055,
+            //         btnWidth: 150,
+            //         btnTxt: "Next",
+                    
+            //         btnColor: Colors.transparent,
+            //         btnRadius: 50,
+            //        borderColor:Colors.white,
+            //        txtColor:Colors.white ,
+            //        fontFamily: "Arial",
+            //        fontSize: 20,
+
+            //        onTap: (){
+            //  Navigator.push(
+            //                   context,
+            //                  MaterialPageRoute(
+            //                      builder: (context) => const WalkThrough2()));
+            //        },
+            //       ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: StadiumBorder(),
-                        ),
+                          shape: RoundedRectangleBorder(
+                          side:const BorderSide(width: 2,
+                            color: Colors.white),
+                            borderRadius: BorderRadius.circular(16)  
+                            )
+                          ),
+                        
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const WalkThrough2()));
                         },
-                        child: Text('Next')),
+                        child: Text('Next' , style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'arial',
+                                color: Colors.white,), )),
                         
                    
                   ],
-                ),
+            ),
               ],
             ),
           ],

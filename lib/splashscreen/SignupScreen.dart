@@ -7,6 +7,7 @@ import 'package:playeon/splashscreen/WalkThrough2.dart';
 import 'package:playeon/splashscreen/walkthrough.dart';
 
 import '../widgets/common.dart';
+import 'package:city_pickers/city_pickers.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -84,74 +85,92 @@ class _SignupScreenState extends State<SignupScreen> {
                Positioned.fill(child: Image.asset("assets/icons/ic_signrect12.png",fit: BoxFit.fill,)),
                  Positioned.fill(child: Image.asset("assets/icons/ic_signrect22.png",fit: BoxFit.fill,)),
            Padding(
-              padding: EdgeInsets.symmetric(vertical:size.height*0.016,horizontal:size.width*0.054),      
+              padding: EdgeInsets.symmetric(vertical:size.height*0.01,horizontal:size.width*0.05),      
        child: Column(
        crossAxisAlignment: CrossAxisAlignment.center,
        mainAxisAlignment: MainAxisAlignment.center,
        children: [
+           Text("Wellcome!" ,
+                   style: TextStyle(
+                fontFamily: 'Arial',
+                fontSize: 36,
+                color: Colors.white,
+                 ),
+                
+              textAlign: TextAlign.left, ),
+               SizedBox(height: 3,),
+              Text("It only takes a minute" ,
+                   style: TextStyle(
+                fontFamily: 'Arial',
+                fontSize: 14,
+                color: Colors.white,
+                 ),
+              textAlign: TextAlign.left, ),
+              SizedBox(height: 40,),
         TextFormField(
           controller: nameController,
           decoration: InputDecoration(
             hintText: 'Name',
-             hintStyle: TextStyle(color: Colors.white)
+             hintStyle: TextStyle(color: Colors.grey)
            ),
         )
         ,
-         SizedBox(height: 20,),
+         SizedBox(height: 10,),
          TextFormField(
                   controller: usernameController,
                  
                   decoration: InputDecoration(
                     hintText: 'Username',
-                    hintStyle: TextStyle(color: Colors.white)
+                    hintStyle: TextStyle(color: Colors.grey)
                    ),
                 )
                 ,
                
-         SizedBox(height: 20,),
+        
    
-         SizedBox(height: 20,),
+         SizedBox(height: 10,),
         TextFormField(
           controller: emailController,
           decoration: InputDecoration(
             hintText: 'Email',
-             hintStyle: TextStyle(color: Colors.white)
+             hintStyle: TextStyle(color: Colors.grey)
            ),
         )
         ,
-        SizedBox(height: 20,),
+        SizedBox(height: 10,),
         TextFormField(
           controller: passwordController,
           decoration: InputDecoration(
             hintText: 'Password',
-             hintStyle: TextStyle(color: Colors.white)
+             hintStyle: TextStyle(color: Colors.grey)
            ),
         )
         ,
-        SizedBox(height: 20,),
+        SizedBox(height: 10,),
         TextFormField(
           controller: numberController,
           decoration: InputDecoration(
             hintText: 'Number',
-             hintStyle: TextStyle(color: Colors.white)
+             hintStyle: TextStyle(color: Colors.grey)
            ),
         )
         ,
-         SizedBox(height: 20,),
+         SizedBox(height: 10,),
         TextFormField(
           controller: cityController,
           decoration: InputDecoration(
             hintText: 'Choose your City',
-             hintStyle: TextStyle(color: Colors.white)
+             hintStyle: TextStyle(color: Colors.grey)
            ),
         )
         ,
-        SizedBox(height: 20,),
+        SizedBox(height: 10,),
         TextFormField(
           controller: codeController,
           decoration: InputDecoration(
             hintText: 'Enter Your Referal Code ',
-             hintStyle: TextStyle(color: Colors.white)
+            
+             hintStyle: TextStyle(color: Colors.grey)
            ),
         )
         ,
@@ -165,7 +184,11 @@ class _SignupScreenState extends State<SignupScreen> {
             height: 50,
            decoration: BoxDecoration(color: Colors.green ,
                  ),
-           child: Center(child: Text("Sign Up")),
+           child: Center(child: Text("Sign Up", style: TextStyle(
+                fontFamily: 'Arial',
+                fontSize: 20,
+                color: Colors.white,
+                 ),)),
            ),
          )
        ],

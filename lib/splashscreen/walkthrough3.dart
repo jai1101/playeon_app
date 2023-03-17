@@ -72,17 +72,25 @@ class _WalkThrough3State extends State<WalkThrough3> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                        child: Text('Get Stared'),
+                   ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: StadiumBorder(),
-                        ),
+                          shape: RoundedRectangleBorder(
+                          side:const BorderSide(width: 2,
+                            color: Colors.white),
+                            borderRadius: BorderRadius.circular(16)  
+                            )
+                          ),
+                        
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const MovieScreen()));
-                        })
+                        },
+                        child: Text('Get Stared' , style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'arial',
+                                color: Colors.white,), )),
                    
                   ],
                 ),

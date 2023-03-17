@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
      appBar: AppBar(
-      title: Text("log in"),
+      title: Text("Log in"),
      ),
      body: SafeArea(
        child: Container( 
@@ -70,13 +70,20 @@ class _LoginScreenState extends State<LoginScreen> {
                crossAxisAlignment: CrossAxisAlignment.center,
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
-                Text("Login" , ),
+                Text("Login" ,
+                   style: TextStyle(
+                fontFamily: 'Arial',
+                fontSize: 18,
+                color: Colors.white,
+                
+              ),
+              textAlign: TextAlign.left, ),
                 TextFormField(
                   controller: usernameController,
                  
                   decoration: InputDecoration(
                     hintText: 'Username',
-                    hintStyle: TextStyle(color: Colors.white)
+                    hintStyle: TextStyle(color: Colors.grey)
                    ),
                 )
                 ,
@@ -87,24 +94,28 @@ class _LoginScreenState extends State<LoginScreen> {
                  
                   decoration: InputDecoration(
                     hintText: 'Password',
-                    hintStyle: TextStyle(color: Colors.white)
+                    hintStyle: TextStyle(color: Colors.grey)
                    ),
                 ),
-                 SizedBox(height: 20,),
+                 SizedBox(height: 80,),
                   
                   MyButton(
                     btnHeight: size.height*0.055,
                     btnWidth: size.width,
                     btnTxt: "Login",
+                    
                     btnColor: Colors.green,
                     btnRadius: 2,
                    borderColor:Colors.green,
-                   txtColor:primaryColorB ,
+                   txtColor:Colors.white ,
+                   fontFamily: "Arial",
+                   fontSize: 20,
+
                    onTap: (){
             
                    },
                   ),
-                  SizedBox(height: size.height*0.01,),
+                  SizedBox(height: 100,),
                  
                 // GestureDetector (
                 //   // onTap: () => {
@@ -126,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 16,
-                            fontFamily: 'Rubik',
+                            fontFamily: 'arial',
                             color: Colors.grey),
                       ),
                         GestureDetector(
@@ -139,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 16,
-                                fontFamily: 'Rubik',
+                                fontFamily: 'arial',
                                 color: Colors.grey,),
                           ),
                         ),

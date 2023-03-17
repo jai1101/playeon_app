@@ -68,17 +68,25 @@ class _WalkThrough2State extends State<WalkThrough2> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                        child: Text('Next'),
+                  ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: StadiumBorder(),
-                        ),
+                          shape: RoundedRectangleBorder(
+                          side:const BorderSide(width: 2,
+                            color: Colors.white),
+                            borderRadius: BorderRadius.circular(16)  
+                            )
+                          ),
+                        
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const WalkThrough3()));
-                        }),
+                        },
+                        child: Text('Next' , style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'arial',
+                                color: Colors.white,), )),
                         
       
                     

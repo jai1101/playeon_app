@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  city_pickers:
+    dependency: "direct main"
+    description:
+      name: city_pickers
+      sha256: "797b6d36c200f8d6e36c2cfbe5d1496448709961a387ecaff2da1572efa911d5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
   clock:
     dependency: transitive
     description:
@@ -107,6 +115,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  lpinyin:
+    dependency: transitive
+    description:
+      name: lpinyin
+      sha256: "0bb843363f1f65170efd09fbdfc760c7ec34fc6354f9fcb2f89e74866a0d814a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   matcher:
     dependency: transitive
     description:
@@ -139,6 +155,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
+  scrollable_positioned_list:
+    dependency: transitive
+    description:
+      name: scrollable_positioned_list
+      sha256: ca7fcaa743db712d4f7b1580526f494d0093c77a721a65705ee51fbeac7a2bd3
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.5"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -210,3 +234,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.0-146.2.beta <3.0.0"
+  flutter: ">=2.12.0"
