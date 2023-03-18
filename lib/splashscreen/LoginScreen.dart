@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                crossAxisAlignment: CrossAxisAlignment.center,
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
-                Text("Login" ,
+                Text("Log In" ,
                    style: TextStyle(
                 fontFamily: 'Arial',
                 fontSize: 18,
@@ -78,25 +78,41 @@ class _LoginScreenState extends State<LoginScreen> {
                 
               ),
               textAlign: TextAlign.left, ),
+                SizedBox(height: 30,),
                 TextFormField(
                   controller: usernameController,
-                 
+                  
                   decoration: InputDecoration(
                     hintText: 'Username',
-                    hintStyle: TextStyle(color: Colors.grey)
+                    hintStyle: TextStyle(color: Colors.grey),
+                    enabled: true,
+                    filled: true,
+                    fillColor: primaryColorB,
+                    // enabledBorder: OutlineInputBorder(
+                    //   borderSide: BorderSide(color: Colors.green),
+                    // ),
                    ),
                 )
                 ,
-                SizedBox(height: 20,),
-               
+                Divider(color: Colors.green,),
+               SizedBox(height: 30,),
+             
                  TextFormField(
                   controller: passwordController,
                  
                   decoration: InputDecoration(
                     hintText: 'Password',
-                    hintStyle: TextStyle(color: Colors.grey)
+                    hintStyle: TextStyle(color: Colors.grey),
+                      enabled: true,
+                    filled: true,
+                    fillColor: primaryColorB,
+                    // enabledBorder: OutlineInputBorder(
+                    //     borderSide: BorderSide(color: Colors.green),
+                    // ),
                    ),
                 ),
+                 Divider(color: Colors.green,),
+                 
                  SizedBox(height: 80,),
                   
                   MyButton(
@@ -115,7 +131,10 @@ class _LoginScreenState extends State<LoginScreen> {
             
                    },
                   ),
-                  SizedBox(height: 100,),
+                //        SizedBox(height: 40,),
+                //     Divider(color: Colors.green,),
+                //  SizedBox(height: 40,),
+             
                  
                 // GestureDetector (
                 //   // onTap: () => {

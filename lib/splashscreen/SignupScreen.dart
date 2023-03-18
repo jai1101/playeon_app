@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:playeon/splashscreen/WalkThrough2.dart';
 
 import 'package:playeon/splashscreen/walkthrough.dart';
+import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
 import 'package:city_pickers/city_pickers.dart';
@@ -106,72 +107,117 @@ class _SignupScreenState extends State<SignupScreen> {
                 color: Colors.white,
                  ),
               textAlign: TextAlign.left, ),
-              SizedBox(height: 40,),
-        TextFormField(
-          controller: nameController,
-          decoration: InputDecoration(
-            hintText: 'Name',
-             hintStyle: TextStyle(color: Colors.grey)
-           ),
+             
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: TextFormField(
+            controller: nameController,
+            decoration: InputDecoration(
+              hintText: 'Name',
+               hintStyle: TextStyle(color: Colors.grey),
+                 enabled: true,
+                      filled: true,
+                      fillColor: primaryColorB,
+             ),
+          ),
         )
         ,
-         SizedBox(height: 10,),
-         TextFormField(
-                  controller: usernameController,
-                 
-                  decoration: InputDecoration(
-                    hintText: 'Username',
-                    hintStyle: TextStyle(color: Colors.grey)
-                   ),
-                )
+        
+         Padding(
+           padding: const EdgeInsets.all(12.0),
+           child: TextFormField(
+                    controller: usernameController,
+                   
+                    decoration: InputDecoration(
+                      hintText: 'Username',
+                      hintStyle: TextStyle(color: Colors.grey),
+                      enabled: true,
+                      filled: true,
+                      fillColor: primaryColorB,
+                     ),
+                  ),
+         )
                 ,
                
         
    
-         SizedBox(height: 10,),
-        TextFormField(
-          controller: emailController,
-          decoration: InputDecoration(
-            hintText: 'Email',
-             hintStyle: TextStyle(color: Colors.grey)
-           ),
+         
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            controller: emailController,
+            decoration: InputDecoration(
+              hintText: 'Email',
+               hintStyle: TextStyle(color: Colors.grey),
+               enabled: true,
+                      filled: true,
+                      fillColor: primaryColorB,
+             ),
+          ),
         )
         ,
-        SizedBox(height: 10,),
-        TextFormField(
-          controller: passwordController,
-          decoration: InputDecoration(
-            hintText: 'Password',
-             hintStyle: TextStyle(color: Colors.grey)
-           ),
+       
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: TextFormField(
+            controller: passwordController,
+            decoration: InputDecoration(
+              hintText: 'Password',
+               hintStyle: TextStyle(color: Colors.grey),
+               enabled: true,
+                      filled: true,
+                      fillColor: primaryColorB,
+             ),
+          ),
         )
         ,
-        SizedBox(height: 10,),
-        TextFormField(
-          controller: numberController,
-          decoration: InputDecoration(
-            hintText: 'Number',
-             hintStyle: TextStyle(color: Colors.grey)
-           ),
+        
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: TextFormField(
+            keyboardType: TextInputType.number,
+            controller: numberController,
+            decoration: InputDecoration(
+              hintText: 'Number',
+               hintStyle: TextStyle(color: Colors.grey),
+               enabled: true,
+                      filled: true,
+                      fillColor: primaryColorB,
+             ),
+          ),
         )
         ,
-         SizedBox(height: 10,),
-        TextFormField(
-          controller: cityController,
-          decoration: InputDecoration(
-            hintText: 'Choose your City',
-             hintStyle: TextStyle(color: Colors.grey)
-           ),
+        
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: TextFormField(
+            controller: cityController,
+            decoration: InputDecoration(
+              hintText: 'Choose your City',
+               hintStyle: TextStyle(color: Colors.grey),
+               enabled: true,
+                      filled: true,
+                      fillColor: primaryColorB,
+             ),
+          ),
         )
         ,
-        SizedBox(height: 10,),
-        TextFormField(
-          controller: codeController,
-          decoration: InputDecoration(
-            hintText: 'Enter Your Referal Code ',
-            
-             hintStyle: TextStyle(color: Colors.grey)
-           ),
+        
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: TextFormField(
+            controller: codeController,
+            decoration: InputDecoration(
+              hintText: 'Enter Your Referal Code ',
+              
+               hintStyle: TextStyle(color: Colors.grey),
+               enabled: true,
+                      filled: true,
+                      fillColor: primaryColorB,
+             ),
+          ),
+          
         )
         ,
          
