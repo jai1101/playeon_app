@@ -19,15 +19,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
    @override
-    //  void initState() {
-    // Future.delayed(Duration(seconds: 3)).then((value) =>
-    //     Navigator.pushReplacement(
-    //         context,
-    //         SwipeLeftAnimationRoute(
-    //             milliseconds: 300, widget: WalkThrough1())));
-    // super.initState();
-  // }
-  TextEditingController nameController = TextEditingController();
+   TextEditingController nameController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
    TextEditingController emailController = TextEditingController();
    TextEditingController passwordController = TextEditingController();
@@ -118,10 +110,13 @@ class _SignupScreenState extends State<SignupScreen> {
                  enabled: true,
                       filled: true,
                       fillColor: primaryColorB,
+                     enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green), 
              ),
+            ),
+
           ),
-        )
-        ,
+        ) ,
         
          Padding(
            padding: const EdgeInsets.all(12.0),
@@ -134,15 +129,12 @@ class _SignupScreenState extends State<SignupScreen> {
                       enabled: true,
                       filled: true,
                       fillColor: primaryColorB,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),),
                      ),
                   ),
-         )
-                ,
-               
-        
-   
-         
-        Padding(
+         )  ,
+                Padding(
           padding: const EdgeInsets.all(12.0),
           child: TextFormField(
             keyboardType: TextInputType.emailAddress,
@@ -153,10 +145,11 @@ class _SignupScreenState extends State<SignupScreen> {
                enabled: true,
                       filled: true,
                       fillColor: primaryColorB,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),),
              ),
           ),
-        )
-        ,
+        ) ,
        
         Padding(
           padding: const EdgeInsets.all(12.0),
@@ -168,10 +161,11 @@ class _SignupScreenState extends State<SignupScreen> {
                enabled: true,
                       filled: true,
                       fillColor: primaryColorB,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),),
              ),
           ),
-        )
-        ,
+        ) ,
         
         Padding(
           padding: const EdgeInsets.all(12.0),
@@ -184,6 +178,8 @@ class _SignupScreenState extends State<SignupScreen> {
                enabled: true,
                       filled: true,
                       fillColor: primaryColorB,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),),
              ),
           ),
         )
@@ -199,10 +195,11 @@ class _SignupScreenState extends State<SignupScreen> {
                enabled: true,
                       filled: true,
                       fillColor: primaryColorB,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),),
              ),
           ),
-        )
-        ,
+        ) ,
         
         Padding(
           padding: const EdgeInsets.all(12.0),
@@ -215,11 +212,12 @@ class _SignupScreenState extends State<SignupScreen> {
                enabled: true,
                       filled: true,
                       fillColor: primaryColorB,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),),
              ),
           ),
           
-        )
-        ,
+        )  ,
          
          SizedBox(height: 20,),
         GestureDetector (

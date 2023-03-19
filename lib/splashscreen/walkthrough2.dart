@@ -9,18 +9,7 @@ class WalkThrough2 extends StatefulWidget {
   State<WalkThrough2> createState() => _WalkThrough2State();
 }
 
-
 class _WalkThrough2State extends State<WalkThrough2> {
-  // @override
-  // void initState() {
-  //   Future.delayed(Duration(seconds: 3)).then((value) =>
-  //       Navigator.pushReplacement(
-  //           context,
-  //           SwipeLeftAnimationRoute(
-  //               milliseconds: 300, widget: walkthrough3())));
-  //   super.initState();
-  //  }
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -36,10 +25,16 @@ class _WalkThrough2State extends State<WalkThrough2> {
                   fit: BoxFit.fill,
                 )),
             Positioned.fill(
-              child: Image.asset("assets/images/img_w2bitmap.png",fit: BoxFit.fill,),
+              child: Image.asset(
+                "assets/images/img_w2bitmap.png",
+                fit: BoxFit.fill,
+              ),
             ),
             Positioned.fill(
-              child: Image.asset("assets/icons/ic_w2rect.png",fit: BoxFit.fill,),
+              child: Image.asset(
+                "assets/icons/ic_w2rect.png",
+                fit: BoxFit.fill,
+              ),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -68,28 +63,26 @@ class _WalkThrough2State extends State<WalkThrough2> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  ElevatedButton(
+                    ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                          side:const BorderSide(width: 2,
-                            color: Colors.white),
-                            borderRadius: BorderRadius.circular(16)  
-                            )
-                          ),
-                        
+                            shape: RoundedRectangleBorder(
+                                side: const BorderSide(
+                                    width: 2, color: Colors.white),
+                                borderRadius: BorderRadius.circular(16))),
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const WalkThrough3()));
                         },
-                        child: Text('Next' , style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'arial',
-                                color: Colors.white,), )),
-                        
-      
-                    
+                        child: Text(
+                          'Next',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'arial',
+                            color: Colors.white,
+                          ),
+                        )),
                   ],
                 ),
               ],

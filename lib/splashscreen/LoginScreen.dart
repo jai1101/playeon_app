@@ -4,6 +4,7 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors, prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart' ;
+import 'package:playeon/splashscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
@@ -75,9 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontFamily: 'Arial',
                 fontSize: 18,
                 color: Colors.white,
-                
-              ),
-              textAlign: TextAlign.left, ),
+                 ),
+              textAlign: TextAlign.left,
+               ),
                 SizedBox(height: 30,),
                 TextFormField(
                   controller: usernameController,
@@ -88,30 +89,29 @@ class _LoginScreenState extends State<LoginScreen> {
                     enabled: true,
                     filled: true,
                     fillColor: primaryColorB,
-                    // enabledBorder: OutlineInputBorder(
-                    //   borderSide: BorderSide(color: Colors.green),
-                    // ),
+                   enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                  ),
                    ),
                 )
                 ,
-                Divider(color: Colors.green,),
+              
                SizedBox(height: 30,),
              
                  TextFormField(
                   controller: passwordController,
-                 
-                  decoration: InputDecoration(
+                   decoration: InputDecoration(
                     hintText: 'Password',
                     hintStyle: TextStyle(color: Colors.grey),
                       enabled: true,
                     filled: true,
                     fillColor: primaryColorB,
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.green),
-                    // ),
+                     enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                  ),
                    ),
                 ),
-                 Divider(color: Colors.green,),
+               
                  
                  SizedBox(height: 80,),
                   
@@ -126,9 +126,8 @@ class _LoginScreenState extends State<LoginScreen> {
                    txtColor:Colors.white ,
                    fontFamily: "Arial",
                    fontSize: 20,
-
                    onTap: (){
-            
+                      Navigator.push(context, SwipeLeftAnimationRoute(milliseconds: 200,widget: WalkThrough1()));
                    },
                   ),
                 //        SizedBox(height: 40,),

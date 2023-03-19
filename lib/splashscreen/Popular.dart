@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PopularScreen extends StatefulWidget {
-  const PopularScreen({super.key});
+class PopularMovies extends StatefulWidget {
+  const PopularMovies({super.key});
 
   @override
-  State<PopularScreen> createState() => _PopularScreenState();
+  State<PopularMovies> createState() => _PopularMoviesState();
 }
 
-class _PopularScreenState extends State<PopularScreen> {
+class _PopularMoviesState extends State<PopularMovies> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
