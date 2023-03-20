@@ -11,29 +11,7 @@ class AllMovies extends StatelessWidget {
       children: [
         Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  " Moveies",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Text(
-                  "See All",
-                  style: TextStyle(
-                    color: Colors.white54,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            )),
-        SizedBox(height: 15),
-        SingleChildScrollView(
+            child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
             for (int i = 1; i < 4; i++)
@@ -51,6 +29,9 @@ class AllMovies extends StatelessWidget {
               )
           ]),
         )
+           ),
+       
+       
       ],
     );
   }

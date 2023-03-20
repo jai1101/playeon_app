@@ -51,6 +51,8 @@ class _MovieScreenState extends State<MovieScreen> {
               PopularMovies(),
             ],
           ),
+
+          
         ),
       ),
       bottomNavigationBar: CustomNavBar(),
