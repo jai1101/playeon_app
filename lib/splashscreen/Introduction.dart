@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'CustomNavBar.dart';
+import 'customnavbar.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key});

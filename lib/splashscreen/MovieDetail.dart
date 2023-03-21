@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'CustomNavBar.dart';
+import 'customnavbar.dart';
 
 class MovieDetail extends StatelessWidget {
   const MovieDetail({super.key});

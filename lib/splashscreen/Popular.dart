@@ -1,18 +1,13 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unused_label, dead_code
-
 import 'package:flutter/material.dart';
 
-class PopularMovies extends StatefulWidget {
+class PopularMovies extends StatelessWidget {
   const PopularMovies({super.key});
 
   @override
-  State<PopularMovies> createState() => _PopularMoviesState();
-}
-
-class _PopularMoviesState extends State<PopularMovies> {
-  @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Column(
+      children: [
+        Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,23 +30,9 @@ class _PopularMoviesState extends State<PopularMovies> {
               )
             ],
           ),
-        );
-        SizedBox(
-          height: 15,
-        );
-          body: Container(  
-            padding: EdgeInsets.all(12.0),  
-            child: GridView.builder(  
-              itemCount: images.length,  
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
-                  crossAxisCount: 2,  
-                  crossAxisSpacing: 4.0,  
-                  mainAxisSpacing: 4.0  
-              ),  
-              itemBuilder: (BuildContext context, int index){  
-                return Image.network(images[index]);  
-              },  
-            ),);
-      
+        ),
+      ]
+    );
+    
   }
 }
