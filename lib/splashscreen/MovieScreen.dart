@@ -50,7 +50,7 @@ class _MovieScreenState extends State<MovieScreen> {
               // PopularMovies(),
             ],
           ),
-        );
+        ),
       
          body :  Container(
                  margin: EdgeInsets.symmetric(vertical: 20),
