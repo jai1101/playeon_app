@@ -1,116 +1,129 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:playeon/widgets/style.dart';
 
 
-// class Profile extends StatefulWidget {
-//   const Profile({super.key});
+class Profile extends StatefulWidget {
+  const Profile({super.key});
 
-//   @override
-//   State<Profile> createState() => _ProfileState();
-// }
+  @override
+  State<Profile> createState() => _ProfileState();
+}
 
-// class _ProfileState extends State<Profile> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         leading: Icon(Icons.arrow_back_ios, color: Colors.white,),
-//         title: Text("Profile"),
-//         elevation: 0,
-//         backgroundColor: Color(0xff0932f),
-//         actions: [
-//           Padding(padding: EdgeInsets.all(8.0) , child: Icon(Icons.more_vert_outlined : color.whte))
-//         ],
+class _ProfileState extends State<Profile> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+   appBar: AppBar(
+    backgroundColor: Colors.black ,
+   elevation: 0,
+   actions: [
+Padding(
+      padding: const EdgeInsets.only(right :20.0),
+      child: IconButton(
+        onPressed: () {},                        
+      icon: Icon(
+        Icons.settings , 
+        color: Colors.white,),
+        ),
+    ),
+      ],
+     leading: Padding(
+      padding: EdgeInsets.only(left: 20),
+     child: IconButton(
+      onPressed: () {},
+      icon: Icon(
+       Icons.arrow_back_ios , color: Colors.white,
+      ),
+     ),
+     )
+      ,),
+   body: Column(
+    children: [
+    Container(color: Colors.black,
+    child: Column(
+       children: [
+      Container(
+        color: Colors.black,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+       
 
-//       ),
-//       body: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [Row(
-//           mainAxisAlignment: MainAxisAlignment.start,
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Padding(
-//               padding: const EdgeInsets.only(left: 25.0, top: 8),
-//               child: CircleAvatar(
-//                 radius: 40,
-//                 backgroundImage: AssetImage(''),
-//               ),
-//             ),
-//             Padding(
-//               padding:EdgeInsets.only(left: 35),
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   Text("Avanya" , style : TextStyle(fontWeight: FontWeight.bold , fontSize: 24 , color: Colors.white ,)),
-//                   Padding(padding: const EdgeInsets.only(top: 8),
-//                   child: Row(crossAxisAlignment: CrossAxisAlignment.center,
-//                   children: [
-//                     Icon(Icons.location_on , color: Colors.white, size: 18,),
-//                     Padding(
-//                       padding:  EdgeInsets.only(left: 8),
-//                  child:Text("Indore-IN" , style : TextStyle (color: Colors.white , wordSpacing: 2 ,letterSpacing: 4 , ),),)
-                    
-                    
-//                   ],),
-                  
-//                   )
+          children: [
+            Stack(
+            alignment: Alignment.bottomRight,
+              children:[ CircleAvatar(
+                radius: 50,
+                // backgroundColor: AssetImage("assets/images/Avatar3.png"),
+              ),
+            InkWell(
+              onTap: () {},
+              
+            ),
+              
+              CircleAvatar(backgroundColor: primaryColor1 ,)
+              ]
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                "muhammad Bilal",
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 
-//                 ],
-//               ),
-              
-//                )
-//           ],
-
-//         ),
-//         Padding(
-//           padding: const EdgeInsets.only(left: 24 , top: 24),
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children:[
-//               Column (
-//               mainAxisAlignment : MainAxisAlignment.spaceBetween,
-//               children:[
-              
-
-//                 Text("18k" , style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold , fontSize: 22),),
-//                             Text("Followers" , style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold , fontSize: 22),),
-//               ]
-//               ),
-//   Container(
-//     color: Colors.white,
-//     width: 0.2,
-//     height: 22,
-//   ),
-//   Column(
-//     mainAxisAlignment: MainAxisAlignment.center ,
-//     children: [
-//       Text("400" , style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold , fontSize: 22),),
-//                             Text("Following" , style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold , fontSize: 22),),
-      
-//     ],
-//   ),
-//    Container(
-//     color: Colors.white,
-//     width: 0.2,
-//     height: 22,
-//   ),
-//   Container(decoration: BoxDecoration(
-//    borderRadius: BorderRadius.all(Radius.circular(33)),
-//    gradient: LinearGradient(
-//     colors: Colors.accents
-//    ) 
-//   ),)
-            
-//             ],
-//           ),
+                children: [
+                Column(
+                  children: [Text(
+                    "3210" , 
+                    style: Theme.of(context).textTheme.headline2 ,),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                    "Likes" , 
+                    style: Theme.of(context).textTheme.headline2 ,),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "1232" ,
+                      style: Theme.of(context)
+                      .textTheme
+                      .subtitle1!
+                      .copyWith(color : Colors.white)
+                    ),
+                     Text(
+                      "44" ,
+                      style: Theme.of(context)
+                      .textTheme
+                      .subtitle1!
+                      .copyWith(color : Colors.white)
+                    ),
+                    SizedBox(
+                      height: 15,
+                      ),
+                       Text(
+                      "Subscribtion" ,
+                      style: Theme.of(context)
+                      .textTheme
+                      .subtitle1!
+                      .copyWith(color : Colors.white)
+                    ),
+                  ]
+                  ,
+                )
+              ],
+              ),
+            //griddle
+          ],
+        ),
+      )
+    ]) ,)],
+   ),
+    );
         
-          
-          
-//           )
-        
-        
-//         ],
-//       ),
-//     );
-//   }
-// }
+       
+  }
+}

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'customnavbar.dart';
-
 import 'now.dart';
 import 'popular.dart';
 
@@ -20,32 +17,7 @@ class MovieScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "MOVIES",
-                    style: TextStyle(
-                      fontFamily: 'SFProDisplay-Bold',
-                      fontSize: 24,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
-
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    ),
-                  ),
-
-                  //  SizedBox(height: 40),
-                  //  NowMovies(),
-                  //  SizedBox(height: 40),
-                  // PopularMovies(),
-                ],
-              ),
-            ),
-            Container(
+                  Container(
               margin: EdgeInsets.symmetric(vertical: 20),
               height: 300,
               child: ListView(
@@ -56,10 +28,21 @@ class MovieScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+                  
+
+                  //  SizedBox(height: 40),
+                  //  NowMovies(),
+                  //  SizedBox(height: 40),
+                  // PopularMovies(),
+                ],
+              ),
+            ),
+           
           ],
         ),
       ),
-      bottomNavigationBar: CustomNavBar(),
+      // bottomNavigationBar: CustomNavBar(),
     );
   }
 }

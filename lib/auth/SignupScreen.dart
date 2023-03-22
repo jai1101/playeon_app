@@ -123,7 +123,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           filled: true,
                           fillColor: primaryColorB,
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green),
+                            borderSide: BorderSide(color: primaryColor1),
                           ),
                         ),
                       ),
@@ -139,7 +139,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           filled: true,
                           fillColor: primaryColorB,
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green),
+                            borderSide: BorderSide(color: primaryColor1),
                           ),
                         ),
                       ),
@@ -156,7 +156,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           filled: true,
                           fillColor: primaryColorB,
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green),
+                            borderSide: BorderSide(color: primaryColor1),
                           ),
                         ),
                       ),
@@ -172,7 +172,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           filled: true,
                           fillColor: primaryColorB,
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green),
+                            borderSide: BorderSide(color: primaryColor1),
                           ),
                         ),
                       ),
@@ -189,7 +189,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           filled: true,
                           fillColor: primaryColorB,
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green),
+                            borderSide: BorderSide(color: primaryColor1),
                           ),
                         ),
                       ),
@@ -205,7 +205,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           filled: true,
                           fillColor: primaryColorB,
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green),
+                            borderSide: BorderSide(color: primaryColor1),
                           ),
                         ),
                       ),
@@ -221,7 +221,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           filled: true,
                           fillColor: primaryColorB,
                           enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.green),
+                            borderSide: BorderSide(color: primaryColor1),
                           ),
                         ),
                       ),
@@ -239,7 +239,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: Container(
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: primaryColor1,
                         ),
                         child: Center(
                             child: Text(

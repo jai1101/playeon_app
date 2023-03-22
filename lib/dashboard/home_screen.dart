@@ -15,22 +15,36 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black,
         body: SingleChildScrollView(
-          child: Container(
-            child: Column(children: [
-              Row(
-                children: [
-                  Expanded(
-                      child: VariableText(
-                    text: "MOVIES",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.08,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ))
-                ],
-              )
-            ]),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20.0 , left: 15),       
+            child: Container(
+              child: Column(children: [
+                Row(
+                  children: [
+                    Expanded(                                         
+                        child: VariableText(
+                      text: "MOVIES",
+                      fontcolor: primaryColorW,
+                      fontsize: size.height * 0.04,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    )),
+
+                     Expanded(
+                        child : IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                  ),)
+                  ],
+                ),
+                
+              ]),
+            ),
           ),
         ),
       ),

@@ -93,10 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintText: 'Username',
                         hintStyle: TextStyle(color: Colors.grey),
                         enabled: true,
-                        // filled: true,
+                       
                         fillColor: primaryColorB,
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.green),
+                          borderSide: BorderSide(color: primaryColor1),
                         ),
                       ),
                     ),
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         filled: true,
                         fillColor: primaryColorB,
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.green),
+                          borderSide: BorderSide(color: primaryColor1),
                         ),
                       ),
                     ),
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       btnHeight: size.height * 0.055,
                       btnWidth: size.width,
                       btnTxt: "Login",
-                      btnColor: Colors.green,
+                      btnColor: primaryColor1,
                       btnRadius: 2,
                       borderColor: Colors.green,
                       txtColor: Colors.white,

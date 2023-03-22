@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 import 'package:flutter/material.dart';
 
+import '../walkscreen/walkthrough3.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
-import '../splashscreen/WalkThrough3.dart';
+
 
 class WalkThrough2 extends StatefulWidget {
   const WalkThrough2({super.key});
