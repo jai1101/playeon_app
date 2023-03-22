@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const AppName = "Playeon";
 
-const primaryColor1 = Color(0xFFDAB898);
+const primaryColor1 = Color.fromARGB(255, 0, 160, 67);
 const primaryColor2 = Color(0xFF1D1D3D);
 const primaryColorB = Colors.black;
 const primaryColorW = Colors.white;
@@ -35,7 +35,6 @@ const textColorP = Color(0xFFDAB898);
 
 const verticalPadding = 0.025;
 const horizontalPadding = 0.035;
-
 
 const fontLight = "Inter-Light";
 const fontRegular = "Inter-Regular";

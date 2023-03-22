@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/loginscreen.dart';
+import 'package:playeon/splashscreen/login_screen.dart';
 
 import 'package:playeon/widgets/common.dart';
 
@@ -28,11 +28,12 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Stack(
           children: [
             Positioned.fill(
-              child: Image.asset("assets/images/img_spbg.png",fit: BoxFit.fill),
+              child:
+                  Image.asset("assets/images/img_spbg.png", fit: BoxFit.fill),
             ),
-            
             Positioned.fill(
-              child: Image.asset("assets/icons/ic_spfilter.png",fit: BoxFit.fill),
+              child:
+                  Image.asset("assets/icons/ic_spfilter.png", fit: BoxFit.fill),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -40,20 +41,20 @@ class _SplashScreenState extends State<SplashScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    
                     Image.asset("assets/icons/ic_splogo.png", scale: 2.7),
                   ],
                 ),
                 SizedBox(
                   height: 70,
-                   child: Text("Copyright © 2017",
-                   style: TextStyle(
-                fontFamily: 'Arial',
-                fontSize: 18,
-                color: Colors.transparent,
-                
-              ),
-              textAlign: TextAlign.center,),
+                  child: Text(
+                    "Copyright © 2017",
+                    style: TextStyle(
+                      fontFamily: 'Arial',
+                      fontSize: 18,
+                      color: Colors.transparent,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),
