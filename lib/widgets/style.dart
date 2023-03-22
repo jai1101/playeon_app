@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const AppName = "Playeon";
 
-const primaryColor1 = Color.fromARGB(255, 0, 160, 67);
+const primaryColor1 = Color(0XFF82E73E);
 const primaryColor2 = Color(0xFF1D1D3D);
 const primaryColorB = Colors.black;
 const primaryColorW = Colors.white;

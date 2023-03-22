@@ -57,6 +57,7 @@ class VariableText extends StatelessWidget {
     );
   }
 }
+
 class NoAnimationRoute extends PageRouteBuilder {
   final Widget? widget;
 
@@ -136,8 +137,9 @@ class SwipeUpAnimationRoute extends PageRouteBuilder {
               child: child,
             );
           },
-        ); 
+        );
 }
+
 class MyButton extends StatelessWidget {
   final String? btnTxt;
   final double? btnHeight;
@@ -174,11 +176,11 @@ class MyButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           elevation: 0,
           primary: btnColor, //textStyle: TextStyle(color: Color(0xff000000)),
-          // shape: RoundedRectangleBorder(
-          //     side: BorderSide(
-          //         color: borderColor != null ? borderColor! : btnColor!,
-          //         width: 2),
-          //     borderRadius: BorderRadius.circular(btnRadius!)),
+          shape: RoundedRectangleBorder(
+              side: BorderSide(
+                  color: borderColor != null ? borderColor! : btnColor!,
+                  width: 2),
+              borderRadius: BorderRadius.circular(btnRadius!)),
         ),
         onPressed: onTap ?? null,
         child: Center(
@@ -197,6 +199,3 @@ class MyButton extends StatelessWidget {
     );
   }
 }
-
-
-
