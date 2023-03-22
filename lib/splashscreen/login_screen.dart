@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/walkthrough.dart';
+import 'package:playeon/walkscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
@@ -52,21 +52,21 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           child: Stack(
             children: [
-              Positioned.fill(
-                  child: Image.asset(
-                "assets/icons/ic_login_rect2g.png",
-                fit: BoxFit.fill,
-              )),
+              // Positioned.fill(
+              //     child: Image.asset(
+              //   "assets/icons/ic_login_rect2g.png",
+              //   fit: BoxFit.fill,
+              // )),
               Positioned.fill(
                   child: Image.asset(
                 "assets/images/img_login_bg.png",
                 fit: BoxFit.fill,
               )),
-              Positioned.fill(
-                  child: Image.asset(
-                "assets/icons/ic_login_rect2.png",
-                fit: BoxFit.fill,
-              )),
+              // Positioned.fill(
+              //     child: Image.asset(
+              //   "assets/icons/ic_login_rect2.png",
+              //   fit: BoxFit.fill,
+              // )),
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: size.height * 0.016,

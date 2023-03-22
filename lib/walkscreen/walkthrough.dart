@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/walkthrough2.dart';
+import 'package:playeon/walkscreen/walkthrough2.dart';
 
 import '../widgets/common.dart';
 import '../widgets/style.dart';

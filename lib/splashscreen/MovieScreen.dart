@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/AllMovies.dart';
 
 import 'customnavbar.dart';
 
 import 'now.dart';
 import 'popular.dart';
-import 'now.dart';
 
-class MovieScreen extends StatefulWidget {
+class MovieScreen extends StatelessWidget {
   const MovieScreen({super.key});
 
-  @override
-  State<MovieScreen> createState() => _MovieScreenState();
-}
-
-class _MovieScreenState extends State<MovieScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
