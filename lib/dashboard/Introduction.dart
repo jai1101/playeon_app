@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'customnavbar.dart';
+import '../splashscreen/customnavbar.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key});
@@ -69,7 +69,6 @@ class IntroductionPage extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: CustomNavBar(),
     );
   }
 }

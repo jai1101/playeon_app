@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:playeon/splashscreen/login_screen.dart';
+import 'package:playeon/auth/login_screen.dart';
 
 import 'package:playeon/widgets/common.dart';
 

@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:playeon/splashscreen/walkthrough.dart';
+import 'package:playeon/walkscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
