@@ -58,7 +58,7 @@ class _MainScreenState extends State<MainScreen>
           HomeScreen(),
           HomeScreen(),
           HomeScreen(),
-          Profile(),
+           Profile(),
           // HistoryScreen(),
           // AdsScreen(),
           // SettingScreen(),
