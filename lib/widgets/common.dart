@@ -1,4 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:playeon/widgets/style.dart';
 
 class VariableText extends StatelessWidget {
@@ -194,6 +196,51 @@ class MyButton extends StatelessWidget {
               fontFamily: fontFamily,
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomTextField extends StatelessWidget {
+  TextEditingController? cont;
+  String? hintTxt;
+  bool fill;
+  TextInputAction? inputAction;
+  TextInputType? inputType;
+
+  bool obscure;
+  CustomTextField(
+      {Key? key,
+      this.cont,
+      this.hintTxt,
+      this.fill = false,
+      this.obscure = false,
+      this.inputAction = TextInputAction.next,
+      this.inputType = TextInputType.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return TextFormField(
+      controller: cont,
+      obscureText: obscure,
+      textInputAction: inputAction,
+      keyboardType: inputType,
+      style: TextStyle(
+        fontFamily: fontMedium,
+        color: primaryColor1,
+        fontSize: size.height * 0.018,
+      ),
+      decoration: InputDecoration(
+        hintText: hintTxt,
+        hintStyle: TextStyle(color: Colors.grey),
+        enabled: true,
+        filled: fill,
+        fillColor: primaryColorB,
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: primaryColor1),
         ),
       ),
     );

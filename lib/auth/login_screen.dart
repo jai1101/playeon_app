@@ -40,84 +40,61 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Log in"),
-      ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/icons/ic_login_rect1.png"),
-                fit: BoxFit.cover),
-          ),
           child: Stack(
             children: [
-              // Positioned.fill(
-              //     child: Image.asset(
-              //   "assets/icons/ic_login_rect2g.png",
-              //   fit: BoxFit.fill,
-              // )),
               Positioned.fill(
                   child: Image.asset(
-                "assets/images/img_login_bg.png",
+                "assets/images/img_bgthumnails.png",
+                fit: BoxFit.cover,
+              )),
+              Positioned.fill(
+                  child: Image.asset(
+                "assets/images/img_blackbg.png",
                 fit: BoxFit.fill,
               )),
-              // Positioned.fill(
-              //     child: Image.asset(
-              //   "assets/icons/ic_login_rect2.png",
-              //   fit: BoxFit.fill,
-              // )),
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: size.height * 0.016,
-                    horizontal: size.width * 0.054),
+                    horizontal: size.width * 0.1),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Log In",
-                      style: TextStyle(
-                        fontFamily: 'Arial',
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                    SizedBox(
-                      height: size.height * 0.01,
-                    ),
-                    TextFormField(
-                      controller: usernameController,
-                      decoration: InputDecoration(
-                        hintText: 'Username',
-                        hintStyle: TextStyle(color: Colors.grey),
-                        enabled: true,
-                       
-                        fillColor: primaryColorB,
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: primaryColor1),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        VariableText(
+                          text: "Log in",
+                          fontsize: size.height * 0.022,
+                          fontFamily: fontExtraBold,
+                          weight: FontWeight.w700,
+                          textAlign: TextAlign.start,
                         ),
-                      ),
+                      ],
                     ),
                     SizedBox(
-                      height: 30,
+                      height: size.height * 0.02,
                     ),
-                    TextFormField(
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                        hintText: 'Password',
-                        hintStyle: TextStyle(color: Colors.grey),
-                        enabled: true,
-                        filled: true,
-                        fillColor: primaryColorB,
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: primaryColor1),
-                        ),
-                      ),
+                    //!User Name
+                    CustomTextField(
+                      cont: usernameController,
+                      hintTxt: "Username",
+                      fill: true,
                     ),
                     SizedBox(
-                      height: size.height * 0.1,
+                      height: size.height * 0.02,
+                    ),
+                    //!password
+                    CustomTextField(
+                      cont: usernameController,
+                      hintTxt: "Password",
+                      fill: true,
+                      obscure: true,
+                    ),
+                    SizedBox(
+                      height: size.height * 0.08,
                     ),
                     MyButton(
                       btnHeight: size.height * 0.055,
