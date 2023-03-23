@@ -2,6 +2,7 @@
 // ignore_for_file: prefer_const_constructors, file_names, duplicate_ignore
 
 import 'package:flutter/material.dart';
+import 'package:playeon/auth/login_screen.dart';
 
 import 'package:playeon/walkscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
@@ -25,233 +26,115 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController cityController = TextEditingController();
   TextEditingController codeController = TextEditingController();
 
-  // void Signup(String name,username, email , password ,number , city ,code ){
-  //   try{
-
-  //          Response response = await post(
-  //           Uri parse(url_api),
-  //           body:{
-  //             "name" : name,
-  //             "username" : username,
-  //                       "email" : email,
-  //                       "pasword" : password,
-  //                       "number ":number ,
-  //                       "city" : city,
-  //                       "code ": code ,
-
-  //           }
-  //          );
-  //          if(response.statusCode == 200){
-  //           print("account created Successfully");
-  //          }
-  //          else{
-  //           print("failed");
-  //          }
-  //   }
-  //   catch(e){
-  //     print(e.toString());
-  //   }
-  // }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign up"),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/icons/ic_signrect1.png"),
-                  fit: BoxFit.cover),
-            ),
-            child: Stack(children: [
-              Positioned.fill(
-                  child: Image.asset(
-                "assets/icons/ic_signrect02.png",
-                fit: BoxFit.fill,
-              )),
-              Positioned.fill(
-                  child: Image.asset(
-                "assets/icons/ic_signrect12.png",
-                fit: BoxFit.fill,
-              )),
-              Positioned.fill(
-                  child: Image.asset(
-                "assets/icons/ic_signrect22.png",
-                fit: BoxFit.fill,
-              )),
+            color: primaryColorB,
+            height: size.height,
+            child: Column(children: [
               Padding(
                 padding: EdgeInsets.symmetric(
-                    vertical: size.height * 0.01,
-                    horizontal: size.width * 0.05),
+                    vertical: size.height * 0.08, horizontal: size.width * 0.1),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Wellcome!",
-                      style: TextStyle(
-                        fontFamily: 'Arial',
-                        fontSize: 36,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.left,
+                    VariableText(
+                      text: "Welcome!",
+                      fontsize: size.height * 0.040,
+                      fontFamily: fontBold,
+                      weight: FontWeight.w700,
                     ),
                     SizedBox(
                       height: 3,
                     ),
-                    Text(
-                      "It only takes a minute",
-                      style: TextStyle(
-                        fontFamily: 'Arial',
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.left,
+                    VariableText(
+                      text: "It only takes a minute",
+                      fontsize: size.height * 0.016,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                      max_lines: 2,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: TextFormField(
-                        controller: nameController,
-                        decoration: InputDecoration(
-                          hintText: 'Name',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          enabled: true,
-                          filled: true,
-                          fillColor: primaryColorB,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: primaryColor1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: TextFormField(
-                        controller: usernameController,
-                        decoration: InputDecoration(
-                          hintText: 'Username',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          enabled: true,
-                          filled: true,
-                          fillColor: primaryColorB,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: primaryColor1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          hintText: 'Email',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          enabled: true,
-                          filled: true,
-                          fillColor: primaryColorB,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: primaryColor1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: TextFormField(
-                        controller: passwordController,
-                        decoration: InputDecoration(
-                          hintText: 'Password',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          enabled: true,
-                          filled: true,
-                          fillColor: primaryColorB,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: primaryColor1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        controller: numberController,
-                        decoration: InputDecoration(
-                          hintText: 'Number',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          enabled: true,
-                          filled: true,
-                          fillColor: primaryColorB,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: primaryColor1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: TextFormField(
-                        controller: cityController,
-                        decoration: InputDecoration(
-                          hintText: 'Choose your City',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          enabled: true,
-                          filled: true,
-                          fillColor: primaryColorB,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: primaryColor1),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: TextFormField(
-                        controller: codeController,
-                        decoration: InputDecoration(
-                          hintText: 'Enter Your Referal Code ',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          enabled: true,
-                          filled: true,
-                          fillColor: primaryColorB,
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: primaryColor1),
-                          ),
-                        ),
-                      ),
-                    ),
+
+                    //!Name
                     SizedBox(
-                      height: 20,
+                      height: size.height * 0.01,
                     ),
-                    GestureDetector(
-                      onTap: () => {
+                    CustomTextField(
+                      cont: nameController,
+                      hintTxt: "Name",
+                    ),
+
+                    //!UserName
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+                    CustomTextField(
+                      cont: usernameController,
+                      hintTxt: "Username",
+                    ),
+                    //!User Email
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+                    CustomTextField(
+                      cont: emailController,
+                      hintTxt: "Email",
+                    ),
+
+                    //!User Password
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+
+                    CustomPasswordField(
+                      cont: passwordController,
+                      hintTxt: "Password",
+                    ),
+                    //!User Number
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+                    CustomTextField(
+                      cont: nameController,
+                      hintTxt: "Number",
+                      inputType: TextInputType.number,
+                    ),
+                    CustomDropDown(
+                      hintTxt: "Choose Your City",
+                      list: ["Karachi", "Hydrabad", "Sukkur", "MirpureKhas"],
+                    ),
+
+                    //!User Refereal Code
+                    CustomTextField(
+                      cont: codeController,
+                      hintTxt: "Enter Your Referal Code",
+                    ),
+
+                    SizedBox(
+                      height: size.height * 0.1,
+                    ),
+                    MyButton(
+                      btnHeight: size.height * 0.055,
+                      btnWidth: size.width,
+                      btnTxt: "Sign Up",
+                      btnColor: primaryColor1,
+                      btnRadius: 2,
+                      borderColor: Colors.green,
+                      txtColor: Colors.white,
+                      fontSize: 20,
+                      onTap: () {
                         Navigator.push(
                             context,
                             SwipeLeftAnimationRoute(
-                                milliseconds: 200, widget: WalkThrough1()))
+                                milliseconds: 200, widget: LoginScreen()));
                       },
-                      child: Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: primaryColor1,
-                        ),
-                        child: Center(
-                            child: Text(
-                          "Sign Up",
-                          style: TextStyle(
-                            fontFamily: 'Arial',
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        )),
-                      ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Positioned.fill(
               child:
-                  Image.asset("assets/icons/ic_spfilter.png", fit: BoxFit.fill),
+                  Image.asset("assets/icons/ic_filter.png", fit: BoxFit.fill),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:playeon/widgets/style.dart';
@@ -208,7 +209,6 @@ class CustomTextField extends StatelessWidget {
   bool fill;
   TextInputAction? inputAction;
   TextInputType? inputType;
-
   bool obscure;
   CustomTextField(
       {Key? key,
@@ -244,5 +244,153 @@ class CustomTextField extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class CustomPasswordField extends StatefulWidget {
+  TextEditingController? cont;
+  String? hintTxt;
+  bool fill;
+  TextInputAction? inputAction;
+  TextInputType? inputType;
+  bool obscure;
+  CustomPasswordField(
+      {Key? key,
+      this.cont,
+      this.hintTxt,
+      this.fill = false,
+      this.obscure = true,
+      this.inputAction = TextInputAction.next,
+      this.inputType = TextInputType.text})
+      : super(key: key);
+
+  @override
+  State<CustomPasswordField> createState() => _CustomPasswordFieldState();
+}
+
+class _CustomPasswordFieldState extends State<CustomPasswordField> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return TextFormField(
+      controller: widget.cont,
+      obscureText: widget.obscure,
+      textInputAction: widget.inputAction,
+      keyboardType: widget.inputType,
+      style: TextStyle(
+        fontFamily: fontMedium,
+        color: primaryColor1,
+        fontSize: size.height * 0.018,
+      ),
+      decoration: InputDecoration(
+        hintText: widget.hintTxt,
+        hintStyle: TextStyle(color: Colors.grey),
+        enabled: true,
+        filled: widget.fill,
+        fillColor: primaryColorB,
+        suffixIcon: InkWell(
+          onTap: () {
+            setState(() {
+              widget.obscure = !widget.obscure;
+            });
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: widget.obscure
+                ? Image.asset("assets/icons/ic_password_show.png",
+                    color: borderColor, scale: 1.7)
+                : Image.asset("assets/icons/ic_password_hide.png",
+                    color: borderColor, scale: 1.7),
+          ),
+        ),
+        suffixIconConstraints: const BoxConstraints(),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: primaryColor1),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomDropDown extends StatefulWidget {
+  String hintTxt;
+  String? selectedTxt;
+  List<String> list;
+  CustomDropDown(
+      {Key? key, required this.hintTxt, this.selectedTxt, required this.list})
+      : super(key: key);
+
+  @override
+  State<CustomDropDown> createState() => _CustomDropDownState();
+}
+
+class _CustomDropDownState extends State<CustomDropDown> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+        color: primaryColorB,
+        child: InputDecorator(
+            decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+            child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                    hint: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              VariableText(
+                                text: widget.hintTxt,
+                                fontFamily: fontMedium,
+                                fontcolor: primaryColorW,
+                                fontsize: size.height * 0.018,
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            color: primaryColor1,
+                          )
+                        ],
+                      ),
+                    ),
+                    value: widget.selectedTxt,
+                    isExpanded: true,
+                    onTap: () {
+                      FocusScope.of(context).unfocus();
+                    },
+                    onChanged: (String? value) {
+                      {
+                        setState(() {
+                          widget.selectedTxt = value;
+                        });
+                      }
+                    },
+                    style: TextStyle(
+                        fontSize: size.height * 0.014, color: primaryColorB),
+                    items: widget.list
+                        .map<DropdownMenuItem<String>>((String item) {
+                      return DropdownMenuItem<String>(
+                        value: item,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            VariableText(
+                              text: item,
+                              fontsize: size.height * 0.015,
+                              fontcolor: primaryColor1,
+                              fontFamily: fontMedium,
+                            ),
+                            Divider(
+                              color: primaryColor1,
+                            )
+                          ],
+                        ),
+                      );
+                    }).toList()))));
   }
 }
