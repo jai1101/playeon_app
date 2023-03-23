@@ -18,31 +18,61 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 20.0 , left: 15),       
+            padding: const EdgeInsets.only(top: 20.0, left: 15),
             child: Container(
               child: Column(children: [
                 Row(
                   children: [
-                    Expanded(                                         
+                    Expanded(
                         child: VariableText(
                       text: "MOVIES",
                       fontcolor: primaryColorW,
-                      fontsize: size.height * 0.04,
+                      fontsize: size.height * 0.03,
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
                     )),
-
-                     Expanded(
-                        child : IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    ),
-                  ),)
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                    )
                   ],
                 ),
-                
+                Container(
+                  height: size.height * 0.24,
+                  width: size.width,
+                  child: Image.asset(
+                    "assets/images/img_banner.png",
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Now",
+                        fontcolor: primaryColorW,
+                        fontsize: size.height * 0.02,
+                        fontFamily: fontMedium,
+                        weight: FontWeight.w500,
+                      ),
+                    ),
+                    VariableText(
+                      text: "Vew All",
+                      fontcolor: primaryColorW,
+                      fontsize: size.height * 0.016,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: primaryColorW,
+                      size: 17,
+                    )
+                  ],
+                )
               ]),
             ),
           ),

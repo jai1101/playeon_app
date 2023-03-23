@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:playeon/dashboard/home_screen.dart';
 
+import '../main_screen.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 
@@ -69,7 +70,7 @@ class _WalkThrough3State extends State<WalkThrough3> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HomeScreen()));
+                                builder: (context) => const MainScreen()));
                       },
                     )
                   ],

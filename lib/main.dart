@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:playeon/main_screen.dart';
 
 import 'splashscreen/splashscreen1.dart';
 
@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: MainScreen(),
     );
   }
 }
