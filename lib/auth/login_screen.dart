@@ -16,27 +16,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  // Future<void> login(String email , password) async {
-  //   try{
-
-  //           Response response = await post(
-  //            Uri,parse("url_api"),
-  //         //   body:{
-  //         //               "email" : email,
-  //         //               "pasword" : password
-  //         //   }
-  //          );
-  //          if(response.statusCode == 200){
-  //           print("account created Successfully");
-  //          }
-  //          else{
-  //           print("failed");
-  //          }
-  //   }
-  //   catch(e){
-  //     print(e.toString());
-  //   }
-  // }
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
