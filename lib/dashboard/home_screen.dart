@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/dashboard/show_all.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
 
@@ -10,6 +11,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> images = [
+    "assets/images/img_justice.png",
+    "assets/images/img_rampage.png",
+    "assets/images/img_spider.png",
+    "assets/images/img_thor.png",
+    "assets/images/img_hotel.png",
+    "assets/images/img_hostile.png",
+  ];
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -59,19 +68,121 @@ class _HomeScreenState extends State<HomeScreen> {
                         weight: FontWeight.w500,
                       ),
                     ),
-                    VariableText(
-                      text: "Vew All",
-                      fontcolor: primaryColorW,
-                      fontsize: size.height * 0.016,
-                      fontFamily: fontMedium,
-                      weight: FontWeight.w500,
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: images, title: "Now list"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "Vew All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: primaryColorW,
-                      size: 17,
-                    )
                   ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.3,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: images.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 3),
+                                  child: Image.asset(images[index]));
+                            }),
+                      )
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Popular",
+                        fontcolor: primaryColorW,
+                        fontsize: size.height * 0.02,
+                        fontFamily: fontMedium,
+                        weight: FontWeight.w500,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: images, title: "Popular list"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "Vew All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.6,
+                  padding: EdgeInsets.symmetric(
+                      vertical: size.height * verticalPadding),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: GridView.builder(
+                            itemCount: images.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              // crossAxisSpacing: size.width * 0.03,
+                              // mainAxisSpacing: size.height * 0.015,
+                              //childAspectRatio: 0.63,
+                              childAspectRatio:
+                                  size.width / (size.height * 0.36),
+                            ),
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  child: Image.asset(images[index]));
+                            }),
+                      )
+                    ],
+                  ),
                 )
               ]),
             ),

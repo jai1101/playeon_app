@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playeon/widgets/common.dart';
 
 import 'dashboard/home_screen.dart';
+import 'dashboard/profile.dart';
 import 'widgets/style.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,9 +18,9 @@ class _MainScreenState extends State<MainScreen>
   var mainTab = {
     "tabs": [
       {"icon": "assets/icons/ic_tv.png"},
-      {"icon": "assets/icons/ic_tv.png"},
+      {"icon": "assets/icons/ic_video.png"},
       {"icon": "assets/icons/ic_logoOnly.png"},
-      {"icon": "assets/icons/ic_tv.png"},
+      {"icon": "assets/icons/ic_explore.png"},
       {"icon": "assets/icons/ic_profile.png"}
     ]
   };
@@ -57,7 +58,7 @@ class _MainScreenState extends State<MainScreen>
           HomeScreen(),
           HomeScreen(),
           HomeScreen(),
-          HomeScreen(),
+          Profile(),
           // HistoryScreen(),
           // AdsScreen(),
           // SettingScreen(),
