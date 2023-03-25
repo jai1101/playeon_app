@@ -24,7 +24,8 @@ class _SettingState extends State<Setting> {
         child: Padding(
           padding: const EdgeInsets.only(top: 35.0, left: 15),
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
             InkWell(
               onTap: () {
                 Navigator.of(context).pop();
