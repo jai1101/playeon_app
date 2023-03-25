@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:playeon/auth/login_screen.dart';
 import 'package:playeon/dashboard/Introduction.dart';
-import 'package:playeon/dashboard/review.dart';
+import 'package:playeon/dashboard/about.dart';
+import 'package:playeon/dashboard/about.dart';
 
 import '../widgets/common.dart';
 import '../widgets/style.dart';
@@ -24,8 +25,7 @@ class _SettingState extends State<Setting> {
         child: Padding(
           padding: const EdgeInsets.only(top: 35.0, left: 15),
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             InkWell(
               onTap: () {
                 Navigator.of(context).pop();
@@ -77,49 +77,82 @@ class _SettingState extends State<Setting> {
                 textAlign: TextAlign.start,
                 weight: FontWeight.w500,
               ),
-              iconColor: primaryColorW,
             ),
-            // buildAccountOption(context, 'Clear cache'),
-            // buildAccountOption(context, "Share the app"),
-            // buildAccountOption(context, 'Forget Password'),
-            // buildAccountOption(context, 'About'),
             SizedBox(
-              height: 60,
+              height: 3,
             ),
-
-            //   SizedBox(height: 60,),
-            //    MyButton(
-            //   btnHeight: size.height * 0.055,
-            //   btnWidth: size.width,
-            //   btnTxt: "About",
-            //   btnColor: textColorS,
-            //   btnRadius: 25,
-            //   borderColor: textColor5,
-            //   txtColor: Colors.black,
-            //   fontSize: 20,
-            //   onTap: () {
-            //     Navigator.push(
-            //         context,
-            //         SwipeLeftAnimationRoute(
-            //             milliseconds: 200, widget: Review()));
-            //   },
-            // ),
-
-            MyButton(
-              btnHeight: size.height * 0.055,
-              btnWidth: size.width,
-              btnTxt: "Sign Out",
-              btnColor: textColorS,
-              btnRadius: 25,
-              borderColor: textColor5,
-              txtColor: Colors.black,
-              fontSize: 20,
-              onTap: () {
-                Navigator.push(
-                    context,
-                    SwipeLeftAnimationRoute(
-                        milliseconds: 200, widget: LoginScreen()));
-              },
+            ExpansionTile(
+              title: VariableText(
+                text: "Share the app",
+                fontcolor: primaryColorW,
+                fontsize: size.height * 0.022,
+                fontFamily: fontSemiBold,
+                textAlign: TextAlign.start,
+                weight: FontWeight.w500,
+              ),
+              trailing: Icon(
+                Icons.keyboard_arrow_right_sharp,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+            ExpansionTile(
+              title: VariableText(
+                text: "Forget Pasword",
+                fontcolor: primaryColorW,
+                fontsize: size.height * 0.022,
+                fontFamily: fontSemiBold,
+                textAlign: TextAlign.start,
+                weight: FontWeight.w500,
+              ),
+              trailing: Icon(
+                Icons.keyboard_arrow_right_sharp,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+            ExpansionTile(
+              title: VariableText(
+                text: "About",
+                fontcolor: primaryColorW,
+                fontsize: size.height * 0.022,
+                fontFamily: fontSemiBold,
+                textAlign: TextAlign.start,
+                weight: FontWeight.w500,
+              ),
+              trailing: IconButton(
+                  icon: Icon(
+                    Icons.keyboard_arrow_right_sharp,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => About()),
+                    );
+                  }),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Center(
+              child: MyButton(
+                btnHeight: size.height * 0.055,
+                btnWidth: size.width * 0.70,
+                btnTxt: "Sign Out",
+                btnColor: Colors.white,
+                btnRadius: 25,
+                borderColor: textColor5,
+                txtColor: textColor5,
+                fontSize: 20,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      SwipeLeftAnimationRoute(
+                          milliseconds: 200, widget: LoginScreen()));
+                },
+              ),
             ),
           ]),
         ),
