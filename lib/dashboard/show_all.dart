@@ -128,7 +128,7 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               crossAxisSpacing: 1,
-                              mainAxisSpacing: 3,
+                              mainAxisSpacing: 2,
                               childAspectRatio: 0.6,
                             ),
                             shrinkWrap: true,
@@ -147,7 +147,8 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
                                 child: Column(
                                   children: [
                                     Container(
-                                      height: size.height * 0.4,
+                                      height: size.height * 0.38,
+                                      width: size.height *.23,
                                       child: Image.asset(
                                         widget.showList[index],
                                         fit: BoxFit.cover,

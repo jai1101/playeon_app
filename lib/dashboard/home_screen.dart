@@ -19,6 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
+
+  void updateList (String value)
+  {
+
+  }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -27,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 20.0, left: 15),
+            padding: const EdgeInsets.only(top: 30.0, left: 15),
             child: Container(
               child: Column(children: [
                 Row(
@@ -40,8 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
                     )),
+                  
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+              
+                      },
                       icon: Icon(
                         Icons.search,
                         color: Colors.white,
@@ -99,9 +108,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.3,
+                  height: size.height * 0.30,
                   child: Row(
-                    children: [
+                    
+                  children: [
                       Expanded(
                         child: ListView.builder(
                             itemCount: images.length,
@@ -110,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 3),
+                                  padding: EdgeInsets.only(right: 11),
                                   child: Image.asset(images[index]));
                             }),
                       )
@@ -167,11 +177,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              // crossAxisSpacing: size.width * 0.03,
-                              // mainAxisSpacing: size.height * 0.015,
+                              crossAxisSpacing: size.width * 0.01,
+                               mainAxisSpacing: size.height * 0.011,
                               //childAspectRatio: 0.63,
                               childAspectRatio:
-                                  size.width / (size.height * 0.36),
+                                  size.width / (size.height * 0.30),
                             ),
                             shrinkWrap: false,
                             scrollDirection: Axis.horizontal,

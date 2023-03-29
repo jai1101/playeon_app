@@ -70,6 +70,48 @@ class _LoginScreenState extends State<LoginScreen> {
                     fill: true,
                   ),
                   SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Row
+                    (  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                         Row(
+                           children: [
+                             Column(children: [
+                              Icon(
+                                        Icons.rectangle,
+                                        color: textColorS,
+                                        size: 18,
+                                      ),
+                        ],),
+                           
+                        Column(children: [
+                          VariableText(
+                      text: "Remember me",
+                      fontcolor: textColorS,
+                    fontsize: size.height * 0.018,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    ),
+                        ],),
+                        ],
+                         ),
+                        Column(children: [
+                          VariableText(
+                      text: "Forget Password?",
+                      fontcolor: textColorS,
+                      fontsize: size.height * 0.018,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    ),
+                        ],)
+                    
+                    ],),
+                  ),
+
+                  SizedBox(
                     height: size.height * 0.08,
                   ),
                   MyButton(
@@ -77,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     btnWidth: size.width,
                     btnTxt: "Login",
                     btnColor: primaryColor1,
-                    btnRadius: 2,
+                    btnRadius: 25,
                     borderColor: Colors.green,
                     txtColor: Colors.white,
                     fontSize: 20,
@@ -110,6 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: VariableText(
                           text: "Create Now",
                           fontsize: size.height * 0.016,
+                          
                           fontcolor: primaryColor1,
                           weight: FontWeight.w600,
                           fontFamily: fontSemiBold,

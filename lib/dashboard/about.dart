@@ -15,18 +15,19 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Stack(children: [
-          Image.asset(
-            "assets/images/review_bg.png",
-            height: 400,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Column(children: [
+        child: Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(children: [
+        Image.asset(
+          "assets/images/review_bg.png",
+          height: 400,
+          width: double.infinity,
+          fit: BoxFit.cover,
+        ),
+        Column(
+          children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -65,9 +66,8 @@ class _AboutState extends State<About> {
                     )
                   ]),
             ),
-           
             Padding(
-              padding: EdgeInsets.only(left: 10,top: 130),
+              padding: EdgeInsets.only(left: 10, top: 130),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -76,7 +76,6 @@ class _AboutState extends State<About> {
                       height: size.width * 0.30,
                       padding: EdgeInsets.all(10),
                       color: Colors.transparent,
-                      
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -104,62 +103,56 @@ class _AboutState extends State<About> {
                           SizedBox(height: 5),
                           Padding(
                             padding: const EdgeInsets.only(left: 35),
-                            child: Column(
-                                 children: [
-                                 
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
-                                    children: [
-                                     
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.yellow,
-                                        size: 17,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.yellow,
-                                        size: 17,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.yellow,
-                                        size: 17,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.yellow,
-                                        size: 17,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: textColor5,
-                                        size: 17,
-                                      ),
-                                    ],
+                            child: Column(children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: const [
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 17,
                                   ),
-                                ]),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 17,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 17,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 17,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: textColor5,
+                                    size: 17,
+                                  ),
+                                ],
+                              ),
+                            ]),
                           ),
                         ],
                       ),
-                     
                     ),
                     Container(
                       margin: EdgeInsets.only(right: 30),
                       height: 100,
                       width: 100,
-                       child: Icon(
+                      child: Icon(
                         Icons.play_arrow,
                         color: Colors.white,
                         size: 120,
-                        
                       ),
                     ),
                   ]),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10 ,vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Container(
                 width: size.width * 0.90,
                 height: size.width * 0.30,
@@ -176,7 +169,6 @@ class _AboutState extends State<About> {
                         max_lines: 6,
                       ),
                     ]),
-                    
               ),
             ),
             Padding(
@@ -184,107 +176,116 @@ class _AboutState extends State<About> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      VariableText(
-                        text: "Like & Share",
-                        fontcolor: Colors.white,
-                        fontsize: size.height * 0.024,
-                        fontFamily: fontMedium,
-                        weight: FontWeight.w500,
-                        max_lines: 2,
-                      ),
-                  ]  ),
-                  SizedBox(height: 10,),
-                  Row(crossAxisAlignment: CrossAxisAlignment.start,
-                 
-          children: [
-                  Container(
-                        width: size.width * 0.25,
-                        height: size.width * 0.40,
-                          child:
-                          // img not found
-                             Column(
-                              children: [
-                                Image.asset(
-            "assets/icons/ic_like.png",
-            height: 400,
-            
-          ), SizedBox(height: 30,) , 
-                           Column(
-                              children: [
-                                VariableText(
-                                  text: "230K",
-                                  fontcolor: textColor5,
-                                  fontsize: size.height * 0.017,
-                                  fontFamily: fontMedium,
-                                  weight: FontWeight.w500,
-                                  max_lines: 2,
-                                ),
-                              
-                              ],
-                            ),
-                                
-                              ],
-                            ),
-                           
-                            
-                   ),
-
-                    Container(
-                        width: size.width * 0.25,
-                        height: size.width * 0.10,
-                          child: 
-                            
-                           Column(
-                              children: [
-                                VariableText(
-                                  text: "230K",
-                                  fontcolor: textColor5,
-                                  fontsize: size.height * 0.017,
-                                  fontFamily: fontMedium,
-                                  weight: FontWeight.w500,
-                                  max_lines: 2,
-                                ),
-                              ],
-                            ),
-                   ),
-                    Container(
-                        width: size.width * 0.25,
-                        height: size.width * 0.20,
-                          child:   
-                           Column(
-                              children: [
-                                VariableText(
-                                  text: "230K",
-                                  fontcolor: textColor5,
-                                  fontsize: size.height * 0.017,
-                                  fontFamily: fontMedium,
-                                  weight: FontWeight.w500,
-                                  max_lines: 2,
-                                ),
-                              ],
-                            ),
-                   ),
-
-                    ] 
-                   
-                         
+                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    VariableText(
+                      text: "Like & Share",
+                      fontcolor: Colors.white,
+                      fontsize: size.height * 0.024,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                      max_lines: 2,
+                    ),
+                  ]),
+                  SizedBox(
+                    height: 15,
                   ),
-                          ],
-                        ),
-                      
-                                                   
-                                                 
-                    
-            ),    
+                  Row(crossAxisAlignment: CrossAxisAlignment.start,
+                   mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+                  children: [
+                    Container(
+                      width: size.width * 0.15,
+                      height: size.width * 0.40,
+                      child:
+                          // img not found
+                          Column(
+                        children: [
+                          Image.asset(
+                            "assets/icons/like_ic.png",
+                            height: 50,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Column(
+                            children: [
+                              VariableText(
+                                text: "230K",
+                                fontcolor: textColor5,
+                                fontsize: size.height * 0.017,
+                                fontFamily: fontMedium,
+                                weight: FontWeight.w500,
+                                max_lines: 2,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: size.width * 0.15,
+                      height: size.width * 0.40,
+                      child:
+                          // img not found
+                          Column(
+                        children: [
+                          Image.asset(
+                            "assets/icons/fav_ic.png",
+                            height: 50,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Column(
+                            children: [
+                              VariableText(
+                                text: "230K",
+                                fontcolor: textColor5,
+                                fontsize: size.height * 0.017,
+                                fontFamily: fontMedium,
+                                weight: FontWeight.w500,
+                                max_lines: 2,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: size.width * 0.15,
+                      height: size.width * 0.40,
+                      child:
+                          // img not found
+                          Column(
+                        children: [
+                          Image.asset(
+                            "assets/icons/comment_ic.png",
+                            height: 50,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Column(
+                            children: [
+                              VariableText(
+                                text: "230K",
+                                fontcolor: textColor5,
+                                fontsize: size.height * 0.017,
+                                fontFamily: fontMedium,
+                                weight: FontWeight.w500,
+                                max_lines: 2,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
                 ],
               ),
-           ] ),
-          )
-        );
-      
-    
+            ),
+          ],
+        ),
+      ]),
+    ));
   }
 }

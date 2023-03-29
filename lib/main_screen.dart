@@ -17,10 +17,10 @@ class _MainScreenState extends State<MainScreen>
   TabController? tabController;
   var mainTab = {
     "tabs": [
-      {"icon": "assets/icons/ic_tv.png"},
-      {"icon": "assets/icons/ic_video.png"},
-      {"icon": "assets/icons/ic_logoOnly.png"},
-      {"icon": "assets/icons/ic_explore.png"},
+      {"icon": "assets/icons/web_series.png"},
+      {"icon": "assets/icons/movie.png"},
+      {"icon": "assets/icons/logo.png"},
+      {"icon": "assets/icons/explore.png"},
       {"icon": "assets/icons/ic_profile.png"}
     ]
   };
@@ -65,14 +65,14 @@ class _MainScreenState extends State<MainScreen>
         ],
       ),
       bottomNavigationBar: Container(
-        height: size.height * 0.078,
+        height: size.height * 0.085,
         decoration: const BoxDecoration(
           color: primaryColorB,
         ),
         child: TabBar(
           controller: tabController,
           indicator: const BoxDecoration(
-              border: Border(top: BorderSide(color: primaryColor1, width: 3))),
+              border: Border(top: BorderSide(color: primaryColor1, width: 2))),
           labelColor: primaryColor1,
           tabs: List.generate(mainTab['tabs']!.length, (index) {
             return Tab(
