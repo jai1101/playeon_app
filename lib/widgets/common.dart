@@ -329,7 +329,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        color: primaryColorB,
+        // color: Colors.black ,
         child: InputDecorator(
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
@@ -347,14 +347,12 @@ class _CustomDropDownState extends State<CustomDropDown> {
                               VariableText(
                                 text: widget.hintTxt,
                                 fontFamily: fontMedium,
-                                fontcolor: primaryColorW,
-                                fontsize: size.height * 0.018,
+                                fontcolor: Colors.black,
+                                fontsize: size.height * 0.024,
                               ),
                             ],
                           ),
-                          Divider(
-                            color: primaryColor1,
-                          )
+                          
                         ],
                       ),
                     ),
@@ -371,7 +369,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                       }
                     },
                     style: TextStyle(
-                        fontSize: size.height * 0.014, color: primaryColorB),
+                        fontSize: size.height * 0.024, color: Colors.black),
                     items: widget.list
                         .map<DropdownMenuItem<String>>((String item) {
                       return DropdownMenuItem<String>(
@@ -381,13 +379,11 @@ class _CustomDropDownState extends State<CustomDropDown> {
                           children: [
                             VariableText(
                               text: item,
-                              fontsize: size.height * 0.015,
-                              fontcolor: primaryColor1,
+                              fontsize: size.height * 0.024,
+                              fontcolor: Colors.black,
                               fontFamily: fontMedium,
                             ),
-                            Divider(
-                              color: primaryColor1,
-                            )
+                            
                           ],
                         ),
                       );
