@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:playeon/auth/login_screen.dart';
+import 'package:playeon/auth/signupscreen2.dart';
 
 import 'package:playeon/walkscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
@@ -150,7 +151,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         Navigator.push(
                             context,
                             SwipeLeftAnimationRoute(
-                                milliseconds: 200, widget: LoginScreen()));
+                                milliseconds: 200, widget: SignupScreen2()));
                       },
                     ),
                   ],
