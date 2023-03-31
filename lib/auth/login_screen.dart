@@ -106,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
                     ),
+                    
                         ],)
                     
                     ],),
