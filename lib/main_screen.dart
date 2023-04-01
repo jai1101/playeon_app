@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:playeon/widgets/common.dart';
 
 import 'dashboard/home_screen.dart';
 import 'dashboard/profile.dart';
@@ -21,9 +20,10 @@ class _MainScreenState extends State<MainScreen>
       {"icon": "assets/icons/movie.png"},
       {"icon": "assets/icons/logo.png"},
       {"icon": "assets/icons/explore.png"},
-      {"icon": "assets/icons/ic_profile.png"}
-    ]
+      {"icon": "assets/icons/profile.png"}
+    ],
   };
+
   @override
   void initState() {
     super.initState();
@@ -58,7 +58,7 @@ class _MainScreenState extends State<MainScreen>
           HomeScreen(),
           HomeScreen(),
           HomeScreen(),
-           Profile(),
+          Profile(),
           // HistoryScreen(),
           // AdsScreen(),
           // SettingScreen(),

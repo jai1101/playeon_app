@@ -34,7 +34,7 @@ class _MyWidgetState extends State<PayFast> {
                     VariableText(
                       text: "Step 4 of 4",
                       fontcolor: textColorS,
-                      fontsize: size.height * 0.018,
+                      fontsize: size.height * 0.020,
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
                     ),

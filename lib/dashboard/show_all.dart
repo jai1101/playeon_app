@@ -148,7 +148,7 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
                                   children: [
                                     Container(
                                       height: size.height * 0.38,
-                                      width: size.height *.23,
+                                      width: size.height * .23,
                                       child: Image.asset(
                                         widget.showList[index],
                                         fit: BoxFit.cover,

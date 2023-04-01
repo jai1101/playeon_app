@@ -2,8 +2,13 @@
 // ignore_for_file: prefer_const_constructors, file_names, duplicate_ignore
 
 import 'package:flutter/material.dart';
+import 'package:flutter_toast_message/flutter_toast_message.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart';
+import 'package:playeon/auth/api_controller.dart';
 import 'package:playeon/auth/login_screen.dart';
 import 'package:playeon/auth/signupscreen2.dart';
+import 'package:playeon/auth/user_model.dart';
 
 import 'package:playeon/walkscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
@@ -18,6 +23,7 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  bool isValid = false;
   @override
   TextEditingController nameController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
@@ -26,6 +32,63 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController numberController = TextEditingController();
   TextEditingController cityController = TextEditingController();
   TextEditingController codeController = TextEditingController();
+  validate() {
+    if (nameController.text.isNotEmpty) {
+      if (emailController.text.isNotEmpty) {
+        if (usernameController.text.isNotEmpty) {
+          if (passwordController.text.isNotEmpty) {
+            if (numberController.text.isNotEmpty) {
+              if (cityController.text.isNotEmpty) {
+                if (codeController.text.isNotEmpty) {
+                  isValid = true;
+                } else {
+                  Fluttertoast.showToast(
+                      msg: "Plase Select Code",
+                      toastLength: Toast.LENGTH_SHORT);
+                }
+              } else {
+                Fluttertoast.showToast(
+                    msg: "Plase Select City", toastLength: Toast.LENGTH_SHORT);
+              }
+            } else {
+              Fluttertoast.showToast(
+                  msg: "Plase Enter Phone Number",
+                  toastLength: Toast.LENGTH_SHORT);
+            }
+          } else {
+            Fluttertoast.showToast(
+                msg: "Plase Enter password",
+                toastLength: Toast.LENGTH_SHORT); //password
+          }
+        } else {
+          Fluttertoast.showToast(
+              msg: "Plase enter Email", toastLength: Toast.LENGTH_SHORT);
+        }
+      } else {
+        Fluttertoast.showToast(
+            msg: "Plase Username Code", toastLength: Toast.LENGTH_SHORT);
+      }
+    } else {
+      Fluttertoast.showToast(
+          msg: "Plase Enter name", toastLength: Toast.LENGTH_SHORT);
+    }
+    return isValid;
+  }
+  
+  userCreate() async {
+    if(validate()){
+      UserModel user=UserModel(
+        name:nameController.text,
+         username:usernameController.text,
+        email : emailController.text,
+         password: passwordController.text,
+         phone :numberController.text,
+         country:cityController.text,
+      );
+     var response = await ApiController();
+     
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

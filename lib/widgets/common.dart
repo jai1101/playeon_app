@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:playeon/widgets/style.dart';
@@ -169,8 +168,6 @@ class MyButton extends StatelessWidget {
     this.txtColor = textColorW,
     this.fontFamily = fontMedium,
   });
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -354,7 +351,6 @@ class _CustomDropDownState extends State<CustomDropDown> {
                               ),
                             ],
                           ),
-                          
                         ],
                       ),
                     ),
@@ -385,7 +381,6 @@ class _CustomDropDownState extends State<CustomDropDown> {
                               fontcolor: Colors.black,
                               fontFamily: fontMedium,
                             ),
-                            
                           ],
                         ),
                       );

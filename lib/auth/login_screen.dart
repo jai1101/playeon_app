@@ -74,42 +74,46 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Row
-                    (  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         Row(
-                           children: [
-                             Column(children: [
-                              Icon(
-                                        Icons.rectangle,
-                                        color: textColorS,
-                                        size: 18,
-                                      ),
-                        ],),
-                           
-                        Column(children: [
-                          VariableText(
-                      text: "Remember me",
-                      fontcolor: textColorS,
-                    fontsize: size.height * 0.018,
-                      fontFamily: fontMedium,
-                      weight: FontWeight.w500,
+                        Row(
+                          children: [
+                            Column(
+                              children: [
+                                Icon(
+                                  Icons.rectangle,
+                                  color: textColorS,
+                                  size: 18,
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                VariableText(
+                                  text: "Remember me",
+                                  fontcolor: textColorS,
+                                  fontsize: size.height * 0.018,
+                                  fontFamily: fontMedium,
+                                  weight: FontWeight.w500,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            VariableText(
+                              text: "Forget Password?",
+                              fontcolor: textColorS,
+                              fontsize: size.height * 0.018,
+                              fontFamily: fontMedium,
+                              weight: FontWeight.w500,
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                        ],),
-                        ],
-                         ),
-                        Column(children: [
-                          VariableText(
-                      text: "Forget Password?",
-                      fontcolor: textColorS,
-                      fontsize: size.height * 0.018,
-                      fontFamily: fontMedium,
-                      weight: FontWeight.w500,
-                    ),
-                    
-                        ],)
-                    
-                    ],),
                   ),
 
                   SizedBox(
@@ -153,7 +157,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: VariableText(
                           text: "Create Now",
                           fontsize: size.height * 0.016,
-                          
                           fontcolor: primaryColor1,
                           weight: FontWeight.w600,
                           fontFamily: fontSemiBold,

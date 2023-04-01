@@ -1,7 +1,8 @@
+
 import 'dart:convert';
 
 import 'package:playeon/auth/user_model.dart';
-
+import 'package:http/http.dart' as http;
 class ApiController {
 
   final int _timeoutDuration = 4;
@@ -20,8 +21,7 @@ class ApiController {
         "paymentMethod": "card",
          "planPrice":100,
           "trasntionId":"0dda010f-4d17-a322-3xb3-178d08def5b9",
-        "BdoId":18617 
-    }
+        "BdoId":18617,}
 };
     try {
       var response = await http
@@ -57,8 +57,7 @@ class ApiController {
         "paymentMethod": "card",
          "planPrice":100,
           "trasntionId":"0dda010f-4d17-a322-3xb3-178d08def5b9",
-        "BdoId":18617 
-    }
+          "BdoId": 18617}
     };
     try {
       var response = await http
