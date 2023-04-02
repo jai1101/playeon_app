@@ -339,19 +339,13 @@ class _SignupScreenState extends State<SignupScreen> {
         phone: numberController.text,
         country: cityController,
       );
-      print("User $user");
-      var response = await ApiController().trailUserCreate(user);
-      print(response);
-      if (response is Map) {
-        if (response['status']) {
-          // UserModel userDetails = UserModel.fromJson(response['data']);
-        } else {
-          Fluttertoast.showToast(
-              msg: response['msg'], toastLength: Toast.LENGTH_SHORT);
-        }
-      } else {
-        Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
-      }
+      Navigator.push(
+          context,
+          SwipeLeftAnimationRoute(
+              milliseconds: 200,
+              widget: SignupScreen2(
+                userData: user,
+              )));
     }
   }
 
@@ -512,10 +506,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       fontSize: 20,
                       onTap: () {
                         userCreate();
-                        // Navigator.push(
-                        //     context,
-                        //     SwipeLeftAnimationRoute(
-                        //         milliseconds: 200, widget: SignupScreen2()));
                       },
                     ),
                   ],

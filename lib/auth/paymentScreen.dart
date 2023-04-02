@@ -1,13 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:playeon/auth/payfast.dart';
 import 'package:playeon/auth/trail.dart';
+import 'package:playeon/auth/user_model.dart';
 import 'package:playeon/auth/vochercode.dart';
 
 import '../widgets/common.dart';
 import '../widgets/style.dart';
+import 'api_controller.dart';
 
-class paymentScreen extends StatelessWidget {
-  const paymentScreen({super.key});
+class paymentScreen extends StatefulWidget {
+  UserModel? userData;
+  paymentScreen({super.key, this.userData});
+
+  @override
+  State<paymentScreen> createState() => _paymentScreenState();
+}
+
+class _paymentScreenState extends State<paymentScreen> {
+  createTrial() async {
+    var response = await ApiController().trailUserCreate(widget.userData!);
+    print(response);
+
+    if (response['status'] == "200") {
+      Navigator.push(context,
+          SwipeLeftAnimationRoute(milliseconds: 200, widget: TrailScreen()));
+    } else {
+      Fluttertoast.showToast(
+          msg: response['msg'], toastLength: Toast.LENGTH_SHORT);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +101,7 @@ class paymentScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 200, widget: TrailScreen()));
+                  createTrial();
                 },
               ),
             ),
