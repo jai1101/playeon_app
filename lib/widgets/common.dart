@@ -311,79 +311,21 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
   }
 }
 
-class CustomDropDown extends StatefulWidget {
-  String hintTxt;
-  String? selectedTxt;
-  List<String> list;
-  CustomDropDown(
-      {Key? key, required this.hintTxt, this.selectedTxt, required this.list})
-      : super(key: key);
+// class CustomDropDown extends StatefulWidget {
+//   String hintTxt;
+//   String? selectedTxt;
+//   List<String> list;
+//   CustomDropDown(
+//       {Key? key, required this.hintTxt, this.selectedTxt, required this.list})
+//       : super(key: key);
 
-  @override
-  State<CustomDropDown> createState() => _CustomDropDownState();
-}
+//   @override
+//   State<CustomDropDown> createState() => _CustomDropDownState();
+// }
 
-class _CustomDropDownState extends State<CustomDropDown> {
-  @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Container(
-        // color: Colors.black ,
-        child: InputDecorator(
-            decoration: InputDecoration(
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-            child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                    hint: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              VariableText(
-                                text: widget.hintTxt,
-                                fontFamily: fontMedium,
-                                fontcolor: Colors.black,
-                                fontsize: size.height * 0.024,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    value: widget.selectedTxt,
-                    isExpanded: true,
-                    onTap: () {
-                      FocusScope.of(context).unfocus();
-                    },
-                    onChanged: (String? value) {
-                      {
-                        setState(() {
-                          widget.selectedTxt = value;
-                        });
-                      }
-                    },
-                    style: TextStyle(
-                        fontSize: size.height * 0.024, color: Colors.black),
-                    items: widget.list
-                        .map<DropdownMenuItem<String>>((String item) {
-                      return DropdownMenuItem<String>(
-                        value: item,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            VariableText(
-                              text: item,
-                              fontsize: size.height * 0.024,
-                              fontcolor: Colors.black,
-                              fontFamily: fontMedium,
-                            ),
-                          ],
-                        ),
-                      );
-                    }).toList()))));
-  }
-}
+// class _CustomDropDownState extends State<CustomDropDown> {
+//   @override
+//   Widget build(BuildContext context) {
+//     var size = MediaQuery.of(context).size;
+//     return   }
+// }
