@@ -1,10 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:playeon/auth/payfast.dart';
 import 'package:playeon/auth/trail.dart';
 import 'package:playeon/auth/user_model.dart';
 import 'package:playeon/auth/vochercode.dart';
-
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 import 'api_controller.dart';
@@ -22,13 +23,41 @@ class _paymentScreenState extends State<paymentScreen> {
     var response = await ApiController().trailUserCreate(widget.userData!);
     print(response);
 
-    if (response['status'] == "200") {
+    if (response == "200") {
       Navigator.push(context,
           SwipeLeftAnimationRoute(milliseconds: 200, widget: TrailScreen()));
     } else {
-      Fluttertoast.showToast(
-          msg: response['msg'], toastLength: Toast.LENGTH_SHORT);
+      Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
     }
+  }
+
+  signupUser() async {
+    var getToken= await ApiController().gettokenCreate();
+    if(!getToken['errorCode']){
+    var response = await ApiController().userCreate(widget.userData!);
+    print(response);
+
+    if (response == "200") {
+      Navigator.push(context,
+          SwipeLeftAnimationRoute(milliseconds: 200, widget: PayFast()));
+    } else {
+      Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
+    }
+  }
+  }
+  //! voucher user create
+
+  userCreatetoVoucher() async {
+    var response = await ApiController().voucherUserCreate(widget.userData!);
+    print(response);
+
+    if (response == "200") {
+      Navigator.push(context,
+          SwipeLeftAnimationRoute(milliseconds: 200, widget: VoucherCode()));
+    } else {
+      Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
+    }
+  
   }
 
   @override
@@ -125,10 +154,7 @@ class _paymentScreenState extends State<paymentScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 200, widget: PayFast()));
+                  signupUser();
                 },
               ),
             ),
@@ -152,10 +178,7 @@ class _paymentScreenState extends State<paymentScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 200, widget: VoucherCode()));
+                  userCreatetoVoucher();
                 },
               ),
             ),

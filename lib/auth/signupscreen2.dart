@@ -4,15 +4,10 @@ import 'package:playeon/auth/user_model.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
 
-class SignupScreen2 extends StatefulWidget {
+class SignupScreen2 extends StatelessWidget {
   UserModel? userData;
   SignupScreen2({super.key, this.userData});
 
-  @override
-  State<SignupScreen2> createState() => _SignupScreen2State();
-}
-
-class _SignupScreen2State extends State<SignupScreen2> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -149,7 +144,7 @@ class _SignupScreen2State extends State<SignupScreen2> {
                     context,
                     SwipeLeftAnimationRoute(
                         milliseconds: 200,
-                        widget: paymentScreen(userData: widget.userData)));
+                        widget: paymentScreen(userData: userData)));
               },
             ),
           ],
