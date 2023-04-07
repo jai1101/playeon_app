@@ -89,11 +89,11 @@ class ApiController {
   }
 
   Future<dynamic> gettokenCreate() async {
-    var url = "https://apiv1.playeon.com/api/v1/signup/payfast";
+    var url = "https://ipg1.apps.net.pk/Ecommerce/api/Transaction/GetAccessToken";
     var userSignupdata = {
-      "user": {
+   
         "MERCHANT_ID": 14392,
-        "SECURED_KEY": "sS7ulxd4pGwExxo5g9XMwc",}
+        "SECURED_KEY": "sS7ulxd4pGwExxo5g9XMwc"
         
     };
    print("url $url and ${json.encode(userSignupdata)}");

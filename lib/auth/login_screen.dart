@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/main.dart';
 import 'package:playeon/walkscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
 
