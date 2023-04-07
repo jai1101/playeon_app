@@ -33,9 +33,13 @@ class _paymentScreenState extends State<paymentScreen> {
 
   signupUser() async {
     var getToken = await ApiController().gettokenCreate();
-    if (!getToken['errorCode']) {
-      var response = await ApiController().userCreate(widget.userData!);
-      print(response);
+    print(getToken);
+    if (getToken['status']) {
+      String accestoken = getToken['data']['ACCESS_TOKEN'];
+      String date = getToken['data']['GENERATED_DATE_TIME'];
+      print(date);
+      var response =
+          await ApiController().userCreate(widget.userData!, accestoken, date);
 
       if (response == "200") {
         Navigator.push(context,

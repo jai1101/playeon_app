@@ -80,7 +80,8 @@ class ApiController {
     }
   }
 
-  Future<dynamic> userCreate(UserModel userDetails) async {
+  Future<dynamic> userCreate(
+      UserModel userDetails, String token, String date) async {
     var url = "https://apiv1.playeon.com/api/v1/signup/payfast";
     var userSignupdata = {
       "user": {
@@ -97,15 +98,51 @@ class ApiController {
         "BdoId": 18617
       }
     };
-    print("url $url and ${json.encode(userSignupdata)}");
+    // print("url $url and ${json.encode(userSignupdata)}");
     try {
-      var response = await http
-          .post(Uri.parse(url),
-              headers: {'Content-Type': 'application/json'},
-              body: json.encode(userSignupdata))
-          .timeout(Duration(seconds: _timeoutDuration), onTimeout: () {
-        throw "Request time out";
-      });
+      var response = await http.post(Uri.parse(url),
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode(userSignupdata));
+
+      print(response);
+      if (response.statusCode == 200) {
+        var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+        return data;
+      } else {
+        var statusData = jsonDecode(utf8.decode(response.bodyBytes));
+        return statusData['msg'].toString();
+      }
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  Future<dynamic> postTransaction(
+      UserModel userDetails, String token, String date) async {
+    var url = "yaha Tansaction wali api lagana";
+    var userSignupdata = {
+      "user": {
+        "name": userDetails.name,
+        "email": userDetails.email,
+        "username": userDetails.username,
+        "password": userDetails.password,
+        "phoneNumber": userDetails.phone,
+        "country": userDetails.country,
+        "plan": "planOne",
+        "paymentMethod": "card",
+        "planPrice": 100,
+        "voucher": "gEtN5tXKCy",
+        "BdoId": 18617
+      }
+    };
+    // print("url $url and ${json.encode(userSignupdata)}");
+    try {
+      var response = await http.post(Uri.parse(url),
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode(userSignupdata));
+
+      print(response);
       if (response.statusCode == 200) {
         var data = jsonDecode(utf8.decode(response.bodyBytes));
 
@@ -126,7 +163,7 @@ class ApiController {
       "MERCHANT_ID": 14392,
       "SECURED_KEY": "sS7ulxd4pGwExxo5g9XMwc"
     };
-    print("url $url and ${json.encode(userSignupdata)}");
+    // print("url $url and ${json.encode(userSignupdata)}");
     try {
       var response = await http
           .post(Uri.parse(url),
@@ -138,7 +175,8 @@ class ApiController {
       if (response.statusCode == 200) {
         var data = jsonDecode(utf8.decode(response.bodyBytes));
 
-        return data;
+        var res = {"status": true, "data": data};
+        return res;
       } else {
         var statusData = jsonDecode(utf8.decode(response.bodyBytes));
         return statusData['msg'].toString();
