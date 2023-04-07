@@ -32,18 +32,18 @@ class _paymentScreenState extends State<paymentScreen> {
   }
 
   signupUser() async {
-    var getToken= await ApiController().gettokenCreate();
-    if(!getToken['errorCode']){
-    var response = await ApiController().userCreate(widget.userData!);
-    print(response);
+    var getToken = await ApiController().gettokenCreate();
+    if (!getToken['errorCode']) {
+      var response = await ApiController().userCreate(widget.userData!);
+      print(response);
 
-    if (response == "200") {
-      Navigator.push(context,
-          SwipeLeftAnimationRoute(milliseconds: 200, widget: PayFast()));
-    } else {
-      Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
+      if (response == "200") {
+        Navigator.push(context,
+            SwipeLeftAnimationRoute(milliseconds: 200, widget: PayFast()));
+      } else {
+        Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
+      }
     }
-  }
   }
   //! voucher user create
 
@@ -57,7 +57,6 @@ class _paymentScreenState extends State<paymentScreen> {
     } else {
       Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
     }
-  
   }
 
   @override

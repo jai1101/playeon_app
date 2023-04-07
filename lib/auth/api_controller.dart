@@ -4,7 +4,39 @@ import 'package:playeon/auth/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiController {
-  final int _timeoutDuration = 30;
+  final int _timeoutDuration = 20;
+  //! login user
+
+  Future<dynamic> loginUser(String userName, String password) async {
+    var url = "";
+    var data = {
+      "user": {"username": userName, "password": password}
+    };
+    try {
+      var response = await http
+          .post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode(data),
+      )
+          .timeout(Duration(seconds: _timeoutDuration), onTimeout: () {
+        throw "Request time out";
+      });
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        var datas = jsonDecode(utf8.decode(response.bodyBytes));
+
+        return response.statusCode;
+      } else {
+        var statusData = jsonDecode(utf8.decode(response.bodyBytes));
+
+        return response.statusCode;
+      }
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
   //! user Create
   Future<dynamic> trailUserCreate(UserModel userDetails) async {
     var url = "https://apiv1.playeon.com/api/v1/signup/trial";
@@ -38,7 +70,7 @@ class ApiController {
       if (response.statusCode == 200) {
         var datas = jsonDecode(utf8.decode(response.bodyBytes));
 
-        return datas;
+        return response.statusCode;
       } else {
         var statusData = jsonDecode(utf8.decode(response.bodyBytes));
 
@@ -59,14 +91,14 @@ class ApiController {
         "password": userDetails.password,
         "phoneNumber": userDetails.phone,
         "country": userDetails.country,
-         "plan": "planOne",
+        "plan": "planOne",
         "paymentMethod": "card",
         "planPrice": 100,
         "voucher": "gEtN5tXKCy",
-        "BdoId": 18617 
+        "BdoId": 18617
       }
     };
-   print("url $url and ${json.encode(userSignupdata)}");
+    print("url $url and ${json.encode(userSignupdata)}");
     try {
       var response = await http
           .post(Uri.parse(url),
@@ -89,14 +121,13 @@ class ApiController {
   }
 
   Future<dynamic> gettokenCreate() async {
-    var url = "https://ipg1.apps.net.pk/Ecommerce/api/Transaction/GetAccessToken";
+    var url =
+        "https://ipg1.apps.net.pk/Ecommerce/api/Transaction/GetAccessToken";
     var userSignupdata = {
-   
-        "MERCHANT_ID": 14392,
-        "SECURED_KEY": "sS7ulxd4pGwExxo5g9XMwc"
-        
+      "MERCHANT_ID": 14392,
+      "SECURED_KEY": "sS7ulxd4pGwExxo5g9XMwc"
     };
-   print("url $url and ${json.encode(userSignupdata)}");
+    print("url $url and ${json.encode(userSignupdata)}");
     try {
       var response = await http
           .post(Uri.parse(url),
@@ -117,9 +148,8 @@ class ApiController {
       return e.toString();
     }
   }
-  
 
-Future<dynamic>  voucherUserCreate(UserModel userDetails) async {
+  Future<dynamic> voucherUserCreate(UserModel userDetails) async {
     var url = "https://apiv1.playeon.com/api/v1/signup";
     var userSignupdata = {
       "user": {
@@ -129,14 +159,14 @@ Future<dynamic>  voucherUserCreate(UserModel userDetails) async {
         "password": userDetails.password,
         "phoneNumber": userDetails.phone,
         "country": userDetails.country,
-         "plan": "planOne",
+        "plan": "planOne",
         "paymentMethod": "voucher",
         "planPrice": 100,
         "voucher": "gEtN5tXKCy",
-        "BdoId": 18617 
+        "BdoId": 18617
       }
     };
-   print("url $url and ${json.encode(userSignupdata)}");
+    print("url $url and ${json.encode(userSignupdata)}");
     try {
       var response = await http
           .post(Uri.parse(url),
@@ -157,4 +187,4 @@ Future<dynamic>  voucherUserCreate(UserModel userDetails) async {
       return e.toString();
     }
   }
-  }
+}

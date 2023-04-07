@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:playeon/main.dart';
 import 'package:playeon/walkscreen/walkthrough.dart';
 import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
 import 'SignupScreen.dart';
+import 'api_controller.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,6 +18,30 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isValid = false;
+  validate() {
+    if (usernameController.text.isNotEmpty) {
+      if (passwordController.text.isNotEmpty) {
+        isValid = true;
+      } else {
+        Fluttertoast.showToast(
+            msg: "Plase Enter password",
+            toastLength: Toast.LENGTH_SHORT); //password
+      }
+    } else {
+      Fluttertoast.showToast(
+          msg: "Plase enter Email", toastLength: Toast.LENGTH_SHORT);
+    }
+
+    return isValid;
+  }
+
+  loginUser() async {
+    if (validate()) {
+      var response = await ApiController()
+          .loginUser(usernameController.text, passwordController.text);
+    }
+  }
 
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
