@@ -8,32 +8,31 @@ class ApiController {
   //! login user
 
   Future<dynamic> loginUser(String userName, String password) async {
-    var url = "";
+    var url = "https://apiv1.playeon.com/api/v1/auth";
     var data = {
       "user": {"username": userName, "password": password}
     };
-    try {
-      var response = await http
-          .post(
-        Uri.parse(url),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode(data),
-      )
-          .timeout(Duration(seconds: _timeoutDuration), onTimeout: () {
-        throw "Request time out";
-      });
-      print(response.statusCode);
-      if (response.statusCode == 200) {
-        var datas = jsonDecode(utf8.decode(response.bodyBytes));
 
-        return response.statusCode;
-      } else {
-        var statusData = jsonDecode(utf8.decode(response.bodyBytes));
+    var response = await http
+        .post(
+      Uri.parse(url),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(data),
+    )
+        .timeout(Duration(seconds: _timeoutDuration), onTimeout: () {
+      throw "Request time out";
+    });
+    print("Response ${response.statusCode}");
 
-        return response.statusCode;
-      }
-    } catch (e) {
-      return e.toString();
+    if (response.statusCode == 200) {
+      var datas = jsonDecode(utf8.decode(response.bodyBytes));
+      var data = {"status": true, "msg": datas};
+      return data;
+    } else if (response.statusCode == 401) {
+      // var statusData = jsonDecode(utf8.decode(response.bodyBytes));
+      // print(statusData);
+      var data = {"status": false, "msg": response.body};
+      return data;
     }
   }
 

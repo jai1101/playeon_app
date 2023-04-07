@@ -40,6 +40,17 @@ class _LoginScreenState extends State<LoginScreen> {
     if (validate()) {
       var response = await ApiController()
           .loginUser(usernameController.text, passwordController.text);
+      print("Get $response");
+      if (response['status']) {
+        String token = response['msg'];
+        print(token);
+
+        Navigator.push(context,
+            SwipeLeftAnimationRoute(milliseconds: 200, widget: WalkThrough1()));
+      } else {
+        Fluttertoast.showToast(
+            msg: response['msg'], toastLength: Toast.LENGTH_SHORT);
+      }
     }
   }
 
@@ -156,10 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     txtColor: Colors.white,
                     fontSize: 20,
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          SwipeLeftAnimationRoute(
-                              milliseconds: 200, widget: WalkThrough1()));
+                      loginUser();
                     },
                   ),
                   SizedBox(height: size.height * 0.02),
