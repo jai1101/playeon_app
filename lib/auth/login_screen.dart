@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:playeon/dashboard/home_screen.dart';
+import 'package:playeon/dashboard/local_preference_controller.dart';
 import 'package:playeon/main.dart';
-import 'package:playeon/walkscreen/walkthrough.dart';
-import 'package:playeon/widgets/style.dart';
 
+import 'package:playeon/widgets/style.dart';
 import '../widgets/common.dart';
 import 'SignupScreen.dart';
 import 'api_controller.dart';
@@ -44,9 +45,10 @@ class _LoginScreenState extends State<LoginScreen> {
       if (response['status']) {
         String token = response['msg'];
         print(token);
-
+        LocalPreference prefs= LocalPreference();
+      await prefs.setUserToken(token);
         Navigator.push(context,
-            SwipeLeftAnimationRoute(milliseconds: 200, widget: WalkThrough1()));
+            SwipeLeftAnimationRoute(milliseconds: 200, widget: HomeScreen(token: token,)));
       } else {
         Fluttertoast.showToast(
             msg: response['msg'], toastLength: Toast.LENGTH_SHORT);
@@ -78,15 +80,32 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Column(
+                        children: [
+                          VariableText(
+                            text: "LOGIN NOW",
+                            fontcolor:textColor1,
+                            fontsize: size.height * 0.032,
+                            fontFamily: fontExtraBold,
+                            weight: FontWeight.w700,
+                            textAlign: TextAlign.center,
+                          ),
+                           SizedBox(
+                    height: size.height * 0.02,
+                  ),
                       VariableText(
-                        text: "Log in",
-                        fontsize: size.height * 0.022,
+                        text: "And Enjoy Endless",
+                        fontcolor:textColor1,
+                        fontsize: size.height * 0.016,
                         fontFamily: fontExtraBold,
-                        weight: FontWeight.w700,
-                        textAlign: TextAlign.start,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
                       ),
+                        ],
+                      ),
+                     
                     ],
                   ),
                   SizedBox(
@@ -95,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   //!User Name
                   CustomTextField(
                     cont: usernameController,
-                    hintTxt: "Username",
+                    hintTxt: "Enter Your Email",
                     fill: true,
                   ),
                   SizedBox(
@@ -104,82 +123,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   //!password
                   CustomPasswordField(
                     cont: passwordController,
-                    hintTxt: "Password",
+                    hintTxt: "Enter Your Password",
                     fill: true,
                   ),
                   SizedBox(
-                    height: size.height * 0.02,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Column(
-                              children: [
-                                Icon(
-                                  Icons.rectangle,
-                                  color: textColorS,
-                                  size: 18,
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                VariableText(
-                                  text: "Remember me",
-                                  fontcolor: textColorS,
-                                  fontsize: size.height * 0.018,
-                                  fontFamily: fontMedium,
-                                  weight: FontWeight.w500,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            VariableText(
-                              text: "Forget Password?",
-                              fontcolor: textColorS,
-                              fontsize: size.height * 0.018,
-                              fontFamily: fontMedium,
-                              weight: FontWeight.w500,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(
                     height: size.height * 0.08,
                   ),
-                  MyButton(
-                    btnHeight: size.height * 0.055,
-                    btnWidth: size.width,
-                    btnTxt: "Login",
-                    btnColor: primaryColor1,
-                    btnRadius: 25,
-                    borderColor: Colors.green,
-                    txtColor: Colors.white,
-                    fontSize: 20,
-                    onTap: () {
-                      loginUser();
-                    },
-                  ),
-                  SizedBox(height: size.height * 0.02),
-                  Row(
+                
+  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       VariableText(
                         text: "Don't have an account? ",
                         fontsize: size.height * 0.016,
-                        fontcolor: textColorS,
+                        fontcolor: textColor1,
                         weight: FontWeight.w400,
                         fontFamily: fontRegular,
+                        underlined: true,
                       ),
                       InkWell(
                         onTap: () {
@@ -192,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: VariableText(
                           text: "Create Now",
                           fontsize: size.height * 0.016,
-                          fontcolor: primaryColor1,
+                          fontcolor: textColor1,
                           weight: FontWeight.w600,
                           fontFamily: fontSemiBold,
                           underlined: true,
@@ -200,6 +160,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     ],
                   ),
+                  SizedBox(
+                    height: size.height * 0.08,
+                  ),
+                  MyButton(
+                    btnHeight: size.height * 0.055,
+                    btnWidth: size.width,
+                    btnTxt: "Login",
+                    btnColor: textColor1,
+                    btnRadius: 10,
+                    borderColor: textColor1,
+                    txtColor: textColor2,
+                    fontSize: 20,
+                    onTap: () {
+                      loginUser();
+                    },
+                  ),
+                  SizedBox(height: size.height * 0.02),
+                 
                 ],
               ),
             ),

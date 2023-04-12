@@ -28,7 +28,8 @@ class ApiController {
       var datas = jsonDecode(utf8.decode(response.bodyBytes));
       var data = {"status": true, "msg": datas};
       return data;
-    } else if (response.statusCode == 401) {
+    }
+      else if (response.statusCode == 401) {
       // var statusData = jsonDecode(utf8.decode(response.bodyBytes));
       // print(statusData);
       var data = {"status": false, "msg": response.body};
@@ -120,29 +121,36 @@ class ApiController {
 
   Future<dynamic> postTransaction(
       UserModel userDetails, String token, String date) async {
-    var url = "yaha Tansaction wali api lagana";
+    var url = "https://ipg1.apps.net.pk/Ecommerce/api/Transaction/PostTransaction";
     var userSignupdata = {
-      "user": {
-        "name": userDetails.name,
-        "email": userDetails.email,
-        "username": userDetails.username,
-        "password": userDetails.password,
-        "phoneNumber": userDetails.phone,
-        "country": userDetails.country,
-        "plan": "planOne",
-        "paymentMethod": "card",
-        "planPrice": 100,
-        "voucher": "gEtN5tXKCy",
-        "BdoId": 18617
-      }
-    };
-    // print("url $url and ${json.encode(userSignupdata)}");
-    try {
-      var response = await http.post(Uri.parse(url),
-          headers: {'Content-Type': 'application/json'},
-          body: json.encode(userSignupdata));
+       "user": {
+        "MERCHANT_ID" : "14392",
+        "MERCHANT_NAME" : "Playeon",
+        "TOKEN" : token,
+        "PROCCODE" :  "00",
+        "TXNAMT" : "100",
+        "CUSTOMER_MOBILE_NO": userDetails.phone,
+        "CUSTOMER_EMAIL_ADDRESS" : userDetails.email,
+        "SIGNATURE": "playeonPayment",
+        "VERSION": "v1",
+        "TXNDESC": "planOne",
+        "SUCCESS_URL": "https://www.playeon.com/signup/success",
+        "FAILURE_URL": "https://www.playeon.com/signup/failure",
+        "BASKET_ID": "101",
+        "ORDER_DATE": date,
+        "CHECKOUT_URL": "https://apiv1.playeon.com/api/v1/signup/payment/confirmation"
 
-      print(response);
+    }
+    };
+    //  print("url $url and ${json.encode(userSignupdata)}");
+     try {
+      var response = await http
+          .post(Uri.parse(url),
+              headers: {'Content-Type': 'application/json'},
+              body: json.encode(userSignupdata))
+          .timeout(Duration(seconds: _timeoutDuration), onTimeout: () {
+        throw "Request time out";
+      });
       if (response.statusCode == 200) {
         var data = jsonDecode(utf8.decode(response.bodyBytes));
 
@@ -155,6 +163,7 @@ class ApiController {
       return e.toString();
     }
   }
+  
 
   Future<dynamic> gettokenCreate() async {
     var url =
@@ -168,15 +177,12 @@ class ApiController {
       var response = await http
           .post(Uri.parse(url),
               headers: {'Content-Type': 'application/json'},
-              body: json.encode(userSignupdata))
-          .timeout(Duration(seconds: _timeoutDuration), onTimeout: () {
-        throw "Request time out";
-      });
+              body: json.encode(userSignupdata));
+    print(response);
       if (response.statusCode == 200) {
         var data = jsonDecode(utf8.decode(response.bodyBytes));
 
-        var res = {"status": true, "data": data};
-        return res;
+        return data;
       } else {
         var statusData = jsonDecode(utf8.decode(response.bodyBytes));
         return statusData['msg'].toString();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'dashboard/home_screen.dart';
 import 'dashboard/profile.dart';
+import 'dashboard/searchscreen.dart';
 import 'widgets/style.dart';
 
 class MainScreen extends StatefulWidget {
@@ -16,11 +17,11 @@ class _MainScreenState extends State<MainScreen>
   TabController? tabController;
   var mainTab = {
     "tabs": [
-      {"icon": "assets/icons/web_series.png"},
-      {"icon": "assets/icons/movie.png"},
+      {"icon": "assets/icons/search_ic.png"},
+     
       {"icon": "assets/icons/logo.png"},
-      {"icon": "assets/icons/explore.png"},
-      {"icon": "assets/icons/profile.png"}
+    
+      {"icon": "assets/icons/profile_ic.png"}
     ],
   };
 
@@ -54,9 +55,7 @@ class _MainScreenState extends State<MainScreen>
         controller: tabController,
         physics: const NeverScrollableScrollPhysics(),
         children: const [
-          HomeScreen(),
-          HomeScreen(),
-          HomeScreen(),
+           searchscreen(),
           HomeScreen(),
           Profile(),
           // HistoryScreen(),
@@ -67,19 +66,19 @@ class _MainScreenState extends State<MainScreen>
       bottomNavigationBar: Container(
         height: size.height * 0.085,
         decoration: const BoxDecoration(
-          color: primaryColorB,
+          color: textColor1,
         ),
         child: TabBar(
           controller: tabController,
           indicator: const BoxDecoration(
-              border: Border(top: BorderSide(color: primaryColor1, width: 2))),
-          labelColor: primaryColor1,
+              border: Border(top: BorderSide(color: textColor1, width: 2))),
+          labelColor: textColor1,
           tabs: List.generate(mainTab['tabs']!.length, (index) {
             return Tab(
               child: Image.asset(
                 mainTab['tabs']![index]['icon'].toString(),
                 scale: 1,
-                color: tabController!.index == index ? primaryColor1 : null,
+                color: tabController!.index == index ? textColor1 : null,
               ),
             );
           }),

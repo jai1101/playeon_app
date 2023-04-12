@@ -33,7 +33,7 @@ class _MyWidgetState extends State<PayFast> {
                   children: [
                     VariableText(
                       text: "Step 4 of 4",
-                      fontcolor: textColorS,
+                      fontcolor: textColor1,
                       fontsize: size.height * 0.020,
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
@@ -45,10 +45,10 @@ class _MyWidgetState extends State<PayFast> {
                       btnHeight: size.height * 0.075,
                       btnWidth: size.width,
                       btnTxt: "Pay Through Payfast",
-                      btnColor: primaryColor1,
+                      btnColor: textColor1,
                       btnRadius: 2,
-                      borderColor: Colors.green,
-                      txtColor: Colors.white,
+                      borderColor: textColor1,
+                      txtColor: textColor1,
                       fontSize: 20,
                       onTap: () {
                         Navigator.push(

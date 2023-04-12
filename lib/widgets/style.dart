@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 const AppName = "Playeon";
 
-const primaryColor1 = Color(0XFF82E73E);
+const primaryColor1 = Color(0x50C003);
 const primaryColor2 = Color(0xFF1D1D3D);
 const primaryColorB = Colors.black;
 const primaryColorW = Colors.white;
 
-const backgroundColor = Color(0xFF2B365A);
+const backgroundColor = Color(0xFF121212
+);
 const backgroundColorB = Color(0xFF242424);
 const backgroundCardColor = Color(0xFF161822);
 const cardBackgroundColor = Color(0xFF161616);
@@ -17,12 +18,14 @@ const borderColor2 = Color(0xFF475888);
 const stampColor = Color(0xFF475888);
 const dividerColor = Color(0xFFE3E3E3);
 
-const pendingColor = Color(0xFFF2C94C);
+const pendingColor = Color.fromARGB(255, 193, 191, 188);
 const completeColor = Color(0xFF27AE60);
 
 const textColor1 = Color(0xFFFFFFFF);
-const textColor2 = Color(0xFFF1F1F2);
-const textColor3 = Color(0xff161616);
+const textColor2 = Color(0xFF222222
+);
+const textColor3 = Color(0x222222
+);
 const textColor4 = Color(0xff1F1F1F);
 const textColor5 = Color(0xff4F4F4F);
 const textColor6 = Color(0xffF2F2F2);

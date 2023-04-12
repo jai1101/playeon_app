@@ -157,14 +157,14 @@ class MyButton extends StatelessWidget {
 
   MyButton({
     this.btnTxt = "Test",
-    this.borderColor = primaryColor1,
+    this.borderColor = textColor1,
     this.weight = FontWeight.w600,
     this.fontSize = 20,
     this.btnRadius = 8,
     this.onTap,
     this.btnHeight,
     this.btnWidth,
-    this.btnColor = primaryColor1,
+    this.btnColor = textColor1,
     this.txtColor = textColorW,
     this.fontFamily = fontMedium,
   });
@@ -229,17 +229,17 @@ class CustomTextField extends StatelessWidget {
       keyboardType: inputType,
       style: TextStyle(
         fontFamily: fontMedium,
-        color: primaryColor1,
+        color: textColor1,
         fontSize: size.height * 0.018,
       ),
       decoration: InputDecoration(
         hintText: hintTxt,
-        hintStyle: TextStyle(color: Colors.grey),
+        hintStyle: TextStyle(color: textColor1),
         enabled: true,
         filled: fill,
         fillColor: primaryColorB,
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: primaryColor1),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: textColor1),
         ),
       ),
     );
@@ -278,15 +278,15 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
       keyboardType: widget.inputType,
       style: TextStyle(
         fontFamily: fontMedium,
-        color: primaryColor1,
+        color: textColor1,
         fontSize: size.height * 0.018,
       ),
       decoration: InputDecoration(
         hintText: widget.hintTxt,
-        hintStyle: TextStyle(color: Colors.grey),
+        hintStyle: TextStyle(color: textColor1),
         enabled: true,
         filled: widget.fill,
-        fillColor: primaryColorB,
+        fillColor: backgroundColorB,
         suffixIcon: InkWell(
           onTap: () {
             setState(() {
@@ -297,14 +297,14 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: widget.obscure
                 ? Image.asset("assets/icons/ic_password_show.png",
-                    color: borderColor, scale: 1.7)
+                    color: textColor1, scale: 1.7)
                 : Image.asset("assets/icons/ic_password_hide.png",
-                    color: borderColor, scale: 1.7),
+                    color: textColor1, scale: 1.7),
           ),
         ),
         suffixIconConstraints: const BoxConstraints(),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: primaryColor1),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: textColor1),
         ),
       ),
     );

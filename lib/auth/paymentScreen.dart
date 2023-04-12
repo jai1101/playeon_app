@@ -31,7 +31,7 @@ class _paymentScreenState extends State<paymentScreen> {
     }
   }
 
-  signupUser() async {
+ signupUser() async {
     var getToken = await ApiController().gettokenCreate();
     print(getToken);
     if (getToken['status']) {
@@ -61,6 +61,7 @@ class _paymentScreenState extends State<paymentScreen> {
     } else {
       Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
     }
+  
   }
 
   @override
@@ -123,13 +124,13 @@ class _paymentScreenState extends State<paymentScreen> {
                 label: Text("Free Three Days Subscription"),
                 style: OutlinedButton.styleFrom(
                   fixedSize: Size(320, 60),
-                  primary: Colors.grey,
+                  primary: textColor1,
                   alignment: Alignment.centerLeft,
                   textStyle: TextStyle(
                     fontSize: 16,
                   ),
                   side: BorderSide(
-                    color: primaryColor1,
+                    color: textColor1,
                   ),
                 ),
                 onPressed: () {
@@ -147,13 +148,13 @@ class _paymentScreenState extends State<paymentScreen> {
                 label: Text("Card or JazzCash"),
                 style: OutlinedButton.styleFrom(
                   fixedSize: Size(320, 60),
-                  primary: Colors.grey,
+                  primary: textColor1,
                   alignment: Alignment.centerLeft,
                   textStyle: TextStyle(
                     fontSize: 16,
                   ),
                   side: BorderSide(
-                    color: primaryColor1,
+                    color: textColor1,
                   ),
                 ),
                 onPressed: () {
@@ -171,13 +172,13 @@ class _paymentScreenState extends State<paymentScreen> {
                 label: Text("Voucher Code"),
                 style: OutlinedButton.styleFrom(
                   fixedSize: Size(320, 60),
-                  primary: Colors.grey,
+                  primary: textColor1,
                   alignment: Alignment.centerLeft,
                   textStyle: TextStyle(
                     fontSize: 16,
                   ),
                   side: BorderSide(
-                    color: primaryColor1,
+                    color: textColor1,
                   ),
                 ),
                 onPressed: () {

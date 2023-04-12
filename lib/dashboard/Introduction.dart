@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 
 import '../widgets/common.dart';
@@ -52,33 +50,73 @@ class IntroductionPage extends StatelessWidget {
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             Row(
               children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Introduction",
-                    fontcolor: primaryColorW,
+                Column(
+                  children: [
+                    VariableText(
+                      text: "Winnie The Pooh",
+                      fontcolor: textColor1,
+                      fontsize: size.height * 0.02,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    ),
+                    VariableText(
+                    text: "1 hr 21 mins",
+                    fontcolor: textColor1,
                     fontsize: size.height * 0.02,
                     fontFamily: fontMedium,
                     weight: FontWeight.w500,
                   ),
-                ),
-                Icon(
-                  Icons.close,
-                  color: primaryColorW,
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                SizedBox(
-                  height: size.height * 0.1,
-                  width: size.width * 0.8,
-                  child: Image.asset(
-                    image!,
-                    fit: BoxFit.cover,
+                  VariableText(
+                    text: "Action .Horror .18",
+                    fontcolor: textColor1,
+                    fontsize: size.height * 0.02,
+                    fontFamily: fontMedium,
+                    weight: FontWeight.w500,
                   ),
+                  Directionality(
+              textDirection: TextDirection.ltr,
+              child: OutlinedButton.icon(
+                icon: Icon(Icons.play_arrow),
+                label: Text("Play"),
+                style: OutlinedButton.styleFrom(
+                  fixedSize: Size(150, 30),
+                  primary: textColor1,
+                  alignment: Alignment.centerLeft,
+                  textStyle: TextStyle(
+                    fontSize: 16,
+                  ),
+                  side: BorderSide(
+                    color: textColor1,
+                    
+                  ),
+                  
                 ),
+                onPressed: () {
+                  // signupUser();
+                },
+              ),
+            ),
+                  ],
+                ),
+                // Expanded(
+                //   child: VariableText(
+                //     text: "Winnie The Pooh",
+                //     fontcolor: textColor1,
+                //     fontsize: size.height * 0.02,
+                //     fontFamily: fontMedium,
+                //     weight: FontWeight.w500,
+                //   ),
+                // ),
+                // Expanded(
+                //   child: VariableText(
+                //     text: "Winnie The Pooh",
+                //     fontcolor: textColor1,
+                //     fontsize: size.height * 0.02,
+                //     fontFamily: fontMedium,
+                //     weight: FontWeight.w500,
+                //   ),
+                // ),
+                
               ],
             ),
             Row(
@@ -86,7 +124,7 @@ class IntroductionPage extends StatelessWidget {
                 Expanded(
                   child: VariableText(
                     text:
-                        "The point of this article is to help you grasp the big picture of getting six pack abs.\n\nIn short, to get six pack abs you need to get leaner and develop your abs musculature. This is done through training and nutrition. The topic of nutrition is covered extensively elsewhere on the net: i won't delive in it.\n\nTraning-wise to build six pack abs. your must combine cardio exercise",
+                        "The days of adventures and merriment have come to an end, as Christopher Robin, now a young man, has left Winnie-The-Pooh and Piglet to fend for themselves. As time passes, feeling angry and abandoned, the two become feral. After getting a taste for blood, Winnie-The-Pooh and Piglet set off to find a new source of food. It's not long before their bloody rampage begins",
                     fontcolor: primaryColorW,
                     fontsize: size.height * 0.023,
                     fontFamily: fontSemiBold,

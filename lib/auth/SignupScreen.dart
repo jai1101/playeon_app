@@ -11,7 +11,7 @@ import 'package:playeon/auth/login_screen.dart';
 import 'package:playeon/auth/signupscreen2.dart';
 import 'package:playeon/auth/user_model.dart';
 
-import 'package:playeon/walkscreen/walkthrough.dart';
+
 import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
@@ -372,6 +372,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       text: "Welcome!",
                       fontsize: size.height * 0.040,
                       fontFamily: fontBold,
+                      fontcolor: textColor1,
                       weight: FontWeight.w700,
                     ),
                     SizedBox(
@@ -381,6 +382,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       text: "It only takes a minute",
                       fontsize: size.height * 0.016,
                       fontFamily: fontMedium,
+                      fontcolor: textColor1,
                       weight: FontWeight.w500,
                       max_lines: 2,
                     ),
@@ -391,7 +393,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     CustomTextField(
                       cont: nameController,
-                      hintTxt: "Name",
+                      hintTxt: "Enter Your Name",
                     ),
 
                     //!UserName
@@ -400,7 +402,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     CustomTextField(
                       cont: usernameController,
-                      hintTxt: "Username",
+                      hintTxt: "Enter Your Username",
                     ),
                     //!User Email
                     SizedBox(
@@ -408,7 +410,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     CustomTextField(
                       cont: emailController,
-                      hintTxt: "Email",
+                      hintTxt: "Enter Your Email",
                     ),
 
                     //!User Password
@@ -418,7 +420,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                     CustomPasswordField(
                       cont: passwordController,
-                      hintTxt: "Password",
+                      hintTxt: "Enter Your Password",
                     ),
                     //!User Number
                     SizedBox(
@@ -426,14 +428,20 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     CustomTextField(
                       cont: numberController,
-                      hintTxt: "Number",
+                      hintTxt: "Enter Your Phone no",
                       inputType: TextInputType.number,
                     ),
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
                     Container(
+                        width: size.width * 0.90,
+                height: size.width * 0.15,
                         // color: Colors.black ,
                         child: InputDecorator(
                             decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
+                              enabledBorder: OutlineInputBorder(
+                                 borderSide: BorderSide(color: textColor1),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                             ),
@@ -447,7 +455,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                             return VariableText(
                                               text: "Choose Your City",
                                               fontFamily: fontMedium,
-                                              fontcolor: textColorH,
+                                              fontcolor: textColor1,
                                               fontsize: size.height * 0.016,
                                             );
                                           }),
@@ -486,7 +494,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                         ),
                                       );
                                     }).toList())))),
-
+SizedBox(
+                      height: size.height * 0.01,
+                    ),
                     //!User Refereal Code
                     CustomTextField(
                       cont: codeController,
@@ -494,16 +504,49 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
 
                     SizedBox(
-                      height: size.height * 0.1,
+                      height: size.height * 0.05,
+                    ),
+  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      VariableText(
+                        text: "Already have an account? ",
+                        fontsize: size.height * 0.016,
+                        fontcolor: textColor1,
+                        weight: FontWeight.w400,
+                        fontFamily: fontRegular,
+                        underlined: true,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              SwipeLeftAnimationRoute(
+                                  milliseconds: 200,
+                                  widget: const LoginScreen()));
+                        },
+                        child: VariableText(
+                          text: "Login Now",
+                          fontsize: size.height * 0.016,
+                          fontcolor: textColor1,
+                          weight: FontWeight.w600,
+                          fontFamily: fontSemiBold,
+                          underlined: true,
+                        ),
+                      )
+                    ],
+                  ),
+ SizedBox(
+                      height: size.height * 0.05,
                     ),
                     MyButton(
                       btnHeight: size.height * 0.055,
                       btnWidth: size.width,
-                      btnTxt: "Sign Up",
-                      btnColor: primaryColor1,
+                      btnTxt: "SIGN UP",
+                      btnColor: textColor1,
                       btnRadius: 25,
-                      borderColor: Colors.green,
-                      txtColor: Colors.white,
+                      borderColor: textColor2,
+                      txtColor: textColor2,
                       fontSize: 20,
                       onTap: () {
                         userCreate();

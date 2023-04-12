@@ -4,7 +4,8 @@ import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+String? token;
+ HomeScreen({super.key, this.token});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -19,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
-
-  void updateList (String value)
+  
+  void updateList (String value )
   {
 
   }
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: backgroundColor,
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 30.0, left: 15),

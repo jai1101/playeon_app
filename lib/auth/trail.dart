@@ -4,6 +4,9 @@ import 'package:playeon/dashboard/home_screen.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 
+
+
+
 class TrailScreen extends StatefulWidget {
   const TrailScreen({super.key});
 
@@ -16,7 +19,7 @@ class _TrailScreenState extends State<TrailScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: backgroundColor,
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 100),
@@ -33,7 +36,7 @@ class _TrailScreenState extends State<TrailScreen> {
                   children: [
                     VariableText(
                       text: "Step 4 of 4",
-                      fontcolor: textColorS,
+                      fontcolor: textColor1,
                       fontsize: size.height * 0.018,
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
@@ -45,10 +48,10 @@ class _TrailScreenState extends State<TrailScreen> {
                       btnHeight: size.height * 0.075,
                       btnWidth: size.width,
                       btnTxt: "Start Your 3 Days Trial",
-                      btnColor: primaryColor1,
+                      btnColor: textColor1,
                       btnRadius: 2,
-                      borderColor: Colors.green,
-                      txtColor: Colors.white,
+                      borderColor: textColor1,
+                      txtColor: textColor1,
                       fontSize: 20,
                       onTap: () {
                         Navigator.push(
