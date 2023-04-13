@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:playeon/dashboard/home_screen.dart';
 import 'package:playeon/dashboard/local_preference_controller.dart';
 import 'package:playeon/main.dart';
+import 'package:playeon/main_screen.dart';
 
 import 'package:playeon/widgets/style.dart';
 import '../widgets/common.dart';
@@ -51,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
             context,
             SwipeLeftAnimationRoute(
                 milliseconds: 200,
-                widget: HomeScreen(
+                widget: MainScreen(
                   token: token,
                 )));
       } else {
