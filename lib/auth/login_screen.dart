@@ -45,10 +45,15 @@ class _LoginScreenState extends State<LoginScreen> {
       if (response['status']) {
         String token = response['msg'];
         print(token);
-        LocalPreference prefs= LocalPreference();
-      await prefs.setUserToken(token);
-        Navigator.push(context,
-            SwipeLeftAnimationRoute(milliseconds: 200, widget: HomeScreen(token: token,)));
+        LocalPreference prefs = LocalPreference();
+        await prefs.setUserToken(token);
+        Navigator.push(
+            context,
+            SwipeLeftAnimationRoute(
+                milliseconds: 200,
+                widget: HomeScreen(
+                  token: token,
+                )));
       } else {
         Fluttertoast.showToast(
             msg: response['msg'], toastLength: Toast.LENGTH_SHORT);
@@ -86,26 +91,25 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           VariableText(
                             text: "LOGIN NOW",
-                            fontcolor:textColor1,
+                            fontcolor: textColor1,
                             fontsize: size.height * 0.032,
                             fontFamily: fontExtraBold,
                             weight: FontWeight.w700,
                             textAlign: TextAlign.center,
                           ),
-                           SizedBox(
-                    height: size.height * 0.02,
-                  ),
-                      VariableText(
-                        text: "And Enjoy Endless",
-                        fontcolor:textColor1,
-                        fontsize: size.height * 0.016,
-                        fontFamily: fontExtraBold,
-                        weight: FontWeight.w500,
-                        textAlign: TextAlign.center,
-                      ),
+                          SizedBox(
+                            height: size.height * 0.02,
+                          ),
+                          VariableText(
+                            text: "And Enjoy Endless",
+                            fontcolor: textColor1,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontExtraBold,
+                            weight: FontWeight.w500,
+                            textAlign: TextAlign.center,
+                          ),
                         ],
                       ),
-                     
                     ],
                   ),
                   SizedBox(
@@ -129,8 +133,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: size.height * 0.08,
                   ),
-                
-  Row(
+
+                  MyButton(
+                    btnHeight: size.height * 0.055,
+                    btnWidth: size.width,
+                    btnTxt: "Login",
+                    btnColor: textColor1,
+                    btnRadius: 10,
+                    borderColor: textColor1,
+                    txtColor: textColor2,
+                    fontSize: 20,
+                    onTap: () {
+                      loginUser();
+                    },
+                  ),
+                  SizedBox(height: size.height * 0.02),
+
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       VariableText(
@@ -160,24 +179,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     ],
                   ),
-                  SizedBox(
-                    height: size.height * 0.08,
-                  ),
-                  MyButton(
-                    btnHeight: size.height * 0.055,
-                    btnWidth: size.width,
-                    btnTxt: "Login",
-                    btnColor: textColor1,
-                    btnRadius: 10,
-                    borderColor: textColor1,
-                    txtColor: textColor2,
-                    fontSize: 20,
-                    onTap: () {
-                      loginUser();
-                    },
-                  ),
-                  SizedBox(height: size.height * 0.02),
-                 
                 ],
               ),
             ),

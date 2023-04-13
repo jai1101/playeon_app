@@ -18,9 +18,7 @@ class _MainScreenState extends State<MainScreen>
   var mainTab = {
     "tabs": [
       {"icon": "assets/icons/search_ic.png"},
-     
       {"icon": "assets/icons/logo.png"},
-    
       {"icon": "assets/icons/profile_ic.png"}
     ],
   };
@@ -54,8 +52,8 @@ class _MainScreenState extends State<MainScreen>
       body: TabBarView(
         controller: tabController,
         physics: const NeverScrollableScrollPhysics(),
-        children: const [
-           searchscreen(),
+        children: [
+          searchscreen(),
           HomeScreen(),
           Profile(),
           // HistoryScreen(),

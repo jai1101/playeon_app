@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/auth/api_controller.dart';
 import 'package:playeon/dashboard/show_all.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
 
 class HomeScreen extends StatefulWidget {
-String? token;
-HomeScreen({super.key, this.token});
+  String? token;
+  HomeScreen({super.key, this.token});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -20,20 +21,19 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
-  
-  void updateList (String value )
-  {
 
+  void updateList(String value) {}
+  getMovies() async {
+    var response = await ApiController();
   }
-   getMovies() async {
-    
-   }
+
   @override
   void initState() {
-     getMovies();
+    getMovies();
 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -55,12 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
                     )),
-                  
                     IconButton(
-                      onPressed: () {
-
-              
-                      },
+                      onPressed: () {},
                       icon: Icon(
                         Icons.search,
                         color: Colors.white,
@@ -120,8 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: size.width,
                   height: size.height * 0.30,
                   child: Row(
-                    
-                  children: [
+                    children: [
                       Expanded(
                         child: ListView.builder(
                             itemCount: images.length,
@@ -188,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               crossAxisSpacing: size.width * 0.01,
-                               mainAxisSpacing: size.height * 0.011,
+                              mainAxisSpacing: size.height * 0.011,
                               //childAspectRatio: 0.63,
                               childAspectRatio:
                                   size.width / (size.height * 0.30),

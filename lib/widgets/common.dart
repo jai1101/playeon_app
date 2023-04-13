@@ -237,7 +237,7 @@ class CustomTextField extends StatelessWidget {
         hintStyle: TextStyle(color: textColor1),
         enabled: true,
         filled: fill,
-        fillColor: primaryColorB,
+        fillColor: backgroundColorB,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: textColor1),
         ),
