@@ -5,7 +5,7 @@ import 'package:playeon/widgets/style.dart';
 
 class HomeScreen extends StatefulWidget {
 String? token;
- HomeScreen({super.key, this.token});
+HomeScreen({super.key, this.token});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -24,6 +24,15 @@ class _HomeScreenState extends State<HomeScreen> {
   void updateList (String value )
   {
 
+  }
+   getMovies() async {
+    
+   }
+  @override
+  void initState() {
+     getMovies();
+
+    super.initState();
   }
   @override
   Widget build(BuildContext context) {

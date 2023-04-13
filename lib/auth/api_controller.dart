@@ -231,3 +231,33 @@ class ApiController {
     }
   }
 }
+ Future<dynamic> getMoviesCreate(
+       String accessToken, ) async {
+    var url = "https://apiv1.playeon.com/api/v1/movie";
+  
+    
+    // print("url $url and ${json.encode(userSignupdata)}");
+    try {
+     var response = await http
+          .post(
+        Uri.parse(url),
+        headers: <String, String>{
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + accessToken!
+        },
+            );
+      print(response);
+      if (response.statusCode == 200) {
+        var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+        return data;
+      } else {
+        var statusData = jsonDecode(utf8.decode(response.bodyBytes));
+        return statusData['msg'].toString();
+      }
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+
