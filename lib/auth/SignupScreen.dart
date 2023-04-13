@@ -487,7 +487,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                             VariableText(
                                               text: item,
                                               fontsize: size.height * 0.016,
-                                              fontcolor: primaryColor1,
+                                              fontcolor: Colors.black,
                                               fontFamily: fontMedium,
                                             ),
                                           ],

@@ -19,7 +19,7 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 15.0, left: 15),
