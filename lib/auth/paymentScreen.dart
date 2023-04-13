@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:playeon/auth/payfast.dart';
+// import 'package:playeon/auth/payfast.dart';
 import 'package:playeon/auth/trail.dart';
 import 'package:playeon/auth/user_model.dart';
 import 'package:playeon/auth/vochercode.dart';
@@ -31,24 +31,24 @@ class _paymentScreenState extends State<paymentScreen> {
     }
   }
 
- signupUser() async {
-    var getToken = await ApiController().gettokenCreate();
-    print(getToken);
-    if (getToken['status']) {
-      String accestoken = getToken['data']['ACCESS_TOKEN'];
-      String date = getToken['data']['GENERATED_DATE_TIME'];
-      print(date);
-      var response =
-          await ApiController().userCreate(widget.userData!, accestoken, date);
+//  signupUser() async {
+//     var getToken = await ApiController().gettokenCreate();
+//     print(getToken);
+//     if (getToken['status']) {
+//       String accestoken = getToken['data']['ACCESS_TOKEN'];
+//       String date = getToken['data']['GENERATED_DATE_TIME'];
+//       print(date);
+//       var response =
+//           await ApiController().userCreate(widget.userData!, accestoken, date);
 
-      if (response == "200") {
-        Navigator.push(context,
-            SwipeLeftAnimationRoute(milliseconds: 200, widget: PayFast()));
-      } else {
-        Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
-      }
-    }
-  }
+//       if (response == "200") {
+//         Navigator.push(context,
+//             SwipeLeftAnimationRoute(milliseconds: 200, widget: PayFast()));
+//       } else {
+//         Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
+//       }
+//     }
+//   }
   //! voucher user create
 
   userCreatetoVoucher() async {
@@ -68,7 +68,7 @@ class _paymentScreenState extends State<paymentScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 100),
@@ -76,24 +76,42 @@ class _paymentScreenState extends State<paymentScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: VariableText(
-                text: "Step 3 of 4",
-                fontcolor: textColorS,
+           
+              
+              VariableText(
+                text: "Choose your monthly subscription Package",
+                fontcolor: textColor1,
                 fontsize: size.height * 0.024,
                 fontFamily: fontMedium,
                 weight: FontWeight.w500,
+                max_lines: 2,
+                textAlign: TextAlign.center,
               ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
+            SizedBox(height: 30),
+            Container(
+              width: size.width * 0.80,
+                      height: size.height * 0.30,
+
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30 , right: 30),
+                child: Column(
+                  children: [
+                     VariableText(
+                        text: "STEP 3 of 4",
+                        fontcolor: textColor1,
+                        fontsize: size.height * 0.024,
+                        fontFamily: fontMedium,
+                        weight: FontWeight.w500,
+                        textAlign: TextAlign.center,
+                      ),
+                    SizedBox(height: 30,),
             VariableText(
               text: "Set up your payment",
-              fontsize: size.height * 0.040,
+              fontsize: size.height * 0.030,
               fontFamily: fontBold,
-              weight: FontWeight.w700,
+              weight: FontWeight.w500,
               max_lines: 2,
+              textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 8,
@@ -102,68 +120,53 @@ class _paymentScreenState extends State<paymentScreen> {
               text: "Your membership starts as soon as you set up payment.",
               fontFamily: fontMedium,
               fontsize: size.height * 0.024,
-              weight: FontWeight.w500,
+              weight: FontWeight.w300,
               max_lines: 3,
+              textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 8,
+              height: 20,
             ),
             VariableText(
               text: "No commitments.",
               fontFamily: fontMedium,
               fontsize: size.height * 0.024,
               weight: FontWeight.w500,
+              textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 80,
-            ),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: OutlinedButton.icon(
-                icon: Icon(Icons.shopping_cart),
-                label: Text("Free Three Days Subscription"),
-                style: OutlinedButton.styleFrom(
-                  fixedSize: Size(320, 60),
-                  primary: textColor1,
-                  alignment: Alignment.centerLeft,
-                  textStyle: TextStyle(
-                    fontSize: 16,
-                  ),
-                  side: BorderSide(
-                    color: textColor1,
-                  ),
+                  ]   
                 ),
-                onPressed: () {
-                  createTrial();
-                },
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: OutlinedButton.icon(
-                icon: Icon(Icons.shopping_cart),
-                label: Text("Card or JazzCash"),
-                style: OutlinedButton.styleFrom(
-                  fixedSize: Size(320, 60),
-                  primary: textColor1,
-                  alignment: Alignment.centerLeft,
-                  textStyle: TextStyle(
-                    fontSize: 16,
+           
+            
+            Padding(
+              padding: const EdgeInsets.only(left: 30 , right: 30),
+              child: Column(
+                children: [
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: OutlinedButton.icon(
+                      icon: Icon(Icons.shopping_cart),
+                      label: Text("Free Three Days Subscription"),
+                      style: OutlinedButton.styleFrom(
+                        fixedSize: Size(300, 70),
+                        primary: textColor1,
+                        alignment: Alignment.centerLeft,
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                        ),
+                        side: BorderSide(
+                          color: textColor1,
+                        ),
+                      ),
+                      onPressed: () {
+                        createTrial();
+                      },
+                    ),
                   ),
-                  side: BorderSide(
-                    color: textColor1,
-                  ),
-                ),
-                onPressed: () {
-                  signupUser();
-                },
-              ),
-            ),
-            SizedBox(
-              height: 10,
+                   SizedBox(
+              height: 20,
             ),
             Directionality(
               textDirection: TextDirection.rtl,
@@ -171,7 +174,7 @@ class _paymentScreenState extends State<paymentScreen> {
                 icon: Icon(Icons.shopping_cart),
                 label: Text("Voucher Code"),
                 style: OutlinedButton.styleFrom(
-                  fixedSize: Size(320, 60),
+                  fixedSize: Size(300, 70),
                   primary: textColor1,
                   alignment: Alignment.centerLeft,
                   textStyle: TextStyle(
@@ -185,6 +188,12 @@ class _paymentScreenState extends State<paymentScreen> {
                   userCreatetoVoucher();
                 },
               ),
+            ),
+                ],
+              ),
+            
+            
+           
             ),
           ],
         ),

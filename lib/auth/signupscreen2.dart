@@ -41,7 +41,7 @@ class SignupScreen2 extends StatelessWidget {
                             ),
                             VariableText(
                               text: "Back",
-                              fontcolor: primaryColorW,
+                              fontcolor: textColor1,
                               fontsize: size.height * 0.022,
                               fontFamily: fontSemiBold,
                               textAlign: TextAlign.start,
@@ -54,13 +54,13 @@ class SignupScreen2 extends StatelessWidget {
                   ]),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 10, top: 130),
+              padding: EdgeInsets.only(left: 10, top: 320),
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: size.width * 0.60,
-                      height: size.width * 0.30,
+                      width: size.width * 0.90,
+                      height: size.height * 0.40,
                       padding: EdgeInsets.all(10),
                       color: Colors.transparent,
                       child: Column(
@@ -69,10 +69,11 @@ class SignupScreen2 extends StatelessWidget {
                           VariableText(
                             text: "Unlimited collection of movies, series & tv programs  ",
                             fontcolor: textColor1,
-                            fontsize: size.height * 0.030,
+                            fontsize: size.height * 0.032,
                             fontFamily: fontMedium,
-                            weight: FontWeight.w500,
+                            weight: FontWeight.w700,
                             max_lines: 3,
+                            textAlign: TextAlign.center,
                           ),
                           SizedBox(height: 5),
                           Column(
@@ -81,22 +82,23 @@ class SignupScreen2 extends StatelessWidget {
                               VariableText(
                                 text: "Watch anytime any where. Cancel your subscription at any time with refund",
                                 fontcolor: textColor1,
-                                fontsize: size.height * 0.017,
+                                fontsize: size.height * 0.024,
                                 fontFamily: fontMedium,
                                 weight: FontWeight.w500,
+                                textAlign: TextAlign.center,
                                  max_lines: 3,
                               ),
                             ],
                           ),
 
-                         SizedBox(height: 5),
+                         SizedBox(height: 35),
                           MyButton(
                       btnHeight: size.height * 0.055,
                       btnWidth: size.width,
-                      btnTxt: "SIGN UP",
+                      btnTxt: "Start Watching",
                       btnColor: textColor1,
-                      btnRadius: 25,
-                      borderColor: textColor2,
+                      btnRadius: 5,
+                      borderColor: textColor1,
                       txtColor: textColor2,
                       fontSize: 20,
                       onTap: () {

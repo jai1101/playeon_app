@@ -67,15 +67,16 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: Stack(
           children: [
+           
             Positioned.fill(
                 child: Image.asset(
-              "assets/images/img_bgthumnails.png",
-              fit: BoxFit.cover,
-            )),
-            Positioned.fill(
-                child: Image.asset(
-              "assets/images/img_blackbg.png",
+              "assets/images/login_img.png",
               fit: BoxFit.fill,
+            )),
+             Positioned.fill(
+                child: Image.asset(
+              "assets/images/login_img2.png",
+              fit: BoxFit.cover,
             )),
             Padding(
               padding: EdgeInsets.symmetric(

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:playeon/auth/user_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -7,7 +6,8 @@ class ApiController {
   final int _timeoutDuration = 20;
   //! login user
 
-  Future<dynamic> loginUser(String userName, String password) async {
+  Future<dynamic> loginUser(String userName, String password) 
+  async {
     var url = "https://apiv1.playeon.com/api/v1/auth";
     var data = {
       "user": {"username": userName, "password": password}
