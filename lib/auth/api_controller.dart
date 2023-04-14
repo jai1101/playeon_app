@@ -228,23 +228,22 @@ class ApiController {
       return e.toString();
     }
   }
-}
- Future<dynamic> getMoviesCreate(
-       String accessToken, ) async {
+
+  Future<dynamic> getMovies(
+    String accessToken,
+  ) async {
     var url = "https://apiv1.playeon.com/api/v1/movie";
-  
-    
+    print(url + accessToken);
     // print("url $url and ${json.encode(userSignupdata)}");
     try {
-     var response = await http
-          .post(
+      var response = await http.get(
         Uri.parse(url),
         headers: <String, String>{
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + accessToken!
+          "Authorization": '$accessToken'
         },
-            );
-      print(response);
+      );
+      print(response.statusCode);
       if (response.statusCode == 200) {
         var data = jsonDecode(utf8.decode(response.bodyBytes));
 
@@ -254,8 +253,8 @@ class ApiController {
         return statusData['msg'].toString();
       }
     } catch (e) {
+      print(e.toString());
       return e.toString();
     }
   }
-
-
+}

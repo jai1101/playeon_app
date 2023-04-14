@@ -6,7 +6,8 @@ import 'dashboard/searchscreen.dart';
 import 'widgets/style.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  String? token;
+  MainScreen({Key? key, this.token}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -27,7 +28,7 @@ class _MainScreenState extends State<MainScreen>
   void initState() {
     super.initState();
     tabController = TabController(
-        length: 5,
+        length: 3,
         animationDuration: const Duration(milliseconds: 200),
         initialIndex: 0,
         vsync: this);
@@ -54,7 +55,9 @@ class _MainScreenState extends State<MainScreen>
         physics: const NeverScrollableScrollPhysics(),
         children: [
           searchscreen(),
-          HomeScreen(),
+          HomeScreen(
+            token: widget.token,
+          ),
           Profile(),
           // HistoryScreen(),
           // AdsScreen(),
@@ -73,11 +76,10 @@ class _MainScreenState extends State<MainScreen>
           labelColor: textColor1,
           tabs: List.generate(mainTab['tabs']!.length, (index) {
             return Tab(
-              child: Image.asset(
-                mainTab['tabs']![index]['icon'].toString(),
-                scale: 1,
-                color: tabController!.index == index ? textColor1 : null,
-              ),
+              child: Image.asset(mainTab['tabs']![index]['icon'].toString(),
+                  scale: 1, color: completeColor
+                  // color: tabController!.index == index ? textColor1 : null,
+                  ),
             );
           }),
         ),

@@ -109,7 +109,8 @@ List<String> Anime = [
 
   void updateList(String value) {}
   getMovies() async {
-    var response = await ApiController();
+    var response = await ApiController().getMovies(widget.token!);
+    print(" form api $response");
   }
 
   @override
