@@ -32,28 +32,217 @@ class _searchscreenState extends State<searchscreen> {
                 )),
           )
           ,
-          SizedBox(height: 10,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              MyButton(
-                        btnHeight: size.height * 0.05,
-                        btnWidth: size.width * 0.4,
-                        borderColor: primaryColorW,
-                        btnColor: primaryColor1.withOpacity(0.2),
-                        btnRadius: 200,
-                        btnTxt: "Next",
-                        weight: FontWeight.w300,
-                        fontFamily: fontRegular,
-                        // onTap: () {
-                        //   Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //            builder: (context) => const action(),
-                        //            ));
-                        // },
-                      )
-            ],
+          
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 150 , horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.2,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Action",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            SizedBox(width: 10,),
+                            MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.2,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Sci-Fi",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            SizedBox(width: 10,),
+                            MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.2,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Anime",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            SizedBox(width: 10,),
+                            MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.2,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Funny",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            )
+                  ],
+                ),
+                SizedBox(height: 20,),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.25,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Horror",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            SizedBox(width: 10,),
+                            MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.25,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Romantic",
+                              weight: FontWeight.w300,
+                              
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            SizedBox(width: 10,),
+                            MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.25,
+                              borderColor: textColor1,
+                              btnColor: textColor1,
+                              btnRadius: 200,
+                              btnTxt: "Adventure",
+                              weight: FontWeight.w300,
+                              
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                           
+                  ],
+                ),
+                SizedBox(height: 20,),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.25,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Thriller",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            SizedBox(width: 10,),
+                            MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.25,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Cartoon",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            
+                           
+                  ],
+                ),
+                SizedBox(height: 20,),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MyButton(
+                              btnHeight: size.height * 0.05,
+                              btnWidth: size.width * 0.25,
+                              borderColor: primaryColorW,
+                              btnColor: primaryColor1.withOpacity(0.2),
+                              btnRadius: 200,
+                              btnTxt: "Movies",
+                              weight: FontWeight.w300,
+                              fontFamily: fontRegular,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+                            ),
+                            
+                  ],
+                ),
+              ],
+            ),
           )
 
         ],

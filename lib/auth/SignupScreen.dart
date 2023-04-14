@@ -354,15 +354,22 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Stack(
            children: [
            
-            Positioned.fill(
+             Positioned.fill(
                 child: Image.asset(
               "assets/images/login_img.png",
               fit: BoxFit.fill,
             )),
+             Positioned.fill(
+                child: Image.asset(
+              "assets/images/login_img2.png",
+              fit: BoxFit.cover,
+            )),
+            
            SingleChildScrollView(
             child: Container(
               color: primaryColorB,
@@ -370,7 +377,7 @@ class _SignupScreenState extends State<SignupScreen> {
               child: Column(children: [
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: size.height * 0.08, horizontal: size.width * 0.1),
+                      vertical: size.height * 0.05, horizontal: size.width * 0.1),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -397,7 +404,7 @@ class _SignupScreenState extends State<SignupScreen> {
         
                       //!Name
                       SizedBox(
-                        height: size.height * 0.01,
+                        height: size.height * 0.05,
                       ),
                       CustomTextField(
                         cont: nameController,
@@ -545,7 +552,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ],
                     ),
          SizedBox(
-                        height: size.height * 0.05,
+                        height: size.height * 0.02,
                       ),
                       MyButton(
                         btnHeight: size.height * 0.055,

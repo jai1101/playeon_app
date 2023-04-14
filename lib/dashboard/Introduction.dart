@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import '../widgets/common.dart';
@@ -73,49 +75,41 @@ class IntroductionPage extends StatelessWidget {
                     fontFamily: fontMedium,
                     weight: FontWeight.w500,
                   ),
+
                   Directionality(
               textDirection: TextDirection.ltr,
-              child: OutlinedButton.icon(
+              child:  TextButton.icon(
                 icon: Icon(Icons.play_arrow),
-                label: Text("Play"),
-                style: OutlinedButton.styleFrom(
+                 label: Text("Play"),
+                  style: OutlinedButton.styleFrom(
                   fixedSize: Size(150, 30),
                   primary: textColor1,
-                  alignment: Alignment.centerLeft,
+                 alignment: Alignment.centerLeft,
                   textStyle: TextStyle(
                     fontSize: 16,
+                       
+                        // onTap: () {
+                        //   Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //            builder: (context) => const action(),
+                        //            ));
+                        // },
+                  
                   ),
                   side: BorderSide(
                     color: textColor1,
-                    
-                  ),
-                  
-                ),
+                     ),
+                 ),
                 onPressed: () {
                   // signupUser();
                 },
               ),
             ),
+           
                   ],
                 ),
-                // Expanded(
-                //   child: VariableText(
-                //     text: "Winnie The Pooh",
-                //     fontcolor: textColor1,
-                //     fontsize: size.height * 0.02,
-                //     fontFamily: fontMedium,
-                //     weight: FontWeight.w500,
-                //   ),
-                // ),
-                // Expanded(
-                //   child: VariableText(
-                //     text: "Winnie The Pooh",
-                //     fontcolor: textColor1,
-                //     fontsize: size.height * 0.02,
-                //     fontFamily: fontMedium,
-                //     weight: FontWeight.w500,
-                //   ),
-                // ),
+              
                 
               ],
             ),
@@ -126,7 +120,7 @@ class IntroductionPage extends StatelessWidget {
                     text:
                         "The days of adventures and merriment have come to an end, as Christopher Robin, now a young man, has left Winnie-The-Pooh and Piglet to fend for themselves. As time passes, feeling angry and abandoned, the two become feral. After getting a taste for blood, Winnie-The-Pooh and Piglet set off to find a new source of food. It's not long before their bloody rampage begins",
                     fontcolor: primaryColorW,
-                    fontsize: size.height * 0.023,
+                    fontsize: size.height * 0.022,
                     fontFamily: fontSemiBold,
                     weight: FontWeight.w300,
                     letter_spacing: 1.4,

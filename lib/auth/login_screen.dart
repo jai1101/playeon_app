@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isValid = false;
-  validate() {
+ validate() {
     if (usernameController.text.isNotEmpty) {
       if (passwordController.text.isNotEmpty) {
         isValid = true;
@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(
-                            height: size.height * 0.02,
+                            height: size.height * 0.01,
                           ),
                           VariableText(
                             text: "And Enjoy Endless",
@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: size.height * 0.02,
+                    height: size.height * 0.05,
                   ),
                   //!User Name
                   CustomTextField(
@@ -136,20 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: size.height * 0.08,
                   ),
 
-                  MyButton(
-                    btnHeight: size.height * 0.055,
-                    btnWidth: size.width,
-                    btnTxt: "Login",
-                    btnColor: textColor1,
-                    btnRadius: 10,
-                    borderColor: textColor1,
-                    txtColor: textColor2,
-                    fontSize: 20,
-                    onTap: () {
-                      loginUser();
-                    },
-                  ),
-                  SizedBox(height: size.height * 0.02),
+                 
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -178,9 +165,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontFamily: fontSemiBold,
                           underlined: true,
                         ),
-                      )
+                      ),
+
                     ],
                   ),
+                   SizedBox(height: size.height * 0.02),
+                MyButton(
+                    btnHeight: size.height * 0.055,
+                    btnWidth: size.width,
+                    btnTxt: "Login",
+                    btnColor: textColor1,
+                    btnRadius: 10,
+                    borderColor: textColor1,
+                    txtColor: textColor2,
+                    fontSize: 20,
+                    onTap: () {
+                      loginUser();
+                    },
+                  ),  
+                 
                 ],
               ),
             ),
