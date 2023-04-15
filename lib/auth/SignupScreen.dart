@@ -518,7 +518,24 @@ class _SignupScreenState extends State<SignupScreen> {
                         hintTxt: "Enter Your Referal Code",
                       ),
         
-                      SizedBox(
+                     
+         SizedBox(
+                        height: size.height * 0.02,
+                      ),
+                      MyButton(
+                        btnHeight: size.height * 0.055,
+                        btnWidth: size.width,
+                        btnTxt: "SIGN UP",
+                        btnColor: textColor1,
+                        btnRadius: 25,
+                        borderColor: textColor2,
+                        txtColor: textColor2,
+                        fontSize: 20,
+                        onTap: () {
+                          userCreate();
+                        },
+                      ),
+                       SizedBox(
                         height: size.height * 0.05,
                       ),
           Row(
@@ -551,22 +568,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         )
                       ],
                     ),
-         SizedBox(
-                        height: size.height * 0.02,
-                      ),
-                      MyButton(
-                        btnHeight: size.height * 0.055,
-                        btnWidth: size.width,
-                        btnTxt: "SIGN UP",
-                        btnColor: textColor1,
-                        btnRadius: 25,
-                        borderColor: textColor2,
-                        txtColor: textColor2,
-                        fontSize: 20,
-                        onTap: () {
-                          userCreate();
-                        },
-                      ),
                     ],
                   ),
                 ),

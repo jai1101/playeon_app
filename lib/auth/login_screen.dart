@@ -133,10 +133,29 @@ class _LoginScreenState extends State<LoginScreen> {
                     fill: true,
                   ),
                   SizedBox(
-                    height: size.height * 0.08,
+                    height: size.height * 0.05,
                   ),
-
-                 
+MyButton(
+                    btnHeight: size.height * 0.055,
+                    btnWidth: size.width,
+                    btnTxt: "Login",
+                    btnColor: textColor1,
+                    btnRadius: 10,
+                    borderColor: textColor1,
+                    txtColor: textColor2,
+                    fontSize: 20,
+                    onTap: () {
+                    //  loginUser();
+                       Navigator.push(
+                              context,
+                              SwipeLeftAnimationRoute(
+                                  milliseconds: 200,
+                                  widget:  HomeScreen()));
+                    },
+                  ),
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -169,20 +188,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     ],
                   ),
-                   SizedBox(height: size.height * 0.02),
-                MyButton(
-                    btnHeight: size.height * 0.055,
-                    btnWidth: size.width,
-                    btnTxt: "Login",
-                    btnColor: textColor1,
-                    btnRadius: 10,
-                    borderColor: textColor1,
-                    txtColor: textColor2,
-                    fontSize: 20,
-                    onTap: () {
-                      loginUser();
-                    },
-                  ),  
+                   
+                  
                  
                 ],
               ),

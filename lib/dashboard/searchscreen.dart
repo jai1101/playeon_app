@@ -19,19 +19,28 @@ class _searchscreenState extends State<searchscreen> {
       body: SafeArea(
           child: Column(
         children: [
-          TextField(
-            decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 10.0,
-                ),
-                hintText: "Search Here",
-                suffix: const Icon(Icons.search),
-                border: UnderlineInputBorder(
-                  borderSide: BorderSide(),
-                )),
-          )
-          ,
+          Container(
+  decoration: BoxDecoration(
+    color: textColor1,
+    borderRadius: BorderRadius.circular(10),
+    boxShadow: [
+      BoxShadow(
+        color: textColor1.withOpacity(0.5),
+        spreadRadius: 2,
+        blurRadius: 5,
+        offset: Offset(0, 3),
+      ),
+    ],
+  ),
+  child: TextField(
+    decoration: InputDecoration(
+      hintText: 'Search Here',
+      prefixIcon: Icon(Icons.search),
+      border: InputBorder.none,
+    ),
+  ),
+),
+        
           
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 150 , horizontal: 20),
