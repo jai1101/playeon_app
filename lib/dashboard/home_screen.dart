@@ -4,9 +4,11 @@ import 'package:playeon/dashboard/show_all.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
 
+import 'local_preference_controller.dart';
+
 class HomeScreen extends StatefulWidget {
-  String? token;
-  HomeScreen({super.key, this.token});
+ 
+  HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -109,7 +111,9 @@ List<String> Anime = [
 
   void updateList(String value) {}
   getMovies() async {
-    var response = await ApiController().getMovies(widget.token!);
+     LocalPreference prefs = LocalPreference();
+       String token= await prefs.getUserToken();
+    var response = await ApiController().getMovies(token);
     print(" form api $response");
   }
 

@@ -6,8 +6,8 @@ import 'dashboard/searchscreen.dart';
 import 'widgets/style.dart';
 
 class MainScreen extends StatefulWidget {
-  String? token;
-  MainScreen({Key? key, this.token}) : super(key: key);
+  
+  MainScreen({Key? key}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -49,14 +49,14 @@ class _MainScreenState extends State<MainScreen>
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: TabBarView(
         controller: tabController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
           searchscreen(),
           HomeScreen(
-            token: widget.token,
+            
           ),
           Profile(),
           // HistoryScreen(),

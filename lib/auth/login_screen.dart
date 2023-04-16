@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SwipeLeftAnimationRoute(
                 milliseconds: 200,
                 widget: MainScreen(
-                  token: token,
+                  
                 )));
       } else {
         Fluttertoast.showToast(
@@ -145,12 +145,8 @@ MyButton(
                     txtColor: textColor2,
                     fontSize: 20,
                     onTap: () {
-                    //  loginUser();
-                       Navigator.push(
-                              context,
-                              SwipeLeftAnimationRoute(
-                                  milliseconds: 200,
-                                  widget:  HomeScreen()));
+                     loginUser();
+                      
                     },
                   ),
                   SizedBox(

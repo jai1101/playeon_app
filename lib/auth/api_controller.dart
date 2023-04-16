@@ -12,7 +12,7 @@ class ApiController {
     var data = {
       "user": {"username": userName, "password": password}
     };
-
+print(url);
     var response = await http
         .post(
       Uri.parse(url),

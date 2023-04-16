@@ -82,11 +82,14 @@ class IntroductionPage extends StatelessWidget {
                 icon: Icon(Icons.play_arrow),
                  label: Text("Play"),
                   style: OutlinedButton.styleFrom(
-                  fixedSize: Size(150, 30),
+                  fixedSize: Size(140, 40),
                   primary: textColor1,
                  alignment: Alignment.centerLeft,
                   textStyle: TextStyle(
-                    fontSize: 16,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500
+                    
+                  
                        
                         // onTap: () {
                         //   Navigator.push(
@@ -99,6 +102,8 @@ class IntroductionPage extends StatelessWidget {
                   ),
                   side: BorderSide(
                     color: textColor1,
+                    
+                    
                      ),
                  ),
                 onPressed: () {
@@ -113,6 +118,7 @@ class IntroductionPage extends StatelessWidget {
                 
               ],
             ),
+            SizedBox(height: 10,),
             Row(
               children: [
                 Expanded(
