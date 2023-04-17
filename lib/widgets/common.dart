@@ -311,6 +311,61 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
   }
 }
 
+class ProcessLoadingLight extends StatefulWidget {
+  @override
+  State createState() {
+    return _ProcessLoadingLightState();
+  }
+}
+
+class _ProcessLoadingLightState extends State<ProcessLoadingLight>
+    with SingleTickerProviderStateMixin {
+  AnimationController? _cont;
+  Animation<Color?>? _anim;
+
+  @override
+  void initState() {
+    _cont = AnimationController(
+        duration: Duration(
+          seconds: 1,
+        ),
+        vsync: this);
+    _cont!.addListener(() {
+      setState(() {});
+    });
+    ColorTween? col = ColorTween(begin: primaryColor1, end: primaryColor2);
+    _anim = col.animate(_cont!);
+    _cont!.repeat(reverse: true);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _cont!.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Color.fromRGBO(0, 0, 0, 0.3),
+        child: Center(
+          child: SizedBox(
+              width: 50 * _cont!.value,
+              height: 50 * _cont!.value,
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(
+                  _anim!.value,
+                ),
+              )),
+        ));
+  }
+}
+
+
+///Home
+
+
 // class CustomDropDown extends StatefulWidget {
 //   String hintTxt;
 //   String? selectedTxt;
