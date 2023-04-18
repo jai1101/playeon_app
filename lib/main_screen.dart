@@ -6,7 +6,6 @@ import 'dashboard/searchscreen.dart';
 import 'widgets/style.dart';
 
 class MainScreen extends StatefulWidget {
-  
   MainScreen({Key? key}) : super(key: key);
 
   @override
@@ -55,9 +54,7 @@ class _MainScreenState extends State<MainScreen>
         physics: const NeverScrollableScrollPhysics(),
         children: [
           searchscreen(),
-          HomeScreen(
-            
-          ),
+          HomeScreen(),
           Profile(),
           // HistoryScreen(),
           // AdsScreen(),
@@ -66,20 +63,27 @@ class _MainScreenState extends State<MainScreen>
       ),
       bottomNavigationBar: Container(
         height: size.height * 0.085,
-        decoration: const BoxDecoration(
-          color: textColor1,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [primaryColor1, cardBackgroundColor.withOpacity(0.8)],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
         ),
         child: TabBar(
           controller: tabController,
+          indicatorColor: primaryColor1,
           indicator: const BoxDecoration(
               border: Border(top: BorderSide(color: textColor1, width: 2))),
-          labelColor: textColor1,
           tabs: List.generate(mainTab['tabs']!.length, (index) {
             return Tab(
-              child: Image.asset(mainTab['tabs']![index]['icon'].toString(),
-                  scale: 1, color: completeColor
-                  // color: tabController!.index == index ? textColor1 : null,
-                  ),
+              child: Image.asset(
+                mainTab['tabs']![index]['icon'].toString(),
+                scale: 1,
+                color:  null,
+
+                // tabController!.index == index ? primaryColorB : textColor1,
+              ),
             );
           }),
         ),

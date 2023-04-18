@@ -46,6 +46,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   loginUser() async {
+    Navigator.push(context,
+        SwipeLeftAnimationRoute(milliseconds: 200, widget: MainScreen()));
     setLoading(true);
     if (validate()) {
       var response = await ApiController()
