@@ -62,63 +62,56 @@ class IntroductionPage extends StatelessWidget {
                       weight: FontWeight.w500,
                     ),
                     VariableText(
-                    text: "1 hr 21 mins",
-                    fontcolor: textColor1,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                  VariableText(
-                    text: "Action .Horror .18",
-                    fontcolor: textColor1,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
+                      text: "1 hr 21 mins",
+                      fontcolor: textColor1,
+                      fontsize: size.height * 0.02,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    ),
+                    VariableText(
+                      text: "Action .Horror .18",
+                      fontcolor: textColor1,
+                      fontsize: size.height * 0.02,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    ),
+                    Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: TextButton.icon(
+                        icon: Icon(Icons.play_arrow),
+                        label: Text("Play"),
+                        style: OutlinedButton.styleFrom(
+                          fixedSize: Size(140, 40),
+                          primary: textColor1,
+                          alignment: Alignment.centerLeft,
+                          textStyle: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w500
 
-                  Directionality(
-              textDirection: TextDirection.ltr,
-              child:  TextButton.icon(
-                icon: Icon(Icons.play_arrow),
-                 label: Text("Play"),
-                  style: OutlinedButton.styleFrom(
-                  fixedSize: Size(140, 40),
-                  primary: textColor1,
-                 alignment: Alignment.centerLeft,
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500
-                    
-                  
-                       
-                        // onTap: () {
-                        //   Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //            builder: (context) => const action(),
-                        //            ));
-                        // },
-                  
-                  ),
-                  side: BorderSide(
-                    color: textColor1,
-                    
-                    
-                     ),
-                 ),
-                onPressed: () {
-                  // signupUser();
-                },
-              ),
-            ),
-           
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //            builder: (context) => const action(),
+                              //            ));
+                              // },
+
+                              ),
+                          side: BorderSide(
+                            color: textColor1,
+                          ),
+                        ),
+                        onPressed: () {
+                          // signupUser();
+                        },
+                      ),
+                    ),
                   ],
                 ),
-              
-                
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Expanded(

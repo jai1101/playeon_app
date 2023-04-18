@@ -6,7 +6,6 @@ import 'dashboard/searchscreen.dart';
 import 'widgets/style.dart';
 
 class MainScreen extends StatefulWidget {
-  
   MainScreen({Key? key}) : super(key: key);
 
   @override
@@ -55,9 +54,7 @@ class _MainScreenState extends State<MainScreen>
         physics: const NeverScrollableScrollPhysics(),
         children: [
           searchscreen(),
-          HomeScreen(
-            
-          ),
+          HomeScreen(),
           Profile(),
           // HistoryScreen(),
           // AdsScreen(),

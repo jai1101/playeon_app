@@ -4,9 +4,6 @@ import 'package:playeon/dashboard/home_screen.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 
-
-
-
 class TrailScreen extends StatefulWidget {
   const TrailScreen({super.key});
 

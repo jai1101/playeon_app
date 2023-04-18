@@ -10,7 +10,6 @@ import 'package:playeon/auth/login_screen.dart';
 import 'package:playeon/auth/signupscreen2.dart';
 import 'package:playeon/auth/user_model.dart';
 
-
 import 'package:playeon/widgets/style.dart';
 
 import '../widgets/common.dart';
@@ -25,7 +24,6 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   bool isValid = false;
   List<String> citiesList = [
-   
     "Abbottabad",
     "Adezal",
     "Ali Bandar",
@@ -356,28 +354,26 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
-        child: Stack(
-           children: [
-           
-             Positioned.fill(
-                child: Image.asset(
-              "assets/images/login_img.png",
-              fit: BoxFit.fill,
-            )),
-             Positioned.fill(
-                child: Image.asset(
-              "assets/images/login_img2.png",
-              fit: BoxFit.cover,
-            )),
-            
-           SingleChildScrollView(
+        child: Stack(children: [
+          Positioned.fill(
+              child: Image.asset(
+            "assets/images/login_img.png",
+            fit: BoxFit.fill,
+          )),
+          Positioned.fill(
+              child: Image.asset(
+            "assets/images/login_img2.png",
+            fit: BoxFit.cover,
+          )),
+          SingleChildScrollView(
             child: Container(
               color: primaryColorB,
               height: size.height,
               child: Column(children: [
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: size.height * 0.05, horizontal: size.width * 0.1),
+                      vertical: size.height * 0.05,
+                      horizontal: size.width * 0.1),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -401,7 +397,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         weight: FontWeight.w500,
                         max_lines: 2,
                       ),
-        
+
                       //!Name
                       SizedBox(
                         height: size.height * 0.05,
@@ -410,7 +406,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         cont: nameController,
                         hintTxt: "Enter Your Name",
                       ),
-        
+
                       //!UserName
                       SizedBox(
                         height: size.height * 0.01,
@@ -427,12 +423,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         cont: emailController,
                         hintTxt: "Enter Your Email",
                       ),
-        
+
                       //!User Password
                       SizedBox(
                         height: size.height * 0.01,
                       ),
-        
+
                       CustomPasswordField(
                         cont: passwordController,
                         hintTxt: "Enter Your Password",
@@ -451,19 +447,20 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       Container(
                           width: size.width * 0.90,
-                  height: size.width * 0.15,
+                          height: size.width * 0.15,
                           // color: Colors.black ,
                           child: InputDecorator(
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
-                                   borderSide: BorderSide(color: textColor1),
+                                  borderSide: BorderSide(color: textColor1),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
                               child: DropdownButtonHideUnderline(
                                   child: DropdownButton<String>(
                                       hint: Padding(
-                                        padding: const EdgeInsets.only(left: 2.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 2.0),
                                         child: StreamBuilder<Object>(
                                             stream: null,
                                             builder: (context, snapshot) {
@@ -509,7 +506,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                           ),
                                         );
                                       }).toList())))),
-        SizedBox(
+                      SizedBox(
                         height: size.height * 0.01,
                       ),
                       //!User Refereal Code
@@ -517,9 +514,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         cont: codeController,
                         hintTxt: "Enter Your Referal Code",
                       ),
-        
-                     
-         SizedBox(
+
+                      SizedBox(
                         height: size.height * 0.02,
                       ),
                       MyButton(
@@ -528,53 +524,53 @@ class _SignupScreenState extends State<SignupScreen> {
                         btnTxt: "SIGN UP",
                         btnColor: textColor1,
                         btnRadius: 25,
-                        borderColor: textColor2,
+                        borderColor: borderColor,
                         txtColor: textColor2,
                         fontSize: 20,
                         onTap: () {
                           userCreate();
                         },
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: size.height * 0.05,
                       ),
-          Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        VariableText(
-                          text: "Already have an account? ",
-                          fontsize: size.height * 0.016,
-                          fontcolor: textColor1,
-                          weight: FontWeight.w400,
-                          fontFamily: fontRegular,
-                          underlined: true,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                SwipeLeftAnimationRoute(
-                                    milliseconds: 200,
-                                    widget: const LoginScreen()));
-                          },
-                          child: VariableText(
-                            text: "Login Now",
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          VariableText(
+                            text: "Already have an account? ",
                             fontsize: size.height * 0.016,
                             fontcolor: textColor1,
-                            weight: FontWeight.w600,
-                            fontFamily: fontSemiBold,
+                            weight: FontWeight.w400,
+                            fontFamily: fontRegular,
                             underlined: true,
                           ),
-                        )
-                      ],
-                    ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  SwipeLeftAnimationRoute(
+                                      milliseconds: 200,
+                                      widget: const LoginScreen()));
+                            },
+                            child: VariableText(
+                              text: "Login Now",
+                              fontsize: size.height * 0.016,
+                              fontcolor: textColor1,
+                              weight: FontWeight.w600,
+                              fontFamily: fontSemiBold,
+                              underlined: true,
+                            ),
+                          )
+                        ],
+                      ),
                     ],
                   ),
                 ),
               ]),
             ),
           ),
-       ] ),
+        ]),
       ),
     );
   }

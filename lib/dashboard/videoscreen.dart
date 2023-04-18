@@ -1,9 +1,11 @@
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
+
 class VideoScreen extends StatefulWidget {
   @override
   _VideoScreenState createState() => _VideoScreenState();
 }
+
 class _VideoScreenState extends State<VideoScreen> {
   late VideoPlayerController _controller;
   bool _isPlaying = false;
@@ -16,7 +18,8 @@ class _VideoScreenState extends State<VideoScreen> {
         setState(() {});
       });
   }
-   @override
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
@@ -32,7 +35,8 @@ class _VideoScreenState extends State<VideoScreen> {
       _isPlaying = !_isPlaying;
     });
   }
-   @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(

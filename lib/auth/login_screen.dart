@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isValid = false;
- validate() {
+  validate() {
     if (usernameController.text.isNotEmpty) {
       if (passwordController.text.isNotEmpty) {
         isValid = true;
@@ -48,13 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
         print(token);
         LocalPreference prefs = LocalPreference();
         await prefs.setUserToken(token);
-        Navigator.push(
-            context,
-            SwipeLeftAnimationRoute(
-                milliseconds: 200,
-                widget: MainScreen(
-                  
-                )));
+        Navigator.push(context,
+            SwipeLeftAnimationRoute(milliseconds: 200, widget: MainScreen()));
       } else {
         Fluttertoast.showToast(
             msg: response['msg'], toastLength: Toast.LENGTH_SHORT);
@@ -68,13 +63,12 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-           
             Positioned.fill(
                 child: Image.asset(
               "assets/images/login_img.png",
               fit: BoxFit.fill,
             )),
-             Positioned.fill(
+            Positioned.fill(
                 child: Image.asset(
               "assets/images/login_img2.png",
               fit: BoxFit.cover,
@@ -135,18 +129,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: size.height * 0.05,
                   ),
-MyButton(
+                  MyButton(
                     btnHeight: size.height * 0.055,
                     btnWidth: size.width,
                     btnTxt: "Login",
-                    btnColor: textColor1,
+                    btnColor: fillColor2,
                     btnRadius: 10,
-                    borderColor: textColor1,
+                    borderColor: borderColor,
                     txtColor: textColor2,
                     fontSize: 20,
                     onTap: () {
-                     loginUser();
-                      
+                      //  loginUser();
+                      Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 200, widget: HomeScreen()));
                     },
                   ),
                   SizedBox(
@@ -181,12 +178,8 @@ MyButton(
                           underlined: true,
                         ),
                       ),
-
                     ],
                   ),
-                   
-                  
-                 
                 ],
               ),
             ),

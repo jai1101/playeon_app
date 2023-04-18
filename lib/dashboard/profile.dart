@@ -86,7 +86,6 @@ class _ProfileState extends State<Profile> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
                           children: [
                             CustomProfileBox(
                               title: "3120",
@@ -123,12 +122,11 @@ class _ProfileState extends State<Profile> {
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 3,
-                                       crossAxisSpacing: size.width * 0.03,
-                                       mainAxisSpacing: size.height * 0.015,
+                                      crossAxisSpacing: size.width * 0.03,
+                                      mainAxisSpacing: size.height * 0.015,
                                       // childAspectRatio: 0.63,
                                       childAspectRatio:
-                                          size.width / (size.height * 0.9
-                                          ),
+                                          size.width / (size.height * 0.9),
                                     ),
                                     shrinkWrap: false,
                                     scrollDirection: Axis.vertical,

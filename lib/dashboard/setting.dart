@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:playeon/auth/login_screen.dart';
-import 'package:playeon/dashboard/Introduction.dart';
-import 'package:playeon/dashboard/about.dart';
 import 'package:playeon/dashboard/about.dart';
 
 import '../widgets/common.dart';

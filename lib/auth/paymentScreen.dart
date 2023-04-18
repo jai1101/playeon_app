@@ -61,7 +61,6 @@ class _paymentScreenState extends State<paymentScreen> {
     } else {
       Fluttertoast.showToast(msg: response, toastLength: Toast.LENGTH_SHORT);
     }
-  
   }
 
   @override
@@ -76,72 +75,68 @@ class _paymentScreenState extends State<paymentScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           
-              
-              VariableText(
-                text: "Choose your monthly subscription Package",
-                fontcolor: textColor1,
-                fontsize: size.height * 0.024,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
-                max_lines: 2,
-                textAlign: TextAlign.center,
-              ),
-            SizedBox(height: 30),
-            Container(
-              width: size.width * 0.80,
-                      height: size.height * 0.30,
-
-              child: Padding(
-                padding: const EdgeInsets.only(left: 30 , right: 30),
-                child: Column(
-                  children: [
-                     VariableText(
-                        text: "STEP 3 of 4",
-                        fontcolor: textColor1,
-                        fontsize: size.height * 0.024,
-                        fontFamily: fontMedium,
-                        weight: FontWeight.w500,
-                        textAlign: TextAlign.center,
-                      ),
-                    SizedBox(height: 30,),
             VariableText(
-              text: "Set up your payment",
-              fontsize: size.height * 0.030,
-              fontFamily: fontBold,
+              text: "Choose your monthly subscription Package",
+              fontcolor: textColor1,
+              fontsize: size.height * 0.024,
+              fontFamily: fontMedium,
               weight: FontWeight.w500,
               max_lines: 2,
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 8,
-            ),
-            VariableText(
-              text: "Your membership starts as soon as you set up payment.",
-              fontFamily: fontMedium,
-              fontsize: size.height * 0.024,
-              weight: FontWeight.w300,
-              max_lines: 3,
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            VariableText(
-              text: "No commitments.",
-              fontFamily: fontMedium,
-              fontsize: size.height * 0.024,
-              weight: FontWeight.w500,
-              textAlign: TextAlign.center,
-            ),
-                  ]   
-                ),
+            SizedBox(height: 30),
+            Container(
+              width: size.width * 0.80,
+              height: size.height * 0.30,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: Column(children: [
+                  VariableText(
+                    text: "STEP 3 of 4",
+                    fontcolor: textColor1,
+                    fontsize: size.height * 0.024,
+                    fontFamily: fontMedium,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  VariableText(
+                    text: "Set up your payment",
+                    fontsize: size.height * 0.030,
+                    fontFamily: fontBold,
+                    weight: FontWeight.w500,
+                    max_lines: 2,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  VariableText(
+                    text:
+                        "Your membership starts as soon as you set up payment.",
+                    fontFamily: fontMedium,
+                    fontsize: size.height * 0.024,
+                    weight: FontWeight.w300,
+                    max_lines: 3,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  VariableText(
+                    text: "No commitments.",
+                    fontFamily: fontMedium,
+                    fontsize: size.height * 0.024,
+                    weight: FontWeight.w500,
+                    textAlign: TextAlign.center,
+                  ),
+                ]),
               ),
             ),
-           
-            
             Padding(
-              padding: const EdgeInsets.only(left: 30 , right: 30),
+              padding: const EdgeInsets.only(left: 30, right: 30),
               child: Column(
                 children: [
                   Directionality(
@@ -165,35 +160,32 @@ class _paymentScreenState extends State<paymentScreen> {
                       },
                     ),
                   ),
-                   SizedBox(
-              height: 20,
-            ),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: OutlinedButton.icon(
-                icon: Icon(Icons.shopping_cart),
-                label: Text("Voucher Code"),
-                style: OutlinedButton.styleFrom(
-                  fixedSize: Size(300, 70),
-                  primary: textColor1,
-                  alignment: Alignment.centerLeft,
-                  textStyle: TextStyle(
-                    fontSize: 16,
+                  SizedBox(
+                    height: 20,
                   ),
-                  side: BorderSide(
-                    color: textColor1,
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: OutlinedButton.icon(
+                      icon: Icon(Icons.shopping_cart),
+                      label: Text("Voucher Code"),
+                      style: OutlinedButton.styleFrom(
+                        fixedSize: Size(300, 70),
+                        primary: textColor1,
+                        alignment: Alignment.centerLeft,
+                        textStyle: TextStyle(
+                          fontSize: 16,
+                        ),
+                        side: BorderSide(
+                          color: textColor1,
+                        ),
+                      ),
+                      onPressed: () {
+                        userCreatetoVoucher();
+                      },
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  userCreatetoVoucher();
-                },
-              ),
-            ),
                 ],
               ),
-            
-            
-           
             ),
           ],
         ),

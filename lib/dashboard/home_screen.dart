@@ -7,7 +7,6 @@ import 'package:playeon/widgets/style.dart';
 import 'local_preference_controller.dart';
 
 class HomeScreen extends StatefulWidget {
- 
   HomeScreen({super.key});
 
   @override
@@ -24,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hostile.png",
   ];
 
-   List<String> imagecontinue = [
+  List<String> imagecontinue = [
     "assets/images/cont1.png",
     "assets/images/cont2.png",
     "assets/images/cont3.png",
@@ -32,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
-   List<String> Action = [
+  List<String> Action = [
     "assets/images/act1.png",
     "assets/images/act2.png",
     "assets/images/act3.png",
@@ -49,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
-List<String> Anime = [
+  List<String> Anime = [
     "assets/images/ani1.png",
     "assets/images/ani2.png",
     "assets/images/ani3.png",
@@ -66,7 +65,7 @@ List<String> Anime = [
     "assets/images/img_hostile.png",
   ];
 
-   List<String> kid = [
+  List<String> kid = [
     "assets/images/kid1.png",
     "assets/images/kid2.png",
     "assets/images/kid3.png",
@@ -74,7 +73,7 @@ List<String> Anime = [
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
-   List<String> rom = [
+  List<String> rom = [
     "assets/images/rom1.png",
     "assets/images/rom2.png",
     "assets/images/rom3.png",
@@ -82,7 +81,7 @@ List<String> Anime = [
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
-  List<String> Horror= [
+  List<String> Horror = [
     "assets/images/hor1.png",
     "assets/images/hor2.png",
     "assets/images/hor3.png",
@@ -91,7 +90,7 @@ List<String> Anime = [
     "assets/images/img_hostile.png",
   ];
 
-   List<String> adv = [
+  List<String> adv = [
     "assets/images/adv1.png",
     "assets/images/adv2.png",
     "assets/images/adv3.png",
@@ -108,11 +107,10 @@ List<String> Anime = [
     "assets/images/img_hostile.png",
   ];
 
-
   void updateList(String value) {}
   getMovies() async {
-     LocalPreference prefs = LocalPreference();
-       String token= await prefs.getUserToken();
+    LocalPreference prefs = LocalPreference();
+    String token = await prefs.getUserToken();
     var response = await ApiController().getMovies(token);
     print(" form api $response");
   }
@@ -204,7 +202,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -215,7 +213,7 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(imagefor[index]));
                             }),
                       )
@@ -239,7 +237,8 @@ List<String> Anime = [
                           SwipeLeftAnimationRoute(
                               milliseconds: 300,
                               widget: ShowAllMovies(
-                                  showList: imagecontinue, title: " Continue Watching"))),
+                                  showList: imagecontinue,
+                                  title: " Continue Watching"))),
                       child: Row(
                         children: [
                           VariableText(
@@ -249,7 +248,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -261,7 +260,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.6,
+                  height: size.height * 0.2,
                   padding: EdgeInsets.symmetric(
                       vertical: size.height * verticalPadding),
                   child: Row(
@@ -271,12 +270,12 @@ List<String> Anime = [
                             itemCount: imagecontinue.length,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
+                              crossAxisCount: 1,
                               crossAxisSpacing: size.width * 0.01,
-                              mainAxisSpacing: size.height * 0.011,
+                              mainAxisSpacing: size.height * 0.01,
                               //childAspectRatio: 0.63,
                               childAspectRatio:
-                                  size.width / (size.height * 0.30),
+                                  size.width / (size.height * 0.40),
                             ),
                             shrinkWrap: false,
                             scrollDirection: Axis.horizontal,
@@ -289,7 +288,7 @@ List<String> Anime = [
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -316,7 +315,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -331,7 +330,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -342,14 +341,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(Action[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -376,7 +375,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -391,7 +390,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -402,14 +401,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(trend[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -436,7 +435,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -451,7 +450,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -462,14 +461,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(Anime[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -496,7 +495,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -511,7 +510,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -522,14 +521,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(Sci[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -556,7 +555,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -571,7 +570,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -582,14 +581,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(kid[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -616,7 +615,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -631,7 +630,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -642,14 +641,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(rom[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -676,7 +675,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -691,7 +690,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -702,14 +701,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(Horror[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -736,7 +735,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -751,7 +750,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -762,14 +761,14 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(adv[index]));
                             }),
                       )
                     ],
                   ),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                       child: VariableText(
@@ -796,7 +795,7 @@ List<String> Anime = [
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: primaryColorW,
                             size: 17,
@@ -811,7 +810,7 @@ List<String> Anime = [
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.30,
+                  height: size.height * 0.18,
                   child: Row(
                     children: [
                       Expanded(
@@ -822,7 +821,7 @@ List<String> Anime = [
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  padding: EdgeInsets.only(right: 11),
+                                  padding: EdgeInsets.only(right: 1),
                                   child: Image.asset(animat[index]));
                             }),
                       )
