@@ -260,7 +260,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   width: size.width,
-                  height: size.height * 0.2,
+                  height: size.height * 0.18,
                   padding: EdgeInsets.symmetric(
                       vertical: size.height * verticalPadding),
                   child: Row(
@@ -271,11 +271,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1,
-                              crossAxisSpacing: size.width * 0.01,
-                              mainAxisSpacing: size.height * 0.01,
+                              crossAxisSpacing: size.width * 0.011,
+                              mainAxisSpacing: size.height * 0.0001,
                               //childAspectRatio: 0.63,
                               childAspectRatio:
-                                  size.width / (size.height * 0.40),
+                                  size.width / (size.height * 0.50),
                             ),
                             shrinkWrap: false,
                             scrollDirection: Axis.horizontal,
