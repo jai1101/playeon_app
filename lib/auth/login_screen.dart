@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
         print(token);
         LocalPreference prefs = LocalPreference();
         await prefs.setUserToken(token);
-        Navigator.push(context,
+        Navigator.pushReplacement(context,
             SwipeLeftAnimationRoute(milliseconds: 200, widget: MainScreen()));
       } else {
         Fluttertoast.showToast(
@@ -140,13 +140,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 20,
                     onTap: () {
                       //  loginUser();
-                      Navigator.push(
-                          context,
-                          SwipeLeftAnimationRoute(
-                              milliseconds: 200, widget: HomeScreen()));
+                      Navigator.pushReplacement(context,
+            SwipeLeftAnimationRoute(milliseconds: 200, widget: MainScreen()));
                     },
                   ),
-                  SizedBox(
+                  SizedBox(      
                     height: size.height * 0.03,
                   ),
 

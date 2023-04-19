@@ -64,55 +64,7 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
               SizedBox(
                 height: size.height * 0.02,
               ),
-              Row(
-                children: [
-                  MyButton(
-                    btnHeight: size.height * 0.03,
-                    btnWidth: size.width * 0.16,
-                    borderColor: textColor5,
-                    btnColor: textColor5,
-                    btnRadius: 200,
-                    btnTxt: "Video",
-                    fontSize: size.height * 0.016,
-                    weight: FontWeight.w300,
-                    fontFamily: fontRegular,
-                    onTap: () {},
-                  ),
-                  SizedBox(
-                    width: size.width * 0.02,
-                  ),
-                  MyButton(
-                    btnHeight: size.height * 0.03,
-                    btnWidth: size.width * 0.17,
-                    borderColor: textColor5,
-                    btnColor: textColor5,
-                    btnRadius: 200,
-                    btnTxt: "Shorts",
-                    fontSize: size.height * 0.016,
-                    weight: FontWeight.w300,
-                    fontFamily: fontRegular,
-                    onTap: () {},
-                  ),
-                  SizedBox(
-                    width: size.width * 0.02,
-                  ),
-                  MyButton(
-                    btnHeight: size.height * 0.03,
-                    btnWidth: size.width * 0.15,
-                    borderColor: textColor5,
-                    btnColor: textColor5,
-                    btnRadius: 200,
-                    btnTxt: "Live",
-                    fontSize: size.height * 0.016,
-                    weight: FontWeight.w300,
-                    fontFamily: fontRegular,
-                    onTap: () {},
-                  )
-                ],
-              ),
-              SizedBox(
-                height: size.height * 0.02,
-              ),
+             
               Expanded(
                 child: Container(
                   width: size.width,

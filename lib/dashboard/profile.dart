@@ -16,15 +16,33 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   List<String> images = [
-    "assets/images/img_justice.png",
-    "assets/images/img_rampage.png",
-    "assets/images/img_spider.png",
-    "assets/images/img_thor.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-    "assets/images/img_thor.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
+    "assets/images/act2.png",
+    "assets/images/adv3.png",
+    "assets/images/animat3.png",
+    "assets/images/cont1.png",
+    "assets/images/for3.png",
+    "assets/images/rom3.png",
+    "assets/images/trend1.png",
+    "assets/images/trend4.png",
+    "assets/images/cont2.png",
+      "assets/images/act2.png",
+    "assets/images/adv3.png",
+    "assets/images/animat3.png",
+    "assets/images/cont1.png",
+    "assets/images/for3.png",
+    "assets/images/rom3.png",
+    "assets/images/trend1.png",
+    "assets/images/trend4.png",
+    "assets/images/cont2.png",
+      "assets/images/act2.png",
+    "assets/images/adv3.png",
+    "assets/images/animat3.png",
+    "assets/images/cont1.png",
+    "assets/images/for3.png",
+    "assets/images/rom3.png",
+    "assets/images/trend1.png",
+    "assets/images/trend4.png",
+    "assets/images/cont2.png",
   ];
 
   @override
@@ -106,9 +124,7 @@ class _ProfileState extends State<Profile> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                       
                         Container(
                           width: size.width,
                           height: size.height * 0.6,
@@ -116,12 +132,13 @@ class _ProfileState extends State<Profile> {
                               vertical: size.height * verticalPadding),
                           child: Column(
                             children: [
+                              
                               Expanded(
                                 child: GridView.builder(
                                     itemCount: images.length,
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 3,
+                                      crossAxisCount: 6,
                                       crossAxisSpacing: size.width * 0.03,
                                       mainAxisSpacing: size.height * 0.015,
                                       // childAspectRatio: 0.63,

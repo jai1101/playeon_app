@@ -19,7 +19,7 @@ class _AboutState extends State<About> {
       backgroundColor: Colors.black,
       body: Stack(children: [
         Image.asset(
-          "assets/images/review_bg.png",
+          "assets/images/about_img.png",
           height: 400,
           width: double.infinity,
           fit: BoxFit.cover,

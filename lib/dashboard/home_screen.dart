@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playeon/auth/api_controller.dart';
+import 'package:playeon/dashboard/movies.dart';
 import 'package:playeon/dashboard/show_all.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
@@ -152,6 +153,69 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
+                SizedBox(height: 10,),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  MyButton(
+                    btnHeight: size.height * 0.05,
+                    btnWidth: size.width * 0.24,
+                    borderColor: textColor5,
+                    btnColor: textColor5,
+                    btnRadius: 200,
+                    btnTxt: "Series",
+                    fontSize: size.height * 0.020,
+                    weight: FontWeight.w500,
+                    fontFamily: fontRegular,
+                    
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Movies()),
+                          );
+                        
+                    },
+                  ),
+                  SizedBox(
+                    width: size.width * 0.02,
+                  ),
+                  MyButton(
+                    btnHeight: size.height * 0.05,
+                    btnWidth: size.width * 0.24,
+                    borderColor: textColor5,
+                    btnColor: textColor5,
+                    btnRadius: 200,
+                    btnTxt: "Movies",
+                    fontSize: size.height * 0.020,
+                    
+                    weight: FontWeight.w500,
+                    fontFamily: fontRegular,
+                    onTap: () {
+                       Navigator.pushReplacement(context,
+            SwipeLeftAnimationRoute(milliseconds: 200, widget:Movies()));
+                    },
+                  ),
+                  SizedBox(
+                    width: size.width * 0.02,
+                  ),
+                  MyButton(
+                    btnHeight: size.height * 0.05,
+                    btnWidth: size.width * 0.24,
+                    borderColor: textColor5,
+                    btnColor: textColor5,
+                    btnRadius: 200,
+                    btnTxt: "Categories",
+                    fontSize: size.height * 0.020,
+                    weight: FontWeight.w500,
+                    fontFamily: fontRegular,
+                    onTap: () {},
+                  )
+                ],
+              ),
+              SizedBox(
+                height: size.height * 0.02,
+              ),
                 Container(
                   height: size.height * 0.24,
                   width: size.width,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
-class Movies extends StatefulWidget {
-  const Movies({super.key});
+class Series extends StatefulWidget {
+  const Series({super.key});
 
   @override
-State<Movies> createState() => _MoviesState();
+State<Series> createState() => _SeriesState();
 }
-class _MoviesState extends State<Movies> {
+class _SeriesState extends State<Series> {
    
   @override
     List<String> images = [
@@ -82,12 +82,12 @@ class _MoviesState extends State<Movies> {
             ),
             SizedBox(height: 280,),
              Padding(
-               padding: const EdgeInsets.only(top: 10, left: 20),
+               padding: const EdgeInsets.only( left: 20),
                child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                  children: [
                    VariableText(
-                              text: "All Movies ",
+                              text: "All Series ",
                               fontsize: size.height * 0.020,
                               fontcolor: textColor1,
                               weight: FontWeight.w500,
@@ -106,7 +106,7 @@ class _MoviesState extends State<Movies> {
 
                     Container(
                       width: size.width * 0.95,
-                      height: size.height * 0.50,
+                      height: size.height * 0.70,
                       padding: EdgeInsets.all(10),
                       color: Colors.transparent,
                       child: Column(
@@ -124,9 +124,9 @@ class _MoviesState extends State<Movies> {
                                     itemCount: images.length,
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 6,
-                                      crossAxisSpacing: size.width * 0.03,
-                                      mainAxisSpacing: size.height * 0.015,
+                                      crossAxisCount: 4,
+                                      crossAxisSpacing: size.width * 0.06,
+                                      mainAxisSpacing: size.height * 0.020,
                                       // childAspectRatio: 0.63,
                                       childAspectRatio:
                                           size.width / (size.height * 0.9),

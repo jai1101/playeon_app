@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:playeon/dashboard/videoplayer.dart';
+import 'package:video_player/video_player.dart';
 
 import '../widgets/common.dart';
 import '../widgets/style.dart';
@@ -82,27 +84,26 @@ class IntroductionPage extends StatelessWidget {
                         label: Text("Play"),
                         style: OutlinedButton.styleFrom(
                           fixedSize: Size(140, 40),
+                          backgroundColor: primaryColor1,
                           primary: textColor1,
-                          alignment: Alignment.centerLeft,
+                          alignment: Alignment.center,
                           textStyle: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500
-
-                              // onTap: () {
-                              //   Navigator.push(
-                              //       context,
-                              //       MaterialPageRoute(
-                              //            builder: (context) => const action(),
-                              //            ));
-                              // },
-
-                              ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
                           side: BorderSide(
-                            color: textColor1,
+                            color: primaryColor1,
                           ),
                         ),
-                        onPressed: () {
-                          // signupUser();
-                        },
+                        
+               onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => video_player()),
+                          );
+                        }
+                        
                       ),
                     ),
                   ],

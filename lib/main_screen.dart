@@ -80,11 +80,9 @@ class _MainScreenState extends State<MainScreen>
               child: Image.asset(
                 mainTab['tabs']![index]['icon'].toString(),
                 scale: 1,
-                color:  null,
-
-                // tabController!.index == index ? primaryColorB : textColor1,
+                color:              tabController!.index == index ? primaryColorB : null,
               ),
-            );
+            ); 
           }),
         ),
       ),

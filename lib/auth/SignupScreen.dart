@@ -352,22 +352,22 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: backgroundColor,
+      
       body: SafeArea(
         child: Stack(children: [
           Positioned.fill(
-              child: Image.asset(
-            "assets/images/login_img.png",
-            fit: BoxFit.fill,
-          )),
-          Positioned.fill(
-              child: Image.asset(
-            "assets/images/login_img2.png",
-            fit: BoxFit.cover,
-          )),
+                child: Image.asset(
+              "assets/images/login_img.png",
+              fit: BoxFit.fill,
+            )),
+            Positioned.fill(
+                child: Image.asset(
+              "assets/images/login_img2.png",
+              fit: BoxFit.cover,
+            )),
           SingleChildScrollView(
             child: Container(
-              color: primaryColorB,
+           
               height: size.height,
               child: Column(children: [
                 Padding(
