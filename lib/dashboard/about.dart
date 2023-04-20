@@ -16,7 +16,7 @@ class _AboutState extends State<About> {
     var size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: Stack(children: [
         Image.asset(
           "assets/images/about_img.png",
@@ -40,12 +40,12 @@ class _AboutState extends State<About> {
                           children: [
                             Icon(
                               Icons.arrow_back_ios,
-                              color: primaryColorW,
+                              color: textColor1,
                               size: 17,
                             ),
                             VariableText(
                               text: "Back",
-                              fontcolor: primaryColorW,
+                              fontcolor: textColor1,
                               fontsize: size.height * 0.022,
                               fontFamily: fontSemiBold,
                               textAlign: TextAlign.start,
@@ -60,7 +60,7 @@ class _AboutState extends State<About> {
                       },
                       child: Icon(
                         Icons.favorite_border,
-                        color: Colors.white,
+                        color: textColor1,
                         size: 35,
                       ),
                     )
@@ -81,7 +81,7 @@ class _AboutState extends State<About> {
                         children: [
                           VariableText(
                             text: "JUSTIC LEAGUE",
-                            fontcolor: Colors.white,
+                            fontcolor: textColor1,
                             fontsize: size.height * 0.030,
                             fontFamily: fontMedium,
                             weight: FontWeight.w500,
@@ -129,7 +129,7 @@ class _AboutState extends State<About> {
                                   ),
                                   Icon(
                                     Icons.star,
-                                    color: textColor5,
+                                    color: textColorS,
                                     size: 17,
                                   ),
                                 ],
@@ -145,7 +145,7 @@ class _AboutState extends State<About> {
                       width: 100,
                       child: Icon(
                         Icons.play_arrow,
-                        color: Colors.white,
+                        color: textColor1,
                         size: 120,
                       ),
                     ),
@@ -162,7 +162,7 @@ class _AboutState extends State<About> {
                       VariableText(
                         text:
                             "Fuelded by his restored faith in humanity and inspired by Superman   selfless act  Bruce wayne enlists the help of his newfound ally  Daina Prince to face an even greater enemy...",
-                        fontcolor: Colors.white,
+                        fontcolor: textColor1,
                         fontsize: size.height * 0.024,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
@@ -179,7 +179,7 @@ class _AboutState extends State<About> {
                   Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                     VariableText(
                       text: "Like & Share",
-                      fontcolor: Colors.white,
+                      fontcolor: textColor1,
                       fontsize: size.height * 0.024,
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
@@ -189,97 +189,98 @@ class _AboutState extends State<About> {
                   SizedBox(
                     height: 15,
                   ),
-                  Row(crossAxisAlignment: CrossAxisAlignment.start,
-                   mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
-                  children: [
-                    Container(
-                      width: size.width * 0.15,
-                      height: size.width * 0.40,
-                      child:
-                          // img not found
-                          Column(
-                        children: [
-                          Image.asset(
-                            "assets/icons/like_ic.png",
-                            height: 50,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Column(
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          width: size.width * 0.15,
+                          height: size.width * 0.40,
+                          child:
+                              // img not found
+                              Column(
                             children: [
-                              VariableText(
-                                text: "230K",
-                                fontcolor: textColor5,
-                                fontsize: size.height * 0.017,
-                                fontFamily: fontMedium,
-                                weight: FontWeight.w500,
-                                max_lines: 2,
+                              Image.asset(
+                                "assets/icons/like_ic.png",
+                                height: 50,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Column(
+                                children: [
+                                  VariableText(
+                                    text: "230K",
+                                    fontcolor: textColor1,
+                                    fontsize: size.height * 0.017,
+                                    fontFamily: fontMedium,
+                                    weight: FontWeight.w500,
+                                    max_lines: 2,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: size.width * 0.15,
-                      height: size.width * 0.40,
-                      child:
-                          // img not found
-                          Column(
-                        children: [
-                          Image.asset(
-                            "assets/icons/fav_ic.png",
-                            height: 50,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Column(
+                        ),
+                        Container(
+                          width: size.width * 0.15,
+                          height: size.width * 0.40,
+                          child:
+                              // img not found
+                              Column(
                             children: [
-                              VariableText(
-                                text: "230K",
-                                fontcolor: textColor5,
-                                fontsize: size.height * 0.017,
-                                fontFamily: fontMedium,
-                                weight: FontWeight.w500,
-                                max_lines: 2,
+                              Image.asset(
+                                "assets/icons/fav_ic.png",
+                                height: 50,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Column(
+                                children: [
+                                  VariableText(
+                                    text: "230K",
+                                    fontcolor: textColor1,
+                                    fontsize: size.height * 0.017,
+                                    fontFamily: fontMedium,
+                                    weight: FontWeight.w500,
+                                    max_lines: 2,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: size.width * 0.15,
-                      height: size.width * 0.40,
-                      child:
-                          // img not found
-                          Column(
-                        children: [
-                          Image.asset(
-                            "assets/icons/comment_ic.png",
-                            height: 50,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Column(
+                        ),
+                        Container(
+                          width: size.width * 0.15,
+                          height: size.width * 0.40,
+                          child:
+                              // img not found
+                              Column(
                             children: [
-                              VariableText(
-                                text: "230K",
-                                fontcolor: textColor5,
-                                fontsize: size.height * 0.017,
-                                fontFamily: fontMedium,
-                                weight: FontWeight.w500,
-                                max_lines: 2,
+                              Image.asset(
+                                "assets/icons/comment_ic.png",
+                                height: 50,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Column(
+                                children: [
+                                  VariableText(
+                                    text: "230K",
+                                    fontcolor: textColor1,
+                                    fontsize: size.height * 0.017,
+                                    fontFamily: fontMedium,
+                                    weight: FontWeight.w500,
+                                    max_lines: 2,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-                  ]),
+                        ),
+                      ]),
                 ],
               ),
             ),

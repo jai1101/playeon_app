@@ -361,26 +361,3 @@ class _ProcessLoadingLightState extends State<ProcessLoadingLight>
         ));
   }
 }
-
-
-///Home
-
-
-// class CustomDropDown extends StatefulWidget {
-//   String hintTxt;
-//   String? selectedTxt;
-//   List<String> list;
-//   CustomDropDown(
-//       {Key? key, required this.hintTxt, this.selectedTxt, required this.list})
-//       : super(key: key);
-
-//   @override
-//   State<CustomDropDown> createState() => _CustomDropDownState();
-// }
-
-// class _CustomDropDownState extends State<CustomDropDown> {
-//   @override
-//   Widget build(BuildContext context) {
-//     var size = MediaQuery.of(context).size;
-//     return   }
-// }

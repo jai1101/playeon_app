@@ -25,7 +25,7 @@ class _ProfileState extends State<Profile> {
     "assets/images/trend1.png",
     "assets/images/trend4.png",
     "assets/images/cont2.png",
-      "assets/images/act2.png",
+    "assets/images/act2.png",
     "assets/images/adv3.png",
     "assets/images/animat3.png",
     "assets/images/cont1.png",
@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
     "assets/images/trend1.png",
     "assets/images/trend4.png",
     "assets/images/cont2.png",
-      "assets/images/act2.png",
+    "assets/images/act2.png",
     "assets/images/adv3.png",
     "assets/images/animat3.png",
     "assets/images/cont1.png",
@@ -49,7 +49,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -62,14 +62,14 @@ class _ProfileState extends State<Profile> {
                     Expanded(
                       child: VariableText(
                         text: "Profile",
-                        fontcolor: primaryColorW,
+                        fontcolor: textColor1,
                         fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
                     ),
                     IconButton(
-                        icon: Icon(Icons.settings, color: Colors.white),
+                        icon: Icon(Icons.settings, color: textColor1),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -81,7 +81,7 @@ class _ProfileState extends State<Profile> {
                 ),
                 SizedBox(
                   child: Container(
-                    color: Colors.black,
+                    color: backgroundColor,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -90,12 +90,13 @@ class _ProfileState extends State<Profile> {
                           radius: 60,
                           backgroundImage:
                               AssetImage("assets/images/Avatar.png"),
-                          backgroundColor: Colors.black,
+                          backgroundColor: backgroundColor,
                         ),
                         VariableText(
                           text: "Muhammad Bilal",
                           fontsize: size.height * 0.024,
                           fontFamily: fontMedium,
+                          fontcolor: textColor1,
                           weight: FontWeight.w500,
                           max_lines: 2,
                         ),
@@ -119,12 +120,11 @@ class _ProfileState extends State<Profile> {
                               },
                               child: CustomProfileBox(
                                 title: "44",
-                                subtitle: "Subscribes",
+                                subtitle: "Subscribe",
                               ),
                             ),
                           ],
                         ),
-                       
                         Container(
                           width: size.width,
                           height: size.height * 0.6,
@@ -132,7 +132,6 @@ class _ProfileState extends State<Profile> {
                               vertical: size.height * verticalPadding),
                           child: Column(
                             children: [
-                              
                               Expanded(
                                 child: GridView.builder(
                                     itemCount: images.length,
@@ -180,7 +179,7 @@ class CustomProfileBox extends StatelessWidget {
       height: size.width * 0.22,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: textColorS, borderRadius: BorderRadius.circular(10)),
+          color: textColor1, borderRadius: BorderRadius.circular(10)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

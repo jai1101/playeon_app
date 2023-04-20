@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:playeon/auth/paymentScreen.dart';
 import 'package:playeon/auth/user_model.dart';

@@ -17,6 +17,5 @@ class LocalPreference {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove(userToken);
     prefs.clear();
-    
   }
 }

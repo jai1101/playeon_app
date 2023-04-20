@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:playeon/auth/login_screen.dart';
 
 import 'package:playeon/widgets/common.dart';
+import 'package:playeon/widgets/style.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,17 +25,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Stack(
           children: [
-            Positioned.fill(
-              child:
-                  Image.asset("assets/images/splash_img.png", fit: BoxFit.fill),
-            ),
-            Positioned.fill(
-              child:
-                  Image.asset("assets/icons/ic_filter.png", fit: BoxFit.fill),
-            ),
+            
+
+
+
+            
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

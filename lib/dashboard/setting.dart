@@ -20,7 +20,7 @@ class _SettingState extends State<Setting> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 35.0, left: 15),
@@ -33,12 +33,12 @@ class _SettingState extends State<Setting> {
               child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Icon(
                   Icons.arrow_back_ios,
-                  color: primaryColorW,
+                  color: textColor1,
                   size: 17,
                 ),
                 VariableText(
                   text: "Back",
-                  fontcolor: primaryColorW,
+                  fontcolor: textColor1,
                   fontsize: size.height * 0.022,
                   fontFamily: fontSemiBold,
                   textAlign: TextAlign.start,
@@ -51,7 +51,7 @@ class _SettingState extends State<Setting> {
             ),
             VariableText(
               text: "Setting",
-              fontcolor: primaryColorW,
+              fontcolor: textColor1,
               fontsize: size.height * 0.022,
               fontFamily: fontSemiBold,
               textAlign: TextAlign.start,
@@ -63,7 +63,7 @@ class _SettingState extends State<Setting> {
             ExpansionTile(
               title: VariableText(
                 text: "Clear Cache",
-                fontcolor: primaryColorW,
+                fontcolor: textColor1,
                 fontsize: size.height * 0.022,
                 fontFamily: fontSemiBold,
                 textAlign: TextAlign.start,
@@ -71,7 +71,7 @@ class _SettingState extends State<Setting> {
               ),
               trailing: VariableText(
                 text: "250MB",
-                fontcolor: primaryColorW,
+                fontcolor: textColor1,
                 fontsize: size.height * 0.022,
                 fontFamily: fontSemiBold,
                 textAlign: TextAlign.start,
@@ -84,7 +84,7 @@ class _SettingState extends State<Setting> {
             ExpansionTile(
               title: VariableText(
                 text: "Share the app",
-                fontcolor: primaryColorW,
+                fontcolor: textColor1,
                 fontsize: size.height * 0.022,
                 fontFamily: fontSemiBold,
                 textAlign: TextAlign.start,
@@ -92,14 +92,14 @@ class _SettingState extends State<Setting> {
               ),
               trailing: Icon(
                 Icons.keyboard_arrow_right_sharp,
-                color: Colors.white,
+                color: textColor1,
                 size: 30,
               ),
             ),
             ExpansionTile(
               title: VariableText(
                 text: "Forget Pasword",
-                fontcolor: primaryColorW,
+                fontcolor: textColor1,
                 fontsize: size.height * 0.022,
                 fontFamily: fontSemiBold,
                 textAlign: TextAlign.start,
@@ -107,14 +107,14 @@ class _SettingState extends State<Setting> {
               ),
               trailing: Icon(
                 Icons.keyboard_arrow_right_sharp,
-                color: Colors.white,
+                color: textColor1,
                 size: 30,
               ),
             ),
             ExpansionTile(
               title: VariableText(
                 text: "About",
-                fontcolor: primaryColorW,
+                fontcolor: textColor1,
                 fontsize: size.height * 0.022,
                 fontFamily: fontSemiBold,
                 textAlign: TextAlign.start,
@@ -123,7 +123,7 @@ class _SettingState extends State<Setting> {
               trailing: IconButton(
                   icon: Icon(
                     Icons.keyboard_arrow_right_sharp,
-                    color: Colors.white,
+                    color: textColor1,
                     size: 30,
                   ),
                   onPressed: () {
@@ -143,7 +143,7 @@ class _SettingState extends State<Setting> {
                 btnTxt: "Sign Out",
                 btnColor: Colors.white,
                 btnRadius: 25,
-                borderColor: textColor5,
+                borderColor: textColor1,
                 txtColor: textColor5,
                 fontSize: 20,
                 onTap: () {
@@ -161,51 +161,4 @@ class _SettingState extends State<Setting> {
   }
 }
 
-//   GestureDetector buildAccountOption(BuildContext context, String title) {
-//     return GestureDetector(
-//       onTap: () {
-//         showAboutDialog(
-//             context: context,
-//             builder: (BuildContext context) {
-//               return AlertDialog(
-//                 title: Text(""),
-//                 content: Column(
-//                   mainAxisSize: MainAxisSize.min,
-//                   children: [
-//                     Text("Option 1"),
-//                     Text("Option 1"),
-//                     Text("Option 1"),
-//                   ],
-//                 ),
-//                 actions: [
-//                   TextButton(
-//                     onPressed: () {
-//                       Navigator.of(context).pop();
-//                     },
-//                     child: Text("Close"),
-//                   )
-//                 ],
-//               );
-//             });
-//       },
-//       child: Padding(
-//         padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-//         child:
-//             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-//           Text(
-//             title,
-//             style: TextStyle(
-//               fontSize: 20,
-//               fontWeight: FontWeight.w500,
-//               color: textColor5,
-//             ),
-//           ),
-//           Icon(
-//             Icons.arrow_forward_ios,
-//             color: textColor5,
-//           ),
-//         ]),
-//       ),
-//     );
-//   }
-// }
+

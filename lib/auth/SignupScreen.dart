@@ -296,34 +296,34 @@ class _SignupScreenState extends State<SignupScreen> {
                   isValid = true;
                 } else {
                   Fluttertoast.showToast(
-                      msg: "Plase Select Code",
+                      msg: "Please Select Code",
                       toastLength: Toast.LENGTH_SHORT);
                 }
               } else {
                 Fluttertoast.showToast(
-                    msg: "Plase Select City", toastLength: Toast.LENGTH_SHORT);
+                    msg: "Please Select City", toastLength: Toast.LENGTH_SHORT);
               }
             } else {
               Fluttertoast.showToast(
-                  msg: "Plase Enter Phone Number",
+                  msg: "Please Enter Phone Number",
                   toastLength: Toast.LENGTH_SHORT);
             }
           } else {
             Fluttertoast.showToast(
-                msg: "Plase Enter password",
+                msg: "Please Enter password",
                 toastLength: Toast.LENGTH_SHORT); //password
           }
         } else {
           Fluttertoast.showToast(
-              msg: "Plase enter Email", toastLength: Toast.LENGTH_SHORT);
+              msg: "Please enter Email", toastLength: Toast.LENGTH_SHORT);
         }
       } else {
         Fluttertoast.showToast(
-            msg: "Plase Username Code", toastLength: Toast.LENGTH_SHORT);
+            msg: "Please Username Code", toastLength: Toast.LENGTH_SHORT);
       }
     } else {
       Fluttertoast.showToast(
-          msg: "Plase Enter name", toastLength: Toast.LENGTH_SHORT);
+          msg: "Please Enter name", toastLength: Toast.LENGTH_SHORT);
     }
     return isValid;
   }
@@ -352,22 +352,20 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      
       body: SafeArea(
         child: Stack(children: [
           Positioned.fill(
-                child: Image.asset(
-              "assets/images/login_img.png",
-              fit: BoxFit.fill,
-            )),
-            Positioned.fill(
-                child: Image.asset(
-              "assets/images/login_img2.png",
-              fit: BoxFit.cover,
-            )),
+              child: Image.asset(
+            "assets/images/login_img.png",
+            fit: BoxFit.fill,
+          )),
+          Positioned.fill(
+              child: Image.asset(
+            "assets/images/login_img2.png",
+            fit: BoxFit.cover,
+          )),
           SingleChildScrollView(
             child: Container(
-           
               height: size.height,
               child: Column(children: [
                 Padding(
@@ -528,7 +526,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         txtColor: textColor2,
                         fontSize: 20,
                         onTap: () {
-                          userCreate();
+                          // userCreate();
+                           Navigator.pushReplacement(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 200, widget: SignupScreen2()));
                         },
                       ),
                       SizedBox(

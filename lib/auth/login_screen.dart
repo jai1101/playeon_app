@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:playeon/dashboard/home_screen.dart';
 import 'package:playeon/dashboard/local_preference_controller.dart';
-import 'package:playeon/main.dart';
 import 'package:playeon/main_screen.dart';
 
 import 'package:playeon/widgets/style.dart';
@@ -140,11 +138,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 20,
                     onTap: () {
                       //  loginUser();
-                      Navigator.pushReplacement(context,
-            SwipeLeftAnimationRoute(milliseconds: 200, widget: MainScreen()));
+                      Navigator.pushReplacement(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 200, widget: MainScreen()));
                     },
                   ),
-                  SizedBox(      
+                  SizedBox(
                     height: size.height * 0.03,
                   ),
 

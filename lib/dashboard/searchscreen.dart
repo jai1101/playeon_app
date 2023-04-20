@@ -18,7 +18,7 @@ class _searchscreenState extends State<searchscreen> {
       backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20 , vertical: 100),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
           child: Column(
             children: [
               Container(
@@ -37,15 +37,15 @@ class _searchscreenState extends State<searchscreen> {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search Here',
-                   
                     prefixIcon: Icon(Icons.search),
                     border: InputBorder.none,
                   ),
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 40,),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 40,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -165,7 +165,7 @@ class _searchscreenState extends State<searchscreen> {
                           btnRadius: 200,
                           btnTxt: "Romantic",
                           weight: FontWeight.w300,
-        
+
                           // onTap: () {
                           //   Navigator.push(
                           //       context,
@@ -185,7 +185,7 @@ class _searchscreenState extends State<searchscreen> {
                           btnRadius: 200,
                           btnTxt: "Adventure",
                           weight: FontWeight.w300,
-        
+
                           // onTap: () {
                           //   Navigator.push(
                           //       context,

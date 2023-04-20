@@ -10,7 +10,6 @@ class video_player extends StatefulWidget {
 
 class _video_playerState extends State<video_player> {
   @override
-  
   Widget build(BuildContext context) {
     return const Placeholder();
   }

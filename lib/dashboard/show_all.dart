@@ -64,7 +64,6 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
               SizedBox(
                 height: size.height * 0.02,
               ),
-             
               Expanded(
                 child: Container(
                   width: size.width,
