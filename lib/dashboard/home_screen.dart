@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:playeon/auth/api_controller.dart';
 import 'package:playeon/dashboard/movies.dart';
@@ -122,7 +124,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     super.initState();
   }
-
+List listItem = [
+  "Item 1" , "Item 2"
+];
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -148,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {},
                       icon: Icon(
                         Icons.search,
-                        color: Colors.white,
+                        color: textColor1,
                       ),
                     )
                   ],
@@ -200,20 +204,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       width: size.width * 0.02,
                     ),
-                    MyButton(
-                      btnHeight: size.height * 0.05,
-                      btnWidth: size.width * 0.24,
-                      borderColor: textColor5,
-                      btnColor: textColor5,
-                      btnRadius: 200,
-                      btnTxt: "Categories",
-                      fontSize: size.height * 0.020,
-                      weight: FontWeight.w500,
-                      fontFamily: fontRegular,
-                      onTap: () {},
-                    )
-                  ],
-                ),
+
+                  
+                //     MyButton(
+                //       btnHeight: size.height * 0.05,
+                //       btnWidth: size.width * 0.24,
+                //       borderColor: textColor5,
+                //       btnColor: textColor5,
+                //       btnRadius: 200,
+                //       btnTxt: "Categories",
+                //       fontSize: size.height * 0.020,
+                //       weight: FontWeight.w500,
+                //       fontFamily: fontRegular,
+                //       onTap: () {},
+                //     )
+                //   ],
+                // ),
                 SizedBox(
                   height: size.height * 0.02,
                 ),
@@ -894,7 +900,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ]),
+           ] ),
+            
             ),
+            
           ),
         ),
       ),

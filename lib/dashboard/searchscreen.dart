@@ -61,13 +61,6 @@ class _searchscreenState extends State<searchscreen> {
                           btnTxt: "Action",
                           weight: FontWeight.w300,
                           fontFamily: fontRegular,
-                          // onTap: () {
-                          //   Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //            builder: (context) => const action(),
-                          //            ));
-                          // },
                         ),
                         SizedBox(
                           width: 10,

@@ -90,9 +90,7 @@ class _paymentScreenState extends State<paymentScreen> {
               height: size.height * 0.30,
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30),
-                child: Column(
-                  
-                  children: [
+                child: Column(children: [
                   VariableText(
                     text: "STEP 3 of 4",
                     fontcolor: textColor1,
@@ -158,11 +156,7 @@ class _paymentScreenState extends State<paymentScreen> {
                         ),
                       ),
                       onPressed: () {
-                        // createTrial();
-                         Navigator.pushReplacement(
-                          context,
-                          SwipeLeftAnimationRoute(
-                              milliseconds: 200, widget: TrailScreen()));
+                        createTrial();
                       },
                     ),
                   ),
@@ -186,11 +180,7 @@ class _paymentScreenState extends State<paymentScreen> {
                         ),
                       ),
                       onPressed: () {
-                        // userCreatetoVoucher();
-                         Navigator.pushReplacement(
-                          context,
-                          SwipeLeftAnimationRoute(
-                              milliseconds: 200, widget: VoucherCode()));
+                        userCreatetoVoucher();
                       },
                     ),
                   ),

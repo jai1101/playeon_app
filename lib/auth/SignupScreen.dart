@@ -526,11 +526,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         txtColor: textColor2,
                         fontSize: 20,
                         onTap: () {
-                          // userCreate();
-                           Navigator.pushReplacement(
-                          context,
-                          SwipeLeftAnimationRoute(
-                              milliseconds: 200, widget: SignupScreen2()));
+                           userCreate();
+                        
                         },
                       ),
                       SizedBox(

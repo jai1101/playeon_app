@@ -59,7 +59,7 @@ class _MoviesState extends State<Movies> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                    InkWell(
+                      InkWell(
                         onTap: () {
                           Navigator.of(context).pop();
                         },
@@ -112,7 +112,7 @@ class _MoviesState extends State<Movies> {
                   children: [
                     Container(
                       width: size.width * 0.95,
-                      height: size.height * 0.50,
+                      height: size.height * 0.70,
                       padding: EdgeInsets.all(10),
                       color: Colors.transparent,
                       child: Column(
