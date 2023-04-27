@@ -124,88 +124,82 @@ class _HomeScreenState extends State<HomeScreen> {
 
     super.initState();
   }
-List listItem = [
-  "Item 1" , "Item 2"
-];
+
+  List listItem = ["Item 1", "Item 2"];
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: backgroundColor,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 30.0, left: 15),
-            child: Container(
-              child: Column(children: [
-                Row(
-                  children: [
-                    Expanded(
-                        child: VariableText(
-                      text: "MOVIES",
-                      fontcolor: primaryColorW,
-                      fontsize: size.height * 0.03,
-                      fontFamily: fontMedium,
-                      weight: FontWeight.w500,
-                    )),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.search,
-                        color: textColor1,
-                      ),
-                    )
-                  ],
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 30.0, left: 15),
+          child: Container(
+            child: Column(children: [
+              Row(
+                children: [
+                  Expanded(
+                      child: VariableText(
+                    text: "MOVIES",
+                    fontcolor: primaryColorW,
+                    fontsize: size.height * 0.03,
+                    fontFamily: fontMedium,
+                    weight: FontWeight.w500,
+                  )),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                      color: textColor1,
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                MyButton(
+                  btnHeight: size.height * 0.05,
+                  btnWidth: size.width * 0.24,
+                  borderColor: textColor5,
+                  btnColor: textColor5,
+                  btnRadius: 200,
+                  btnTxt: "Series",
+                  fontSize: size.height * 0.020,
+                  weight: FontWeight.w500,
+                  fontFamily: fontRegular,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Movies()),
+                    );
+                  },
                 ),
                 SizedBox(
-                  height: 10,
+                  width: size.width * 0.02,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    MyButton(
-                      btnHeight: size.height * 0.05,
-                      btnWidth: size.width * 0.24,
-                      borderColor: textColor5,
-                      btnColor: textColor5,
-                      btnRadius: 200,
-                      btnTxt: "Series",
-                      fontSize: size.height * 0.020,
-                      weight: FontWeight.w500,
-                      fontFamily: fontRegular,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Movies()),
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      width: size.width * 0.02,
-                    ),
-                    MyButton(
-                      btnHeight: size.height * 0.05,
-                      btnWidth: size.width * 0.24,
-                      borderColor: textColor5,
-                      btnColor: textColor5,
-                      btnRadius: 200,
-                      btnTxt: "Movies",
-                      fontSize: size.height * 0.020,
-                      weight: FontWeight.w500,
-                      fontFamily: fontRegular,
-                      onTap: () {
-                        Navigator.pushReplacement(
-                            context,
-                            SwipeLeftAnimationRoute(
-                                milliseconds: 200, widget: Movies()));
-                      },
-                    ),
-                    SizedBox(
-                      width: size.width * 0.02,
-                    ),
+                MyButton(
+                  btnHeight: size.height * 0.05,
+                  btnWidth: size.width * 0.24,
+                  borderColor: textColor5,
+                  btnColor: textColor5,
+                  btnRadius: 200,
+                  btnTxt: "Movies",
+                  fontSize: size.height * 0.020,
+                  weight: FontWeight.w500,
+                  fontFamily: fontRegular,
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        SwipeLeftAnimationRoute(
+                            milliseconds: 200, widget: Movies()));
+                  },
+                ),
+                SizedBox(
+                  width: size.width * 0.02,
+                ),
 
-                  
                 //     MyButton(
                 //       btnHeight: size.height * 0.05,
                 //       btnWidth: size.width * 0.24,
@@ -900,10 +894,7 @@ List listItem = [
                   ),
                 ),
               ]),
-           ] ),
-            
-            ),
-            
+            ]),
           ),
         ),
       ),
