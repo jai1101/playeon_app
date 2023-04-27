@@ -233,12 +233,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "For You",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "For You",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -291,12 +293,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Continue Watching For",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Continue Watching For",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -355,12 +359,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Action",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Action",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -413,12 +419,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Trending Now",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Trending Now",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -471,12 +479,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Anime",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Anime",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -529,12 +539,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Sci-Fi",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Sci-Fi",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -587,12 +599,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Kids Cartoon",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Kids Cartoon",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -645,12 +659,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Romantic",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Romantic",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -703,12 +719,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Horror",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Horror",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -761,12 +779,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Adventure",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Adventure",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(
@@ -819,12 +839,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Row(
             children: [
-              VariableText(
-                text: "Animated Movies",
-                fontcolor: primaryColorW,
-                fontsize: size.height * 0.02,
-                fontFamily: fontMedium,
-                weight: FontWeight.w500,
+              Expanded(
+                child: VariableText(
+                  text: "Animated Movies",
+                  fontcolor: primaryColorW,
+                  fontsize: size.height * 0.02,
+                  fontFamily: fontMedium,
+                  weight: FontWeight.w500,
+                ),
               ),
               InkWell(
                 onTap: () => Navigator.push(

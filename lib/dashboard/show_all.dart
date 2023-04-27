@@ -77,11 +77,10 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
                             itemCount: widget.showList.length,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 1,
-                              mainAxisSpacing: 2,
-                              childAspectRatio: 0.6,
-                            ),
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 10,
+                                    childAspectRatio: 0.5),
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             physics: const ScrollPhysics(),
