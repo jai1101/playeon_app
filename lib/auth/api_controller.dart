@@ -197,7 +197,7 @@ class ApiController {
         "email": userDetails.email,
         "username": userDetails.username,
         "password": userDetails.password,
-        "phoneNumber": userDetails.phone,
+        "phoneNumber": userDetails.phone,    
         "country": userDetails.country,
         "plan": "planOne",
         "paymentMethod": "voucher",
