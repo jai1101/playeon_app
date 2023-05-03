@@ -77,32 +77,32 @@ class IntroductionPage extends StatelessWidget {
                       fontFamily: fontMedium,
                       weight: FontWeight.w500,
                     ),
-                    Directionality(
-                      textDirection: TextDirection.ltr,
-                      child: TextButton.icon(
-                          icon: Icon(Icons.play_arrow),
-                          label: Text("Play"),
-                          style: OutlinedButton.styleFrom(
-                            fixedSize: Size(140, 40),
-                            backgroundColor: primaryColor1,
-                            primary: textColor1,
-                            alignment: Alignment.center,
-                            textStyle: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            side: BorderSide(
-                              color: primaryColor1,
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => video_player()),
-                            );
-                          }),
-                    ),
+                    // Directionality(
+                    //   textDirection: TextDirection.ltr,
+                    //   child: TextButton.icon(
+                    //       icon: Icon(Icons.play_arrow),
+                    //       label: Text("Play"),
+                    //       style: OutlinedButton.styleFrom(
+                    //         fixedSize: Size(140, 40),
+                    //         backgroundColor: primaryColor1,
+                    //         primary: textColor1,
+                    //         alignment: Alignment.center,
+                    //         textStyle: TextStyle(
+                    //           fontSize: 20,
+                    //           fontWeight: FontWeight.w500,
+                    //         ),
+                    //         side: BorderSide(
+                    //           color: primaryColor1,
+                    //         ),
+                    //       ),
+                    //       onPressed: () {
+                    //         Navigator.push(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //               builder: (context) => VideoPlayer(),
+                    //         ),);
+                    //       }),
+                    // ),
                   ],
                 ),
               ],

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:playeon/auth/api_controller.dart';
 import 'package:playeon/dashboard/movies.dart';
+import 'package:playeon/dashboard/series.dart';
 import 'package:playeon/dashboard/show_all.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
@@ -13,12 +14,16 @@ import 'local_preference_controller.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
-  @override
+  @override 
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List itemImages = [Colors.green , Colors.purple , Colors.blue];
+  List itemImages = [
+   "assets/images/crousel1.png",
+    "assets/images/crousel2.png",
+    "assets/images/crousel3.png",
+    ];
   int currentIndex = 0 ; 
   String? categoryController;
   List<String> categoryList = [
@@ -207,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Movies()),
+                      MaterialPageRoute(builder: (context) => const Series ()),
                     );
                   },
                 ),
@@ -234,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       stream: null,
                                       builder: (context, snapshot) {
                                         return VariableText(
-                                          text: "Choose Your City",
+                                          text: "Category",
                                           fontFamily: fontMedium,
                                           fontcolor: textColor1,
                                           fontsize: size.height * 0.016,
@@ -268,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         VariableText(
                                           text: item,
                                           fontsize: size.height * 0.016,
-                                          fontcolor: Colors.black,
+                                          fontcolor: textColor1,
                                           fontFamily: fontMedium,
                                         ),
                                       ],
@@ -280,68 +285,68 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: size.height * 0.02,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 200,
-                  width: double.infinity,
-                  child: CarouselSlider(items: [
-                    for(int i = 0; i< itemImages.length; i++)
-                    Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.symmetric(horizontal: 10 , vertical: 30),
-                      decoration: BoxDecoration(
-                        color : itemImages[i],
-                        borderRadius: BorderRadius . circular(20),
-                        boxShadow:[BoxShadow(
-                        color: Colors.grey,
-                        spreadRadius:2,
-                        blurRadius : 8,
-                        offset :Offset(4,4))
-                  ]),
-                  child : Text(
-                    'Flutter Carousel Slider item ${i + 1}',
-                  )
-                    )
-                    ],
-                  options: CarouselOptions(
-                    onPageChanged:(index , reason){
-                      setState(() {
-                        print(reason.toString());
-                        currentIndex = index;
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     SizedBox(
+            //       height: 200,
+            //       width: double.infinity,
+            //       child: CarouselSlider(items: [
+            //         for(int i = 0; i< itemImages.length; i++)
+            //         Container(
+            //           alignment: Alignment.center,
+            //           margin: EdgeInsets.symmetric(horizontal: 10 , vertical: 30),
+            //           decoration: BoxDecoration(
+            //             color : itemImages[i],
+            //             borderRadius: BorderRadius . circular(20),
+            //             boxShadow:[BoxShadow(
+            //             color: Colors.grey,
+            //             spreadRadius:2,
+            //             blurRadius : 8,
+            //             offset :Offset(4,4))
+            //       ]),
+            //       child : Text(
+            //         'Flutter Carousel Slider item ${i + 1}',
+            //       )
+            //         )
+            //         ],
+            //       options: CarouselOptions(
+            //         onPageChanged:(index , reason){
+            //           setState(() {
+            //             print(reason.toString());
+            //             currentIndex = index;
 
-                      });
-                    } ,
-                    autoPlay: true 
-                    ),
-                ),
+            //           });
+            //         } ,
+            //         autoPlay: true 
+            //         ),
+            //     ),
               
-                 ),
-                 Row(mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
-                  for(int i =0 ; i<itemImages.length ; i++)
-                  Container(
-                    height: 13,
-                    width: 13,
-                    margin: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: currentIndex == i? Colors.blue : Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          spreadRadius: 1,
-                          blurRadius: 1;
-                          offset: offset: (2 ,2)
-                        )
-                      ]
-                    ),
-                  )
-                 ],
-                 )
-              ],
-            ),
+            //      ),
+            //      Row(mainAxisAlignment: MainAxisAlignment.center,
+            //      children: [
+            //       for(int i =0 ; i<itemImages.length ; i++)
+            //       Container(
+            //         height: 20,
+            //         width: 13,
+            //         margin: EdgeInsets.all(5),
+            //         decoration: BoxDecoration(
+            //           color: currentIndex == i? Colors.blue : Colors.white,
+            //           shape: BoxShape.circle,
+            //           boxShadow: [
+            //             BoxShadow(
+            //               color: Colors.grey,
+            //               spreadRadius: 1,
+            //               blurRadius: 3,
+            //               offset: Offset (2 ,2)
+            //             )
+            //           ]
+            //         ),
+            //       )
+            //      ],
+            //      )
+            //   ],
+            // ),
             Row(
               children: [
                 Expanded(
@@ -993,6 +998,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
 
-    final List _source = [Colors.red , Colors.black , Colors.yellow];
+   
   }
 }

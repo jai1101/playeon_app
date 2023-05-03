@@ -14,7 +14,7 @@ class SignupScreen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor,   
       body: Stack(
         children: [
           Image.asset(
@@ -22,7 +22,7 @@ class SignupScreen2 extends StatelessWidget {
             height: 400,
             width: double.infinity,
             fit: BoxFit.cover,
-          ),
+          ),                   
           Column(children: [
             Padding(
               padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
@@ -30,7 +30,7 @@ class SignupScreen2 extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: () {
+                      onTap: () {            
                         Navigator.of(context).pop();
                       },
                       child: Row(
@@ -106,7 +106,10 @@ class SignupScreen2 extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => paymentScreen()),
+                                builder: (context) => paymentScreen( userData : userData)
+                                )
+                                ,
+                               
                           );
                         },
                       ),

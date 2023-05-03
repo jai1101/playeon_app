@@ -165,7 +165,7 @@ class ApiController {
 
   Future<dynamic> gettokenCreate() async {
     var url =
-        "https://ipg1.apps.net.pk/Ecommerce/api/Transaction/GetAccessToken";
+        "https://ipg1.apps.net.pk/Ecommerce/api/Transaction/GetAccessToken"; 
     var userSignupdata = {
       "MERCHANT_ID": 14392,
       "SECURED_KEY": "sS7ulxd4pGwExxo5g9XMwc"
@@ -186,7 +186,7 @@ class ApiController {
       }
     } catch (e) {
       return e.toString();
-    }
+    } 
   }
 
   Future<dynamic> voucherUserCreate(UserModel userDetails) async {

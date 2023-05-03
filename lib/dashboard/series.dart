@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 
+
 class Series extends StatefulWidget {
   const Series({super.key});
 
@@ -45,118 +46,103 @@ class _SeriesState extends State<Series> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: backgroundColor,
-        body: Stack(children: [
-          Image.asset(
-            "assets/images/about_img.png",
-            height: 350,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Column(
+        body: SingleChildScrollView(
+          child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.arrow_back_ios,
-                                color: primaryColorW,
-                                size: 17,
-                              ),
-                              VariableText(
-                                text: "Back",
-                                fontcolor: primaryColorW,
-                                fontsize: size.height * 0.022,
-                                fontFamily: fontSemiBold,
-                                textAlign: TextAlign.start,
-                                weight: FontWeight.w500,
-                              ),
-                            ]),
-                      ),
-                    ]),
-              ),
-              SizedBox(
-                height: 280,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+              Stack(children: [
+                Image.asset(
+                  "assets/images/about_img.png",
+                  height: 350,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                Column(
                   children: [
-                    VariableText(
-                      text: "All Series ",
-                      fontsize: size.height * 0.020,
-                      fontcolor: textColor1,
-                      weight: FontWeight.w500,
-                      fontFamily: fontRegular,
-                      underlined: true,
-                      textAlign: TextAlign.left,
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 30, horizontal: 15),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.arrow_back_ios,
+                                      color: primaryColorW,
+                                      size: 17,
+                                    ),
+                                    VariableText(
+                                      text: "Back",
+                                      fontcolor: primaryColorW,
+                                      fontsize: size.height * 0.022,
+                                      fontFamily: fontSemiBold,
+                                      textAlign: TextAlign.start,
+                                      weight: FontWeight.w500,
+                                    ),
+                                  ]),
+                            ),
+                          ]),
                     ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: size.width * 0.95,
-                      height: size.height * 0.70,
-                      padding: EdgeInsets.all(10),
-                      color: Colors.transparent,
-                      child: Column(
+                    SizedBox(
+                      height: 280,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 20),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Container(
-                            width: size.width,
-                            height: size.height * 0.6,
-                            padding: EdgeInsets.symmetric(
-                                vertical: size.height * verticalPadding),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: GridView.builder(
-                                      itemCount: images.length,
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 4,
-                                        crossAxisSpacing: size.width * 0.06,
-                                        mainAxisSpacing: size.height * 0.020,
-                                        // childAspectRatio: 0.63,
-                                        childAspectRatio:
-                                            size.width / (size.height * 0.9),
-                                      ),
-                                      shrinkWrap: false,
-                                      scrollDirection: Axis.vertical,
-                                      physics: ScrollPhysics(),
-                                      itemBuilder: (_, index) {
-                                        return Container(
-                                            child: Image.asset(images[index]));
-                                      }),
-                                ),
-                              ],
-                            ),
+                          VariableText(
+                            text: "All Series ",
+                            fontsize: size.height * 0.020,
+                            fontcolor: textColor1,
+                            weight: FontWeight.w500,
+                            fontFamily: fontRegular,
+                            underlined: true,
+                            textAlign: TextAlign.left,
                           ),
                         ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 10,
+                      ),
+                      child: Container(
+                        width: size.width,
+                        height: size.height * 0.5,
+                        padding: EdgeInsets.symmetric(
+                            vertical: size.height * verticalPadding),
+                        child: GridView.builder(
+                            itemCount: images.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 6,
+                              crossAxisSpacing: size.width * 0.03,
+                              mainAxisSpacing: size.height * 0.015,
+                              // childAspectRatio: 0.63,
+                              childAspectRatio:
+                                  size.width / (size.height * 0.9),
+                            ),
+                            shrinkWrap: false,
+                            scrollDirection: Axis.vertical,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  child: Image.asset(images[index]));
+                            }),
                       ),
                     )
                   ],
                 ),
-              )
+              ]),
             ],
           ),
-        ]),
+        ),
       ),
     );
   }

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_toast_message/flutter_toast_message.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'package:http/http.dart';
 import 'package:playeon/auth/login_screen.dart';
 import 'package:playeon/auth/signupscreen2.dart';
 import 'package:playeon/auth/user_model.dart';
@@ -446,7 +445,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Container(
                           width: size.width * 0.90,
                           height: size.width * 0.15,
-                          // color: Colors.black ,
+                        
                           child: InputDecorator(
                               decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -456,6 +455,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                               child: DropdownButtonHideUnderline(
                                   child: DropdownButton<String>(
+                                    dropdownColor: Colors.black,
                                       hint: Padding(
                                         padding:
                                             const EdgeInsets.only(left: 2.0),
@@ -484,7 +484,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                       },
                                       style: TextStyle(
                                           fontSize: size.height * 0.016,
-                                          color: textColorH),
+                                          color: Colors.black),
                                       items: citiesList
                                           .map<DropdownMenuItem<String>>(
                                               (String item) {
@@ -497,7 +497,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                               VariableText(
                                                 text: item,
                                                 fontsize: size.height * 0.016,
-                                                fontcolor: Colors.black,
+                                                fontcolor: textColor1,
                                                 fontFamily: fontMedium,
                                               ),
                                             ],
