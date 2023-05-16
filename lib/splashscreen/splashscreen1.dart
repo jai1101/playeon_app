@@ -28,12 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: backgroundColor,
       body: SafeArea(
         child: Stack(
-          children: [
-            
-
-
-
-            
+          children: [            
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

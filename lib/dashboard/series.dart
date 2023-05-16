@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/dashboard/videoplayer.dart';
 import '../auth/api_controller.dart';
 import '../models/series_model.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 import 'local_preference_controller.dart';
-
 
 class Series extends StatefulWidget {
   const Series({super.key});
@@ -44,26 +44,26 @@ class _SeriesState extends State<Series> {
     "assets/images/trend4.png",
     "assets/images/cont2.png",
   ];
-   List<SeriesModel> moviesData=[];
+  List<SeriesModel> moviesData = [];
   void updateList(String value) {}
   getSeriesData() async {
     LocalPreference prefs = LocalPreference();
     String token = await prefs.getUserToken();
-     var response = await ApiController().getSeries(token);
+    var response = await ApiController().getSeries(token);
 
     print(" form api $response");
-    for(var item in response){
-moviesData.add(SeriesModel.fromJson(item));
-
+    for (var item in response) {
+      moviesData.add(SeriesModel.fromJson(item));
     }
   }
 
-  @override  
+  @override
   void initState() {
     getSeriesData();
 
     super.initState();
   }
+
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
@@ -155,8 +155,20 @@ moviesData.add(SeriesModel.fromJson(item));
                             scrollDirection: Axis.vertical,
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
-                              return Container(
-                                  child: Image.network(moviesData[index].imgSmPoster!),);
+                              return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        SwipeLeftAnimationRoute(
+                                            milliseconds: 200,
+                                            widget: VideoPlayers(
+                                              url: moviesData[index]
+                                                  .episodes![0]
+                                                  .video,
+                                            )));
+                                  },
+                                  child: Image.network(
+                                      moviesData[index].imgSmPoster!));
                             }),
                       ),
                     )
