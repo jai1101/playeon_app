@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:playeon/main_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'splashscreen/splashscreen1.dart';
 
 void main() {

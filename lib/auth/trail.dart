@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playeon/dashboard/home_screen.dart';
+import 'package:playeon/main_screen.dart';
 
 import '../widgets/common.dart';
 import '../widgets/style.dart';
@@ -54,7 +55,7 @@ class _TrailScreenState extends State<TrailScreen> {
                         Navigator.push(
                             context,
                             SwipeLeftAnimationRoute(
-                                milliseconds: 200, widget: HomeScreen()));
+                                milliseconds: 200, widget: MainScreen()));
                       },
                     ),
                   ],

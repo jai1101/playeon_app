@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import '../auth/api_controller.dart';
+import '../models/series_model.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
+import 'local_preference_controller.dart';
 
 
 class Series extends StatefulWidget {
@@ -41,6 +44,26 @@ class _SeriesState extends State<Series> {
     "assets/images/trend4.png",
     "assets/images/cont2.png",
   ];
+   List<SeriesModel> moviesData=[];
+  void updateList(String value) {}
+  getSeriesData() async {
+    LocalPreference prefs = LocalPreference();
+    String token = await prefs.getUserToken();
+     var response = await ApiController().getSeries(token);
+
+    print(" form api $response");
+    for(var item in response){
+moviesData.add(SeriesModel.fromJson(item));
+
+    }
+  }
+
+  @override  
+  void initState() {
+    getSeriesData();
+
+    super.initState();
+  }
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
@@ -118,7 +141,7 @@ class _SeriesState extends State<Series> {
                         padding: EdgeInsets.symmetric(
                             vertical: size.height * verticalPadding),
                         child: GridView.builder(
-                            itemCount: images.length,
+                            itemCount: moviesData.length,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 6,
@@ -133,7 +156,7 @@ class _SeriesState extends State<Series> {
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
                               return Container(
-                                  child: Image.asset(images[index]));
+                                  child: Image.network(moviesData[index].imgSmPoster!),);
                             }),
                       ),
                     )

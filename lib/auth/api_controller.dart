@@ -192,19 +192,20 @@ class ApiController {
   Future<dynamic> voucherUserCreate(UserModel userDetails) async {
     var url = "https://apiv1.playeon.com/api/v1/signup";
     var userSignupdata = {
-      "user": {
-        "name": userDetails.name,
-        "email": userDetails.email,
-        "username": userDetails.username,
-        "password": userDetails.password,
-        "phoneNumber": userDetails.phone,    
-        "country": userDetails.country,
-        "plan": "planOne",
-        "paymentMethod": "voucher",
-        "planPrice": 100,
-        "voucher": "gEtN5tXKCy",
-        "BdoId": 18617
-      }
+      {
+    "user": {
+        "name": "John Doe",
+        "email": "johndoe1@example.com",
+        "username": "johndo1e",
+        "password": "mypassword",
+        "phoneNumber": "1234567890",
+        "country": "US",
+        "plan": "Basic",
+       "paymentMethod": "voucher",
+        "voucher": "NqSIcTwH6X",
+        "BdoId": "123456"
+    }
+}
     };
     print("url $url and ${json.encode(userSignupdata)}");
     try {
@@ -237,9 +238,9 @@ class ApiController {
     try {
       var response = await http.get(
         Uri.parse(url),
-        headers: <String, String>{
+        headers: <String, String>{ 
           "Content-Type": "application/json",
-          "Authorization": '$accessToken'
+          "Authorization": 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU4ZDUwOWJlZjQzNzgwMTk4MTYzYWIiLCJpYXQiOjE2ODM1NDMzMDUsImV4cCI6MTcxNTA3OTMwNX0.7v-oCZ9tm4bMa9So71987T-Wc7qiPFoL1EcIjUh0pp4'
         },
       );
       print(response.statusCode);
@@ -256,4 +257,55 @@ class ApiController {
       return e.toString();
     }
   }
-}
+
+// import 'package:http/http.dart' as http;
+
+ Future<dynamic> getSeries(
+    String accessToken,
+  ) async {
+    var url = "https://apiv1.playeon.com/api/v1/series";
+    print(url + accessToken);
+    // print("url $url and ${json.encode(userSignupdata)}");
+    try {
+      var response = await http.get(
+        Uri.parse(url),
+        headers: <String, String>{ 
+          "Content-Type": "application/json",
+          "Authorization": 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU4ZDUwOWJlZjQzNzgwMTk4MTYzYWIiLCJpYXQiOjE2ODM1NDMzMDUsImV4cCI6MTcxNTA3OTMwNX0.7v-oCZ9tm4bMa9So71987T-Wc7qiPFoL1EcIjUh0pp4'
+        },
+      );
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+        return data;
+      } else {
+        var statusData = jsonDecode(utf8.decode(response.bodyBytes));
+        return statusData['msg'].toString();
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+  }
+
+
+// Future<void> fetchData() async {
+//   final url = Uri.parse('https://apiv1.playeon.com/api/v1/movie');
+
+//   final response = await http.get(
+//     url,
+//     headers: {
+//       'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU4ZDUwOWJlZjQzNzgwMTk4MTYzYWIiLCJpYXQiOjE2ODM1NDMzMDUsImV4cCI6MTcxNTA3OTMwNX0.7v-oCZ9tm4bMa9So71987T-Wc7qiPFoL1EcIjUh0pp4",
+//     },
+//   );
+
+//   if (response.statusCode == 200) {
+//     // Handle successful response
+//     print(response.body);
+//   } else {
+//     // Handle error response
+//     print('Error: ${response.statusCode}');
+//   }
+// }

@@ -5,20 +5,22 @@ import 'package:playeon/auth/api_controller.dart';
 import 'package:playeon/dashboard/movies.dart';
 import 'package:playeon/dashboard/series.dart';
 import 'package:playeon/dashboard/show_all.dart';
+import 'package:playeon/models/movies_model.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 import 'local_preference_controller.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override 
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  
   List itemImages = [
    "assets/images/crousel1.png",
     "assets/images/crousel2.png",
@@ -129,16 +131,21 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
-
+ List<MoviesModel> moviesData=[];
   void updateList(String value) {}
   getMovies() async {
     LocalPreference prefs = LocalPreference();
     String token = await prefs.getUserToken();
-    var response = await ApiController().getMovies(token);
+     var response = await ApiController().getMovies(token);
+
     print(" form api $response");
+    for(var item in response){
+moviesData.add(MoviesModel.fromJson(item));
+
+    }
   }
 
-  @override
+  @override  
   void initState() {
     getMovies();
 
@@ -156,6 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.only(top: 30.0, left: 15),
           child: Column(children: [
             Row(
+             
               children: [
                 Expanded(
                     child: VariableText(
@@ -178,6 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10,
             ),
             Row(
+               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MyButton(
                   btnHeight: size.height * 0.05,
@@ -216,137 +225,124 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                 ),
+
                 SizedBox(
                   width: size.width * 0.02,
                 ),
                 Container(
-                    width: size.width * 0.25,
-                    height: size.width * 0.09,
-
-                    //  color: textColor5 ,
+                          width: size.width * 0.22,
+                          height: size.width * 0.15,
+                          color: textColor5,
                     child: InputDecorator(
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: textColor5),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        child: DropdownButtonHideUnderline(
-                            child: DropdownButton<String>(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: StreamBuilder<Object>(
-                                      stream: null,
-                                      builder: (context, snapshot) {
-                                        return VariableText(
-                                          text: "Category",
-                                          fontFamily: fontMedium,
-                                          fontcolor: textColor1,
-                                          fontsize: size.height * 0.016,
-                                        );
-                                      }),
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: textColor5),
+                                  borderRadius: BorderRadius.circular(25),
                                 ),
-                                value: categoryController,
-                                isExpanded: true,
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                },
-                                onChanged: (String? value) {
-                                  {
-                                    setState(() {
-                                      categoryController = value;
-                                    });
-                                  }
-                                },
-                                style: TextStyle(
-                                    fontSize: size.height * 0.016,
-                                    color: textColorH),
-                                items: categoryList
-                                    .map<DropdownMenuItem<String>>(
-                                        (String item) {
-                                  return DropdownMenuItem<String>(
-                                    value: item,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        VariableText(
-                                          text: item,
-                                          fontsize: size.height * 0.016,
-                                          fontcolor: textColor1,
-                                          fontFamily: fontMedium,
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                }).toList())))),
+                              ),
+                              child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<String>(
+                                    dropdownColor: Colors.black,
+                                      hint: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 2.0),
+                                        child: StreamBuilder<Object>(
+                                            stream: null,
+                                            builder: (context, snapshot) {
+                                              return VariableText(
+                                                text: "Categories",
+                                                fontFamily: fontMedium,
+                                                fontcolor: textColor1,
+                                                fontsize: size.height * 0.016,
+                                              );
+                                            }),
+                                      ),
+                                      value: categoryController,
+                                      isExpanded: true,
+                                      onTap: () {
+                                        FocusScope.of(context).unfocus();
+                                      },
+                                      onChanged: (String? value) {
+                                        {
+                                          setState(() {
+                                            categoryController = value;
+                                          });
+                                        }
+                                      },
+                                      style: TextStyle(
+                                          fontSize: size.height * 0.016,
+                                          color: Colors.black),
+                                      items: categoryList
+                                          .map<DropdownMenuItem<String>>(
+                                              (String item) {
+                                        return DropdownMenuItem<String>(
+                                          value: item,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              VariableText(
+                                                text: item,
+                                                fontsize: size.height * 0.016,
+                                                fontcolor: textColor1,
+                                                fontFamily: fontMedium,
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      }).toList())))),
+               
               ],
             ),
             SizedBox(
               height: size.height * 0.02,
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     SizedBox(
-            //       height: 200,
-            //       width: double.infinity,
-            //       child: CarouselSlider(items: [
-            //         for(int i = 0; i< itemImages.length; i++)
-            //         Container(
-            //           alignment: Alignment.center,
-            //           margin: EdgeInsets.symmetric(horizontal: 10 , vertical: 30),
-            //           decoration: BoxDecoration(
-            //             color : itemImages[i],
-            //             borderRadius: BorderRadius . circular(20),
-            //             boxShadow:[BoxShadow(
-            //             color: Colors.grey,
-            //             spreadRadius:2,
-            //             blurRadius : 8,
-            //             offset :Offset(4,4))
-            //       ]),
-            //       child : Text(
-            //         'Flutter Carousel Slider item ${i + 1}',
-            //       )
-            //         )
-            //         ],
-            //       options: CarouselOptions(
-            //         onPageChanged:(index , reason){
-            //           setState(() {
-            //             print(reason.toString());
-            //             currentIndex = index;
+       
+SizedBox(
+  height: 200,
+  width: double.infinity,
+  child: PageView.builder(
+    onPageChanged: (index)
+      {
+        setState(() {
+          currentIndex = index % itemImages.length;
+        });
 
-            //           });
-            //         } ,
-            //         autoPlay: true 
-            //         ),
-            //     ),
-              
-            //      ),
-            //      Row(mainAxisAlignment: MainAxisAlignment.center,
-            //      children: [
-            //       for(int i =0 ; i<itemImages.length ; i++)
-            //       Container(
-            //         height: 20,
-            //         width: 13,
-            //         margin: EdgeInsets.all(5),
-            //         decoration: BoxDecoration(
-            //           color: currentIndex == i? Colors.blue : Colors.white,
-            //           shape: BoxShape.circle,
-            //           boxShadow: [
-            //             BoxShadow(
-            //               color: Colors.grey,
-            //               spreadRadius: 1,
-            //               blurRadius: 3,
-            //               offset: Offset (2 ,2)
-            //             )
-            //           ]
-            //         ),
-            //       )
-            //      ],
-            //      )
-            //   ],
-            // ),
+      },
+    
+    // itemCount: itemImages.length,
+    itemBuilder:(context , index){
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: SizedBox(
+          height: 400 ,
+          width: double.infinity,
+          child: Image.asset(itemImages[index % itemImages.length],
+          
+          fit : BoxFit.cover),
+      
+        ),
+      );
+    },),
+),
+
+
+         SizedBox(
+          height:10,
+
+         ) ,  
+
+         Row( 
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+          for( var i = 0 ; i< itemImages.length ; i++ )
+          buildIndicator(currentIndex == i)
+         ],),
+          SizedBox(
+          height:10,
+
+         ) ,
+           
             Row(
               children: [
                 Expanded(
@@ -364,7 +360,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: imagefor, title: "For You"))),
+                              showList: moviesData, title: "For You"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -389,24 +385,25 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               width: size.width,
-              height: size.height * 0.18,
+              height: size.height * 0.22,
               child: Row(
                 children: [
                   Expanded(
                     child: ListView.builder(
-                        itemCount: imagefor.length,
+                        itemCount: moviesData.length,
                         shrinkWrap: false,
                         scrollDirection: Axis.horizontal,
                         physics: ScrollPhysics(),
                         itemBuilder: (_, index) {
                           return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(imagefor[index]));
+                              padding: EdgeInsets.only(right: 10),
+                              child: Image.network(moviesData[index].imgSmPoster!));
                         }),
                   )
                 ],
               ),
             ),
+            SizedBox(height: 10,),
             Row(
               children: [
                 Expanded(
@@ -424,7 +421,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: imagecontinue,
+                              showList: moviesData,
                               title: " Continue Watching"))),
                   child: Row(
                     children: [
@@ -490,7 +487,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: Action, title: "Action Movies"))),
+                              showList: moviesData, title: "Action Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -534,6 +531,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Row(
+
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
                   child: VariableText(
@@ -550,7 +549,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: trend, title: "Now list"))),
+                               showList: moviesData, title: "Now list"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -610,7 +609,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: Anime, title: "Now list"))),
+                              showList: moviesData, title: "Now list"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -670,7 +669,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: Sci, title: "Sci_Fi Movies"))),
+                              showList: moviesData, title: "Sci_Fi Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -730,7 +729,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget:
-                              ShowAllMovies(showList: kid, title: "Cartoons"))),
+                              ShowAllMovies( showList: moviesData, title: "Cartoons"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -790,7 +789,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: rom, title: "Romantic Movies"))),
+                              showList: moviesData, title: "Romantic Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -850,7 +849,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: Horror, title: "Horror Movies"))),
+                               showList: moviesData, title: "Horror Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -910,7 +909,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: adv, title: "Adventure Movies"))),
+                               showList: moviesData, title: "Adventure Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -970,7 +969,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                              showList: animat, title: "Animated Movies"))),
+                               showList: moviesData, title: "Animated Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -997,7 +996,21 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-
+ 
    
+  }
+  Widget buildIndicator (bool isSelected){
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: isSelected ? 12 :8,
+        width: isSelected ?  12 : 8,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color : isSelected? Colors.black : Colors.grey,
+    
+        ),
+      ),
+    );
   }
 }

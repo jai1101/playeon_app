@@ -156,13 +156,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Action list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Action list")));
                             },
                           ),
                           SizedBox(
@@ -178,13 +178,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Sci-Fi list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Sci-Fi list")));
                             },
                           ),
                           SizedBox(
@@ -200,13 +200,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Anime list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                                          // title: "Anime list")));
                             },
                           ),
                           SizedBox(
@@ -222,13 +222,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Funny list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Funny list")));
                             },
                           )
                         ],
@@ -249,13 +249,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Horror list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Horror list")));
                             },
                           ),
                           SizedBox(
@@ -270,13 +270,13 @@ class _searchscreenState extends State<searchscreen> {
                             btnTxt: "Romantic",
                             weight: FontWeight.w300,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Romantic list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Romantic list")));
                             },
                           ),
                           SizedBox(
@@ -291,13 +291,13 @@ class _searchscreenState extends State<searchscreen> {
                             btnTxt: "Adventure",
                             weight: FontWeight.w300,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Adventure list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Adventure list")));
                             },
                           ),
                         ],
@@ -318,13 +318,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Thriller list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Thriller list")));
                             },
                           ),
                           SizedBox(
@@ -340,13 +340,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Cartoon list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Cartoon list")));
                             },
                           ),
                         ],
@@ -367,13 +367,13 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 300,
-                                      widget: ShowAllMovies(
-                                          showList: Action,
-                                          title: "Movies list")));
+                              // Navigator.push(
+                              //     context,
+                              //     SwipeLeftAnimationRoute(
+                              //         milliseconds: 300,
+                              //         widget: ShowAllMovies(
+                              //             showList: Action,
+                              //             title: "Movies list")));
                             },
                           ),
                         ],

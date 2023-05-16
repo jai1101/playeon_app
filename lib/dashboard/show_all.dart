@@ -1,11 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_const_constructors
 import 'package:flutter/material.dart';
+import '../models/movies_model.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 import 'Introduction.dart';
 
 class ShowAllMovies extends StatefulWidget {
-  List<String> showList;
+  List<MoviesModel> showList;
   String? title;
   ShowAllMovies({Key? key, required this.showList, this.title})
       : super(key: key);
@@ -92,20 +93,20 @@ class _ShowAllMoviesState extends State<ShowAllMovies> {
                                       SwipeLeftAnimationRoute(
                                           milliseconds: 200,
                                           widget: IntroductionPage(
-                                              image: widget.showList[index])));
+                                              image: widget.showList[index].imgLgPoster)));
                                 },
                                 child: Column(
                                   children: [
                                     Container(
                                       height: size.height * 0.38,
                                       width: size.height * .23,
-                                      child: Image.asset(
-                                        widget.showList[index],
+                                      child: Image.network(
+                                        widget.showList[index].imgSmPoster!,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
                                     VariableText(
-                                      text: widget.title,
+                                      text:widget.showList[index].title,
                                       fontcolor: primaryColorW,
                                       fontsize: size.height * 0.02,
                                       fontFamily: fontMedium,

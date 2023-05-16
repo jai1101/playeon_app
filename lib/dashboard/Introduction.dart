@@ -36,9 +36,9 @@ class IntroductionPage extends StatelessWidget {
                   ]),
             ),
             Expanded(
-              child: Image.asset(
-                image!,
-                fit: BoxFit.cover,
+              child: Image.network(
+                image!, 
+                fit: BoxFit.fill,
               ),
             ),
           ],
