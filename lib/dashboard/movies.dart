@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/models/movies_model.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
+import 'videoplayer.dart';
 
 class Movies extends StatefulWidget {
-  const Movies({super.key});
+  List<MoviesModel>? moviesData;
+  Movies({super.key, this.moviesData});
 
   @override
   State<Movies> createState() => _MoviesState();
@@ -11,35 +14,15 @@ class Movies extends StatefulWidget {
 
 class _MoviesState extends State<Movies> {
   @override
-  List<String> images = [
-    "assets/images/act2.png",
-    "assets/images/adv3.png",
-    "assets/images/animat3.png",
-    "assets/images/cont1.png",
-    "assets/images/for3.png",
-    "assets/images/rom3.png",
-    "assets/images/trend1.png",
-    "assets/images/trend4.png",
-    "assets/images/cont2.png",
-    "assets/images/act2.png",
-    "assets/images/adv3.png",
-    "assets/images/animat3.png",
-    "assets/images/cont1.png",
-    "assets/images/for3.png",
-    "assets/images/rom3.png",
-    "assets/images/trend1.png",
-    "assets/images/trend4.png",
-    "assets/images/cont2.png",
-    "assets/images/act2.png",
-    "assets/images/adv3.png",
-    "assets/images/animat3.png",
-    "assets/images/cont1.png",
-    "assets/images/for3.png",
-    "assets/images/rom3.png",
-    "assets/images/trend1.png",
-    "assets/images/trend4.png",
-    "assets/images/cont2.png",
-  ];
+  bool isLoading = false;
+  setLoading(bool loading) {
+    if (mounted) {
+      setState(() {
+        isLoading = loading;
+      });
+    }
+  }
+
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
@@ -117,7 +100,7 @@ class _MoviesState extends State<Movies> {
                         padding: EdgeInsets.symmetric(
                             vertical: size.height * verticalPadding),
                         child: GridView.builder(
-                            itemCount: images.length,
+                            itemCount: widget.moviesData!.length,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 6,
@@ -131,8 +114,19 @@ class _MoviesState extends State<Movies> {
                             scrollDirection: Axis.vertical,
                             physics: ScrollPhysics(),
                             itemBuilder: (_, index) {
-                              return Container(
-                                  child: Image.asset(images[index]));
+                              return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        SwipeLeftAnimationRoute(
+                                            milliseconds: 200,
+                                            widget: VideoPlayers(
+                                              url: widget
+                                                  .moviesData![index].video,
+                                            )));
+                                  },
+                                  child: Image.network(
+                                      widget.moviesData![index].imgSmPoster!));
                             }),
                       ),
                     )

@@ -5,6 +5,7 @@ import 'package:playeon/auth/api_controller.dart';
 import 'package:playeon/dashboard/movies.dart';
 import 'package:playeon/dashboard/series.dart';
 import 'package:playeon/dashboard/show_all.dart';
+import 'package:playeon/dashboard/videoplayer.dart';
 import 'package:playeon/models/movies_model.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
@@ -14,19 +15,17 @@ import 'local_preference_controller.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  @override 
+  @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  
   List itemImages = [
-   "assets/images/crousel1.png",
+    "assets/images/crousel1.png",
     "assets/images/crousel2.png",
     "assets/images/crousel3.png",
-    ];
-  int currentIndex = 0 ; 
+  ];
+  int currentIndex = 0;
   String? categoryController;
   List<String> categoryList = [
     "Action",
@@ -131,21 +130,31 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hotel.png",
     "assets/images/img_hostile.png",
   ];
- List<MoviesModel> moviesData=[];
+  List<MoviesModel> moviesData = [];
   void updateList(String value) {}
-  getMovies() async {
-    LocalPreference prefs = LocalPreference();
-    String token = await prefs.getUserToken();
-     var response = await ApiController().getMovies(token);
-
-    print(" form api $response");
-    for(var item in response){
-moviesData.add(MoviesModel.fromJson(item));
-
+  bool isLoading = false;
+  setLoading(bool loading) {
+    if (mounted) {
+      setState(() {
+        isLoading = loading;
+      });
     }
   }
 
-  @override  
+  getMovies() async {
+    setLoading(true);
+    LocalPreference prefs = LocalPreference();
+    String token = await prefs.getUserToken();
+    var response = await ApiController().getMovies(token);
+
+    print(" form api $response");
+    for (var item in response) {
+      moviesData.add(MoviesModel.fromJson(item));
+    }
+    setLoading(false);
+  }
+
+  @override
   void initState() {
     getMovies();
 
@@ -163,7 +172,6 @@ moviesData.add(MoviesModel.fromJson(item));
           padding: const EdgeInsets.only(top: 30.0, left: 15),
           child: Column(children: [
             Row(
-             
               children: [
                 Expanded(
                     child: VariableText(
@@ -186,7 +194,7 @@ moviesData.add(MoviesModel.fromJson(item));
               height: 10,
             ),
             Row(
-               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MyButton(
                   btnHeight: size.height * 0.05,
@@ -202,7 +210,7 @@ moviesData.add(MoviesModel.fromJson(item));
                     Navigator.push(
                         context,
                         SwipeLeftAnimationRoute(
-                            milliseconds: 200, widget: Movies()));
+                            milliseconds: 200, widget: Movies(moviesData:moviesData)));
                   },
                 ),
                 SizedBox(
@@ -221,128 +229,116 @@ moviesData.add(MoviesModel.fromJson(item));
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Series ()),
+                      MaterialPageRoute(builder: (context) => const Series()),
                     );
                   },
                 ),
-
                 SizedBox(
                   width: size.width * 0.02,
                 ),
                 Container(
-                          width: size.width * 0.22,
-                          height: size.width * 0.15,
-                          color: textColor5,
+                    width: size.width * 0.22,
+                    height: size.width * 0.15,
+                    color: textColor5,
                     child: InputDecorator(
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: textColor5),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<String>(
-                                    dropdownColor: Colors.black,
-                                      hint: Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 2.0),
-                                        child: StreamBuilder<Object>(
-                                            stream: null,
-                                            builder: (context, snapshot) {
-                                              return VariableText(
-                                                text: "Categories",
-                                                fontFamily: fontMedium,
-                                                fontcolor: textColor1,
-                                                fontsize: size.height * 0.016,
-                                              );
-                                            }),
-                                      ),
-                                      value: categoryController,
-                                      isExpanded: true,
-                                      onTap: () {
-                                        FocusScope.of(context).unfocus();
-                                      },
-                                      onChanged: (String? value) {
-                                        {
-                                          setState(() {
-                                            categoryController = value;
-                                          });
-                                        }
-                                      },
-                                      style: TextStyle(
-                                          fontSize: size.height * 0.016,
-                                          color: Colors.black),
-                                      items: categoryList
-                                          .map<DropdownMenuItem<String>>(
-                                              (String item) {
-                                        return DropdownMenuItem<String>(
-                                          value: item,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              VariableText(
-                                                text: item,
-                                                fontsize: size.height * 0.016,
-                                                fontcolor: textColor1,
-                                                fontFamily: fontMedium,
-                                              ),
-                                            ],
-                                          ),
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: textColor5),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                        child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                                dropdownColor: Colors.black,
+                                hint: Padding(
+                                  padding: const EdgeInsets.only(left: 2.0),
+                                  child: StreamBuilder<Object>(
+                                      stream: null,
+                                      builder: (context, snapshot) {
+                                        return VariableText(
+                                          text: "Categories",
+                                          fontFamily: fontMedium,
+                                          fontcolor: textColor1,
+                                          fontsize: size.height * 0.016,
                                         );
-                                      }).toList())))),
-               
+                                      }),
+                                ),
+                                value: categoryController,
+                                isExpanded: true,
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                },
+                                onChanged: (String? value) {
+                                  {
+                                    setState(() {
+                                      categoryController = value;
+                                    });
+                                  }
+                                },
+                                style: TextStyle(
+                                    fontSize: size.height * 0.016,
+                                    color: Colors.black),
+                                items: categoryList
+                                    .map<DropdownMenuItem<String>>(
+                                        (String item) {
+                                  return DropdownMenuItem<String>(
+                                    value: item,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        VariableText(
+                                          text: item,
+                                          fontsize: size.height * 0.016,
+                                          fontcolor: textColor1,
+                                          fontFamily: fontMedium,
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }).toList())))),
               ],
             ),
             SizedBox(
               height: size.height * 0.02,
             ),
-       
-SizedBox(
-  height: 200,
-  width: double.infinity,
-  child: PageView.builder(
-    onPageChanged: (index)
-      {
-        setState(() {
-          currentIndex = index % itemImages.length;
-        });
+            SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: PageView.builder(
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndex = index % itemImages.length;
+                  });
+                },
 
-      },
-    
-    // itemCount: itemImages.length,
-    itemBuilder:(context , index){
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: SizedBox(
-          height: 400 ,
-          width: double.infinity,
-          child: Image.asset(itemImages[index % itemImages.length],
-          
-          fit : BoxFit.cover),
-      
-        ),
-      );
-    },),
-),
-
-
-         SizedBox(
-          height:10,
-
-         ) ,  
-
-         Row( 
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-          for( var i = 0 ; i< itemImages.length ; i++ )
-          buildIndicator(currentIndex == i)
-         ],),
-          SizedBox(
-          height:10,
-
-         ) ,
-           
+                // itemCount: itemImages.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: SizedBox(
+                      height: 400,
+                      width: double.infinity,
+                      child: Image.asset(itemImages[index % itemImages.length],
+                          fit: BoxFit.cover),
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (var i = 0; i < itemImages.length; i++)
+                  buildIndicator(currentIndex == i)
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Expanded(
@@ -395,15 +391,29 @@ SizedBox(
                         scrollDirection: Axis.horizontal,
                         physics: ScrollPhysics(),
                         itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 10),
-                              child: Image.network(moviesData[index].imgSmPoster!));
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  SwipeLeftAnimationRoute(
+                                      milliseconds: 200,
+                                      widget: VideoPlayers(
+                                        url: moviesData[index].video,
+                                      )));
+                            },
+                            child: Container(
+                                padding: EdgeInsets.only(right: 10),
+                                child: Image.network(
+                                    moviesData[index].imgSmPoster!)),
+                          );
                         }),
                   )
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Expanded(
@@ -531,7 +541,6 @@ SizedBox(
               ),
             ),
             Row(
-
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
@@ -549,7 +558,7 @@ SizedBox(
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                               showList: moviesData, title: "Now list"))),
+                              showList: moviesData, title: "Now list"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -728,8 +737,8 @@ SizedBox(
                       context,
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
-                          widget:
-                              ShowAllMovies( showList: moviesData, title: "Cartoons"))),
+                          widget: ShowAllMovies(
+                              showList: moviesData, title: "Cartoons"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -849,7 +858,7 @@ SizedBox(
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                               showList: moviesData, title: "Horror Movies"))),
+                              showList: moviesData, title: "Horror Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -909,7 +918,8 @@ SizedBox(
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                               showList: moviesData, title: "Adventure Movies"))),
+                              showList: moviesData,
+                              title: "Adventure Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -969,7 +979,7 @@ SizedBox(
                       SwipeLeftAnimationRoute(
                           milliseconds: 300,
                           widget: ShowAllMovies(
-                               showList: moviesData, title: "Animated Movies"))),
+                              showList: moviesData, title: "Animated Movies"))),
                   child: Row(
                     children: [
                       VariableText(
@@ -996,19 +1006,17 @@ SizedBox(
         ),
       ),
     );
- 
-   
   }
-  Widget buildIndicator (bool isSelected){
+
+  Widget buildIndicator(bool isSelected) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: isSelected ? 12 :8,
-        width: isSelected ?  12 : 8,
+        height: isSelected ? 12 : 8,
+        width: isSelected ? 12 : 8,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color : isSelected? Colors.black : Colors.grey,
-    
+          color: isSelected ? Colors.black : Colors.grey,
         ),
       ),
     );

@@ -116,37 +116,42 @@ class _VideoPlayersState extends State<VideoPlayers> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: FutureBuilder(
-            future: _initializeVideoPlayerFuture,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                );
-              } else {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FutureBuilder(
+              future: _initializeVideoPlayerFuture,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: VideoPlayer(_controller),
+                  );
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (_controller.value.isPlaying) {
+                    _controller.pause();
+                  } else {
+                    _controller.play();
+                  }
+                });
+              },
+              child: Icon(
+                  _controller.value.isPlaying ? Icons.pause : Icons.play_arrow),
+            )
+          ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: primaryColor1,
-          onPressed: () {
-            setState(() {
-              if (_controller.value.isPlaying) {
-                _controller.pause();
-              } else {
-                _controller.play();
-              }
-            });
-          },
-          child: Icon(
-              _controller.value.isPlaying ? Icons.pause : Icons.play_arrow),
-        ));
+      ),
+    );
   }
 }
 >>>>>>> 27c3e6db23c64935911d48a3457418633d376b9d

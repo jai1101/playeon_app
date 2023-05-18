@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:playeon/dashboard/videoplayer.dart';
+import 'package:shimmer/shimmer.dart';
 import '../auth/api_controller.dart';
 import '../models/series_model.dart';
 import '../widgets/common.dart';
@@ -15,38 +16,19 @@ class Series extends StatefulWidget {
 
 class _SeriesState extends State<Series> {
   @override
-  List<String> images = [
-    "assets/images/act2.png",
-    "assets/images/adv3.png",
-    "assets/images/animat3.png",
-    "assets/images/cont1.png",
-    "assets/images/for3.png",
-    "assets/images/rom3.png",
-    "assets/images/trend1.png",
-    "assets/images/trend4.png",
-    "assets/images/cont2.png",
-    "assets/images/act2.png",
-    "assets/images/adv3.png",
-    "assets/images/animat3.png",
-    "assets/images/cont1.png",
-    "assets/images/for3.png",
-    "assets/images/rom3.png",
-    "assets/images/trend1.png",
-    "assets/images/trend4.png",
-    "assets/images/cont2.png",
-    "assets/images/act2.png",
-    "assets/images/adv3.png",
-    "assets/images/animat3.png",
-    "assets/images/cont1.png",
-    "assets/images/for3.png",
-    "assets/images/rom3.png",
-    "assets/images/trend1.png",
-    "assets/images/trend4.png",
-    "assets/images/cont2.png",
-  ];
+  bool isLoading = false;
+  setLoading(bool loading) {
+    if (mounted) {
+      setState(() {
+        isLoading = loading;
+      });
+    }
+  }
+
   List<SeriesModel> moviesData = [];
   void updateList(String value) {}
   getSeriesData() async {
+    setLoading(true);
     LocalPreference prefs = LocalPreference();
     String token = await prefs.getUserToken();
     var response = await ApiController().getSeries(token);
@@ -55,12 +37,12 @@ class _SeriesState extends State<Series> {
     for (var item in response) {
       moviesData.add(SeriesModel.fromJson(item));
     }
+    setLoading(false);
   }
 
   @override
   void initState() {
     getSeriesData();
-
     super.initState();
   }
 
@@ -140,36 +122,92 @@ class _SeriesState extends State<Series> {
                         height: size.height * 0.5,
                         padding: EdgeInsets.symmetric(
                             vertical: size.height * verticalPadding),
-                        child: GridView.builder(
-                            itemCount: moviesData.length,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 6,
-                              crossAxisSpacing: size.width * 0.03,
-                              mainAxisSpacing: size.height * 0.015,
-                              // childAspectRatio: 0.63,
-                              childAspectRatio:
-                                  size.width / (size.height * 0.9),
-                            ),
-                            shrinkWrap: false,
-                            scrollDirection: Axis.vertical,
-                            physics: ScrollPhysics(),
-                            itemBuilder: (_, index) {
-                              return InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        SwipeLeftAnimationRoute(
-                                            milliseconds: 200,
-                                            widget: VideoPlayers(
-                                              url: moviesData[index]
-                                                  .episodes![0]
-                                                  .video,
-                                            )));
-                                  },
-                                  child: Image.network(
-                                      moviesData[index].imgSmPoster!));
-                            }),
+                        child: isLoading
+                            ? GridView.builder(
+                                itemCount: moviesData.length,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 6,
+                                  crossAxisSpacing: size.width * 0.03,
+                                  mainAxisSpacing: size.height * 0.015,
+                                  // childAspectRatio: 0.63,
+                                  childAspectRatio:
+                                      size.width / (size.height * 0.9),
+                                ),
+                                shrinkWrap: false,
+                                scrollDirection: Axis.vertical,
+                                physics: ScrollPhysics(),
+                                itemBuilder: (_, index) {
+                                  return Shimmer.fromColors(
+                                      baseColor: Colors.grey[200]!,
+                                      highlightColor: Colors.grey[200]!,
+                                      period: Duration(milliseconds: 1000),
+                                      child: Card(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(size.height * 0.02),
+                                          ),
+                                        ),
+                                        child: Container(
+                                          height: size.height * 0.16,
+                                          //width: size.width * 0.62,
+                                          margin: EdgeInsets.only(
+                                              top: size.height * 0.02),
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: size.width * 0.01,
+                                              vertical: size.height * 0.01),
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context).cardColor,
+                                            //color: Colors.red,
+                                            borderRadius:
+                                                BorderRadius.circular(18),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.white
+                                                    .withOpacity(0.1),
+                                                blurRadius: 20.0,
+                                                spreadRadius: 0,
+                                                offset: const Offset(
+                                                  4.0, // horizontal, move right 10
+                                                  5.0, // vertical, move down 10
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ));
+                                },
+                              )
+                            : GridView.builder(
+                                itemCount: moviesData.length,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 6,
+                                  crossAxisSpacing: size.width * 0.03,
+                                  mainAxisSpacing: size.height * 0.015,
+                                  // childAspectRatio: 0.63,
+                                  childAspectRatio:
+                                      size.width / (size.height * 0.9),
+                                ),
+                                shrinkWrap: false,
+                                scrollDirection: Axis.vertical,
+                                physics: ScrollPhysics(),
+                                itemBuilder: (_, index) {
+                                  return InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            SwipeLeftAnimationRoute(
+                                                milliseconds: 200,
+                                                widget: VideoPlayers(
+                                                  url: moviesData[index]
+                                                      .episodes![0]
+                                                      .video,
+                                                )));
+                                      },
+                                      child: Image.network(
+                                          moviesData[index].imgSmPoster!));
+                                }),
                       ),
                     )
                   ],
