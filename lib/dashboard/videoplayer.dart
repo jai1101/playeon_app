@@ -18,7 +18,7 @@ class _VideoPlayersState extends State<VideoPlayers> {
   double _sliderValue = 0.0;
   double _brightnessValue = 0.5;
   bool _isFullScreen = false;
-
+  bool isshowbar = false;
   @override
   void initState() {
     super.initState();
@@ -185,7 +185,14 @@ class _VideoPlayersState extends State<VideoPlayers> {
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
-                              VideoPlayer(_controller),
+                              InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isshowbar = !isshowbar;
+                                    });
+                                    print(isshowbar);
+                                  },
+                                  child: VideoPlayer(_controller)),
                               // SizedBox(height: 100),
                               VideoProgressIndicator(
                                 _controller,
@@ -197,50 +204,55 @@ class _VideoPlayersState extends State<VideoPlayers> {
                               ),
                               Positioned(
                                 left: 1,
-                                child: RotatedBox(
-                                  quarterTurns: 3,
-                                  child: Slider(
-                                    value: _brightnessValue,
-                                    min: 0.0,
-                                    max: 1.0,
-                                    onChanged: _changeBrightness,
-                                  ),
+                                child: SizedBox(
+                                  child: isshowbar
+                                      ? RotatedBox(
+                                          quarterTurns: 3,
+                                          child: Slider(
+                                            value: _brightnessValue,
+                                            min: 0.0,
+                                            max: 1.0,
+                                            onChanged: _changeBrightness,
+                                          ))
+                                      : null,
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                    color: primaryColor1,
-                                    onPressed: _seekBackward,
-                                    icon: Icon(Icons.replay_10),
-                                  ),
-                                  IconButton(
-                                    onPressed: _playVideo,
-                                    icon: Icon(
-                                      _controller.value.isPlaying
-                                          ? Icons.pause
-                                          : Icons.play_arrow,
+                              SizedBox(
+                                child:isshowbar? Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
                                       color: primaryColor1,
+                                      onPressed: _seekBackward,
+                                      icon: Icon(Icons.replay_10),
                                     ),
-                                  ),
-                                  IconButton(
-                                    onPressed: _stopVideo,
-                                    icon: Icon(
-                                      Icons.stop,
-                                      color: primaryColor1,
+                                    IconButton(
+                                      onPressed: _playVideo,
+                                      icon: Icon(
+                                        _controller.value.isPlaying
+                                            ? Icons.pause
+                                            : Icons.play_arrow,
+                                        color: primaryColor1,
+                                      ),
                                     ),
-                                  ),
-                                  IconButton(
-                                    onPressed: _seekForward,
-                                    color: primaryColor1,
-                                    icon: Icon(Icons.forward_10),
-                                  ),
-                                  IconButton(
+                                    IconButton(
+                                      onPressed: _stopVideo,
+                                      icon: Icon(
+                                        Icons.stop,
+                                        color: primaryColor1,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: _seekForward,
                                       color: primaryColor1,
-                                      onPressed: _toggleFullScreen,
-                                      icon: Icon(Icons.fullscreen)),
-                                ],
+                                      icon: Icon(Icons.forward_10),
+                                    ),
+                                    IconButton(
+                                        color: primaryColor1,
+                                        onPressed: _toggleFullScreen,
+                                        icon: Icon(Icons.fullscreen)),
+                                  ],
+                                ):null,
                               ),
                             ],
                           ),
