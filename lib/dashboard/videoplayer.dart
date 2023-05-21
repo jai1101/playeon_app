@@ -20,6 +20,7 @@ class _VideoPlayersState extends State<VideoPlayers> {
   double _volumeValue = 0.5;
   bool _isFullScreen = false;
   bool isshowbar = false;
+  Duration position = Duration();
 
   @override
   void initState() {
@@ -44,7 +45,9 @@ class _VideoPlayersState extends State<VideoPlayers> {
   void _playVideo() {
     if (_controller.value.isPlaying) {
       _controller.pause();
+      _controller.seekTo(position);
     } else {
+      _controller.seekTo(position);
       _controller.play();
     }
     setState(() {});
@@ -57,21 +60,26 @@ class _VideoPlayersState extends State<VideoPlayers> {
   }
 
   void _seekForward() {
-    final position = _controller.value.position + Duration(seconds: 10);
+    position = _controller.value.position + Duration(seconds: 10);
+
+    print(position);
     _controller.seekTo(position);
     setState(() {});
   }
 
   void _seekBackward() {
-    final position = _controller.value.position - Duration(seconds: 10);
+    position = _controller.value.position - Duration(seconds: 10);
     _controller.seekTo(position);
     setState(() {});
   }
 
   void _onSliderChanged(double value) {
-    final position = Duration(milliseconds: value.toInt());
-    _controller.seekTo(position);
+    position =
+        _controller.value.position + Duration(milliseconds: value.toInt());
+    print("My Position $position");
+
     setState(() {
+      _controller.seekTo(position);
       _sliderValue = value;
     });
   }
@@ -323,13 +331,13 @@ class _VideoPlayersState extends State<VideoPlayers> {
                                               color: primaryColor1,
                                             ),
                                           ),
-                                          IconButton(
-                                            onPressed: _stopVideo,
-                                            icon: Icon(
-                                              Icons.stop,
-                                              color: primaryColor1,
-                                            ),
-                                          ),
+                                          // IconButton(
+                                          //   onPressed: _stopVideo,
+                                          //   icon: Icon(
+                                          //     Icons.stop,
+                                          //     color: primaryColor1,
+                                          //   ),
+                                          // ),
                                           IconButton(
                                             onPressed: _seekForward,
                                             color: primaryColor1,
