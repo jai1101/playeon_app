@@ -17,8 +17,10 @@ class _VideoPlayersState extends State<VideoPlayers> {
   late Future<void> _initializeVideoPlayerFuture;
   double _sliderValue = 0.0;
   double _brightnessValue = 0.5;
+  double _volumeValue = 0.5;
   bool _isFullScreen = false;
   bool isshowbar = false;
+
   @override
   void initState() {
     super.initState();
@@ -26,7 +28,6 @@ class _VideoPlayersState extends State<VideoPlayers> {
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setPlaybackSpeed(1.0);
     _controller.setVolume(1.0);
-
     _controller.addListener(() {
       setState(() {
         _sliderValue = _controller.value.position.inMilliseconds.toDouble();
@@ -84,6 +85,14 @@ class _VideoPlayersState extends State<VideoPlayers> {
       systemNavigationBarIconBrightness:
           _brightnessValue < 0.5 ? Brightness.light : Brightness.dark,
     ));
+    // _controller.setVolume(value);
+  }
+
+  void _changeVolume(double value) {
+    setState(() {
+      _volumeValue = value;
+      _controller.setVolume(value);
+    });
   }
 
   void _toggleFullScreen() {
@@ -107,10 +116,18 @@ class _VideoPlayersState extends State<VideoPlayers> {
               padding: const EdgeInsets.all(8.0),
               child: Stack(
                 children: [
-                  RotatedBox(
-                    quarterTurns: 1,
-                    child: Container(
-                      child: VideoPlayer(_controller),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        isshowbar = !isshowbar;
+                      });
+                      print(isshowbar);
+                    },
+                    child: RotatedBox(
+                      quarterTurns: 1,
+                      child: Container(
+                        child: VideoPlayer(_controller),
+                      ),
                     ),
                   ),
                   RotatedBox(
@@ -126,49 +143,79 @@ class _VideoPlayersState extends State<VideoPlayers> {
                   ),
                   RotatedBox(
                     quarterTurns: 1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          color: primaryColor1,
-                          onPressed: _seekBackward,
-                          icon: Icon(Icons.replay_10),
-                        ),
-                        IconButton(
-                          onPressed: _playVideo,
-                          icon: Icon(
-                            _controller.value.isPlaying
-                                ? Icons.pause
-                                : Icons.play_arrow,
-                            color: primaryColor1,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: _stopVideo,
-                          icon: Icon(
-                            Icons.stop,
-                            color: primaryColor1,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: _seekForward,
-                          color: primaryColor1,
-                          icon: Icon(Icons.forward_10),
-                        ),
-                        IconButton(
-                            color: primaryColor1,
-                            onPressed: _toggleFullScreen,
-                            icon: Icon(Icons.fullscreen)),
-                      ],
+                    child: isshowbar
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                color: primaryColor1,
+                                onPressed: _seekBackward,
+                                icon: Icon(Icons.replay_10),
+                              ),
+                              IconButton(
+                                onPressed: _playVideo,
+                                icon: Icon(
+                                  _controller.value.isPlaying
+                                      ? Icons.pause
+                                      : Icons.play_arrow,
+                                  color: primaryColor1,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: _stopVideo,
+                                icon: Icon(
+                                  Icons.stop,
+                                  color: primaryColor1,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: _seekForward,
+                                color: primaryColor1,
+                                icon: Icon(Icons.forward_10),
+                              ),
+                              IconButton(
+                                  color: primaryColor1,
+                                  onPressed: _toggleFullScreen,
+                                  icon: Icon(Icons.fullscreen)),
+                            ],
+                          )
+                        : null,
+                  ),
+                  Positioned(
+                    bottom: 20,
+                    // top: 1,
+                    child: SizedBox(
+                      child: isshowbar
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.volume_up,
+                                    color: primaryColor1, size: 15),
+                                RotatedBox(
+                                    quarterTurns: 4,
+                                    child: SliderTheme(
+                                      data: const SliderThemeData(
+                                        overlayShape: RoundSliderOverlayShape(
+                                            overlayRadius: 10.0),
+                                        tickMarkShape: RoundSliderTickMarkShape(
+                                            tickMarkRadius: 2.0),
+                                        thumbShape: RoundSliderThumbShape(
+                                          enabledThumbRadius: 4.0,
+                                        ),
+                                      ),
+                                      child: Slider(
+                                        value: _volumeValue,
+                                        min: 0.0,
+                                        max: 2.0,
+                                        onChanged: _changeVolume,
+                                        label: "Volume",
+                                      ),
+                                    )),
+                              ],
+                            )
+                          : null,
                     ),
                   ),
-                  // Align(
-                  //   alignment: Alignment.topRight,
-                  //   child: IconButton(
-                  //     onPressed: _toggleFullScreen,
-                  //     icon: Icon(Icons.fullscreen),
-                  //   ),
-                  // ),
                 ],
               ),
             )
@@ -193,7 +240,6 @@ class _VideoPlayersState extends State<VideoPlayers> {
                                     print(isshowbar);
                                   },
                                   child: VideoPlayer(_controller)),
-                              // SizedBox(height: 100),
                               VideoProgressIndicator(
                                 _controller,
                                 allowScrubbing: true,
@@ -217,42 +263,85 @@ class _VideoPlayersState extends State<VideoPlayers> {
                                       : null,
                                 ),
                               ),
+                              Positioned(
+                                right: 1,
+                                // top: 1,
+                                child: SizedBox(
+                                  height: 190,
+                                  child: isshowbar
+                                      ? Column(
+                                          children: [
+                                            RotatedBox(
+                                                quarterTurns: 3,
+                                                child: SliderTheme(
+                                                  data: const SliderThemeData(
+                                                    overlayShape:
+                                                        RoundSliderOverlayShape(
+                                                            overlayRadius:
+                                                                10.0),
+                                                    tickMarkShape:
+                                                        RoundSliderTickMarkShape(
+                                                            tickMarkRadius:
+                                                                2.0),
+                                                    thumbShape:
+                                                        RoundSliderThumbShape(
+                                                      enabledThumbRadius: 4.0,
+                                                    ),
+                                                  ),
+                                                  child: Slider(
+                                                    value: _volumeValue,
+                                                    min: 0.0,
+                                                    max: 2.0,
+                                                    onChanged: _changeVolume,
+                                                    label: "Volume",
+                                                  ),
+                                                )),
+                                            Icon(Icons.volume_up,
+                                                color: primaryColor1, size: 15),
+                                          ],
+                                        )
+                                      : null,
+                                ),
+                              ),
                               SizedBox(
-                                child:isshowbar? Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      color: primaryColor1,
-                                      onPressed: _seekBackward,
-                                      icon: Icon(Icons.replay_10),
-                                    ),
-                                    IconButton(
-                                      onPressed: _playVideo,
-                                      icon: Icon(
-                                        _controller.value.isPlaying
-                                            ? Icons.pause
-                                            : Icons.play_arrow,
-                                        color: primaryColor1,
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: _stopVideo,
-                                      icon: Icon(
-                                        Icons.stop,
-                                        color: primaryColor1,
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: _seekForward,
-                                      color: primaryColor1,
-                                      icon: Icon(Icons.forward_10),
-                                    ),
-                                    IconButton(
-                                        color: primaryColor1,
-                                        onPressed: _toggleFullScreen,
-                                        icon: Icon(Icons.fullscreen)),
-                                  ],
-                                ):null,
+                                child: isshowbar
+                                    ? Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          IconButton(
+                                            color: primaryColor1,
+                                            onPressed: _seekBackward,
+                                            icon: Icon(Icons.replay_10),
+                                          ),
+                                          IconButton(
+                                            onPressed: _playVideo,
+                                            icon: Icon(
+                                              _controller.value.isPlaying
+                                                  ? Icons.pause
+                                                  : Icons.play_arrow,
+                                              color: primaryColor1,
+                                            ),
+                                          ),
+                                          IconButton(
+                                            onPressed: _stopVideo,
+                                            icon: Icon(
+                                              Icons.stop,
+                                              color: primaryColor1,
+                                            ),
+                                          ),
+                                          IconButton(
+                                            onPressed: _seekForward,
+                                            color: primaryColor1,
+                                            icon: Icon(Icons.forward_10),
+                                          ),
+                                          IconButton(
+                                              color: primaryColor1,
+                                              onPressed: _toggleFullScreen,
+                                              icon: Icon(Icons.fullscreen)),
+                                        ],
+                                      )
+                                    : null,
                               ),
                             ],
                           ),
@@ -264,21 +353,6 @@ class _VideoPlayersState extends State<VideoPlayers> {
                       }
                     },
                   ),
-                  // SizedBox(height: 20),
-                  // SizedBox(height: 20),
-                  // Slider(
-                  //   value: _sliderValue,
-                  //   min: 0.0,
-                  //   max: _controller.value.duration.inMilliseconds.toDouble(),
-                  //   onChanged: _onSliderChanged,
-                  // ),
-                  // SizedBox(height: 20),
-                  // SizedBox(height: 20),
-                  // ElevatedButton(
-                  //   onPressed: _stopVideo,
-                  //   child: Text('Stop'),
-                  // ),
-                  // SizedBox(height: 20),
                 ],
               ),
             ),
