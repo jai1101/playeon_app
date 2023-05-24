@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:playeon/auth/user_model.dart';
 import 'package:playeon/dashboard/local_preference_controller.dart';
 import 'package:playeon/main_screen.dart';
 import 'package:playeon/widgets/style.dart';
+import 'package:provider/provider.dart';
+import '../models/user_model.dart';
+import '../provider/user_provider.dart';
 import '../widgets/common.dart';
 import 'SignupScreen.dart';
 import 'api_controller.dart';
@@ -48,16 +52,17 @@ class _LoginScreenState extends State<LoginScreen> {
     if (validate()) {
       var response = await ApiController()
           .loginUser(usernameController.text, passwordController.text);
-      print("Get $response");
+      // print("Get $response");
       if (response['status']) {
         setLoading(false);
         String token = response['msg'];
-        // Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
-        Map<String, dynamic> decodedToken = JwtDecoder.decode(
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBmZmVhMzA3OWQxNDRmNjQ4OTU2M2IiLCJpYXQiOjE2ODQ4MjM1ODMsImV4cCI6MTcxNjM1OTU4M30.aJMdUph4Isgl9GqPqrChX8AHdkAS2jJSD0wT4xi83sU");
-        print(decodedToken);
-        print(decodedToken["name"]);
-        print(token);
+        Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
+        // Map<String, dynamic> decodedToken = JwtDecoder.decode(
+        //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBmZmVhMzA3OWQxNDRmNjQ4OTU2M2IiLCJpYXQiOjE2ODQ4MjM1ODMsImV4cCI6MTcxNjM1OTU4M30.aJMdUph4Isgl9GqPqrChX8AHdkAS2jJSD0wT4xi83sU");
+        // print(decodedToken);
+        print(decodedToken['user']);
+        User user = User.fromJson(decodedToken['user']);
+        await Provider.of<UserProvider>(context, listen: false).setUSer(user);
         LocalPreference prefs = LocalPreference();
         await prefs.setUserToken(token);
         Navigator.pushReplacement(context,

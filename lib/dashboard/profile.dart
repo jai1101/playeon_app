@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:playeon/dashboard/setting.dart';
 
 import 'package:playeon/widgets/style.dart';
+import 'package:provider/provider.dart';
 
+import '../models/user_model.dart';
+import '../provider/user_provider.dart';
 import '../widgets/common.dart';
 
 class Profile extends StatefulWidget {
@@ -48,6 +51,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    User? userdata = Provider.of<UserProvider>(context).user;
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -89,11 +93,11 @@ class _ProfileState extends State<Profile> {
                         CircleAvatar(
                           radius: 60,
                           backgroundImage:
-                              AssetImage("assets/images/Avatar.png"),
+                              NetworkImage(userdata!.profilePicture!),
                           backgroundColor: backgroundColor,
                         ),
                         VariableText(
-                          text: "Muhammad Bilal",
+                          text: userdata.name,
                           fontsize: size.height * 0.024,
                           fontFamily: fontMedium,
                           fontcolor: textColor1,
