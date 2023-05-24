@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
         String token = response['msg'];
         // Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
         Map<String, dynamic> decodedToken = JwtDecoder.decode(
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huZG8xMmVAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCR5bjRIeHdYcnRRYlBkNmhkRUtFVnBlSW85ZjIyNDJyQ0poMWxnMUlSL3lkRlQ2VjlRZk9GTyIsInVzZXJuYW1lIjoiam9oMTNuZG9lIiwicGhvbmVOdW1iZXIiOiIxMjM0NTY3ODkwIiwiY291bnRyeSI6IlVTIiwicGxhbiI6IkJhc2ljIiwicGF5bWVudE1ldGhvZCI6InZvdWNoZXIiLCJyb2xlIjoidXNlciIsInByb2ZpbGVQaWN0dXJlIjoiaHR0cHM6Ly9wbGF5ZW9uLWFzc2VzdC5zMy5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb20vZGVmYXVsdGljb24ucG5nIiwidm91Y2hlckV4cGlyeURhdGUiOiIyMDIzLTA2LTIyVDA1OjIxOjU2LjE3MFoiLCJpc0xvZ2dlZEluIjp0cnVlLCJCZG9JZCI6IjEyMzQ1NiIsIl9pZCI6IjY0NmM0ZDc0ZTU5NGEzNzRhN2IxNDAxYiIsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMjNUMDU6MjE6NTYuMjUwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMjNUMDU6MjE6NTYuMjUwWiIsIl9fdiI6MH0sImlhdCI6MTY4NDgxOTMxNiwiZXhwIjoxNzE2MzU1MzE2fQ.n5f3GYe3sr05UmoeiPh_2kE2zXFHPxsLcskv9OZFVKc");
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBmZmVhMzA3OWQxNDRmNjQ4OTU2M2IiLCJpYXQiOjE2ODQ4MjM1ODMsImV4cCI6MTcxNjM1OTU4M30.aJMdUph4Isgl9GqPqrChX8AHdkAS2jJSD0wT4xi83sU");
         print(decodedToken);
         print(decodedToken["name"]);
         print(token);
