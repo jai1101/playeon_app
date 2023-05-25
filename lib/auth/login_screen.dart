@@ -56,12 +56,13 @@ class _LoginScreenState extends State<LoginScreen> {
       if (response['status']) {
         setLoading(false);
         String token = response['msg'];
+        print("Before jwtdecode $token");
         Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
         // Map<String, dynamic> decodedToken = JwtDecoder.decode(
         //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBmZmVhMzA3OWQxNDRmNjQ4OTU2M2IiLCJpYXQiOjE2ODQ4MjM1ODMsImV4cCI6MTcxNjM1OTU4M30.aJMdUph4Isgl9GqPqrChX8AHdkAS2jJSD0wT4xi83sU");
         // print(decodedToken);
-        print(decodedToken['user']);
-        User user = User.fromJson(decodedToken['user']);
+        print(decodedToken['userId']);
+        User user = User.fromJson(decodedToken['userId']);
         await Provider.of<UserProvider>(context, listen: false).setUSer(user);
         LocalPreference prefs = LocalPreference();
         await prefs.setUserToken(token);
