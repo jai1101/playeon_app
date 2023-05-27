@@ -29,7 +29,7 @@ class _MainScreenState extends State<MainScreen>
     tabController = TabController(
         length: 3,
         animationDuration: const Duration(milliseconds: 200),
-        initialIndex: 0,
+        initialIndex: 1,
         vsync: this);
     tabController!.addListener(handleTabSelection);
   }
@@ -80,9 +80,9 @@ class _MainScreenState extends State<MainScreen>
               child: Image.asset(
                 mainTab['tabs']![index]['icon'].toString(),
                 scale: 1,
-                color:              tabController!.index == index ? primaryColorB : null,
+                color: tabController!.index == index ? primaryColorB : null,
               ),
-            ); 
+            );
           }),
         ),
       ),
