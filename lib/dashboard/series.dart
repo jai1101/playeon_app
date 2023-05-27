@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/dashboard/series_about.dart';
 import 'package:playeon/dashboard/videoplayer.dart';
 import 'package:shimmer/shimmer.dart';
 import '../auth/api_controller.dart';
 import '../models/series_model.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
+import 'about.dart';
 import 'local_preference_controller.dart';
 
 class Series extends StatefulWidget {
@@ -199,10 +201,8 @@ class _SeriesState extends State<Series> {
                                             context,
                                             SwipeLeftAnimationRoute(
                                                 milliseconds: 200,
-                                                widget: VideoPlayers(
-                                                  url: moviesData[index]
-                                                      .episodes![0]
-                                                      .video,
+                                                widget: SeriesAbout(
+                                                  movieData: moviesData[index],
                                                 )));
                                       },
                                       child: Image.network(

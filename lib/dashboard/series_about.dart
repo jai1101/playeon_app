@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/models/series_model.dart';
 
 import '../models/movies_model.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
 import 'videoplayer.dart';
 
-class About extends StatefulWidget {
-  MoviesModel? movieData;
+class SeriesAbout extends StatefulWidget {
+  SeriesModel? movieData;
   String? url;
-  About({super.key, this.movieData});
+  SeriesAbout({super.key, this.movieData});
 
   @override
-  State<About> createState() => _AboutState();
+  State<SeriesAbout> createState() => _SeriesAboutState();
 }
 
-class _AboutState extends State<About> {
+class _SeriesAboutState extends State<SeriesAbout> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -104,14 +105,19 @@ class _AboutState extends State<About> {
                           weight: FontWeight.w500,
                           // max_lines: 2,
                         ),
-                        VariableText(
-                          text: "${widget.movieData!.type}",
-                          fontcolor: textColorS,
-                          fontsize: size.height * 0.017,
-                          fontFamily: fontMedium,
-                          weight: FontWeight.w500,
-                          textAlign: TextAlign.start,
-                          // max_lines: 2,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            VariableText(
+                              text: "${widget.movieData!.type}",
+                              fontcolor: textColorS,
+                              fontsize: size.height * 0.017,
+                              fontFamily: fontMedium,
+                              weight: FontWeight.w500,
+                              textAlign: TextAlign.start,
+                              // max_lines: 2,
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -161,7 +167,7 @@ class _AboutState extends State<About> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => VideoPlayers(
-                                    url: widget.movieData!.video!,
+                                      url: widget.movieData!.episodes![0].video
                                   )),
                         );
                       },

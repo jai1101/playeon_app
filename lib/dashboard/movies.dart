@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:playeon/models/movies_model.dart';
 import '../widgets/common.dart';
 import '../widgets/style.dart';
+import 'about.dart';
 import 'videoplayer.dart';
 
 class Movies extends StatefulWidget {
@@ -120,9 +121,9 @@ class _MoviesState extends State<Movies> {
                                         context,
                                         SwipeLeftAnimationRoute(
                                             milliseconds: 200,
-                                            widget: VideoPlayers(
-                                              url: widget
-                                                  .moviesData![index].video,
+                                            widget: About(
+                                              movieData:
+                                                  widget.moviesData![index],
                                             )));
                                   },
                                   child: Image.network(

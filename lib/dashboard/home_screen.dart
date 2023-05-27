@@ -10,6 +10,7 @@ import 'package:playeon/models/movies_model.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
 
+import 'about.dart';
 import 'local_preference_controller.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -210,7 +211,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                         context,
                         SwipeLeftAnimationRoute(
-                            milliseconds: 200, widget: Movies(moviesData:moviesData)));
+                            milliseconds: 200,
+                            widget: Movies(moviesData: moviesData)));
                   },
                 ),
                 SizedBox(
@@ -236,67 +238,78 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   width: size.width * 0.02,
                 ),
-                Container(
-                    width: size.width * 0.22,
-                    height: size.width * 0.15,
-                    color: textColor5,
-                    child: InputDecorator(
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: textColor5),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        child: DropdownButtonHideUnderline(
-                            child: DropdownButton<String>(
-                                dropdownColor: Colors.black,
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: StreamBuilder<Object>(
-                                      stream: null,
-                                      builder: (context, snapshot) {
-                                        return VariableText(
-                                          text: "Categories",
-                                          fontFamily: fontMedium,
-                                          fontcolor: textColor1,
-                                          fontsize: size.height * 0.016,
-                                        );
-                                      }),
-                                ),
-                                value: categoryController,
-                                isExpanded: true,
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                },
-                                onChanged: (String? value) {
-                                  {
-                                    setState(() {
-                                      categoryController = value;
-                                    });
-                                  }
-                                },
-                                style: TextStyle(
-                                    fontSize: size.height * 0.016,
-                                    color: Colors.black),
-                                items: categoryList
-                                    .map<DropdownMenuItem<String>>(
-                                        (String item) {
-                                  return DropdownMenuItem<String>(
-                                    value: item,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        VariableText(
-                                          text: item,
-                                          fontsize: size.height * 0.016,
-                                          fontcolor: textColor1,
-                                          fontFamily: fontMedium,
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                }).toList())))),
+                Expanded(
+                  child: MyDropDown(
+                    hinttext: "Categories",
+                    width: size.width * 0.2,
+                    states: categoryList,
+                    radius: 50,
+                    selectedValue: (value) {
+                      print(value);
+
+                      categoryController = value;
+                    },
+                  ),
+                ),
+                // Container(
+                //     width: size.width * 0.3,
+                //     height: size.height * 0.06,
+                //     color: textColor5,
+                //     child: InputDecorator(
+                //         decoration: InputDecoration(
+                //           enabledBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: textColor5),
+                //             borderRadius: BorderRadius.circular(50),
+                //           ),
+                //         ),
+                //         child: DropdownButtonHideUnderline(
+                //             child: DropdownButton<String>(
+                //                 dropdownColor: Colors.black,
+                //                 hint: StreamBuilder<Object>(
+                //                     stream: null,
+                //                     builder: (context, snapshot) {
+                //                       return VariableText(
+                //                         text: "Categories",
+                //                         fontFamily: fontMedium,
+                //                         fontcolor: textColor1,
+                //                         fontsize: size.height * 0.014,
+                //                       );
+                //                     }),
+                //                 value: categoryController,
+                //                 isExpanded: true,
+                //                 onTap: () {
+                //                   FocusScope.of(context).unfocus();
+                //                 },
+                //                 onChanged: (String? value) {
+                //                   {
+                //                     setState(() {
+                //                       categoryController = value;
+                //                     });
+                //                   }
+                //                 },
+                //                 style: TextStyle(
+                //                     fontSize: size.height * 0.01,
+                //                     color: Colors.black),
+                //                 items: categoryList
+                //                     .map<DropdownMenuItem<String>>(
+                //                         (String item) {
+                //                   return DropdownMenuItem<String>(
+                //                     value: item,
+                //                     child: Column(
+                //                       crossAxisAlignment:
+                //                           CrossAxisAlignment.start,
+                //                       children: [
+                //                         VariableText(
+                //                           text: item,
+                //                           fontsize: size.height * 0.014,
+                //                           fontcolor: textColor1,
+                //                           fontFamily: fontMedium,
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   );
+                //                 }).toList())))
+                //                 ),
               ],
             ),
             SizedBox(
@@ -397,8 +410,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   context,
                                   SwipeLeftAnimationRoute(
                                       milliseconds: 200,
-                                      widget: VideoPlayers(
-                                        url: moviesData[index].video,
+                                      widget: About(
+                                        movieData: moviesData[index],
                                       )));
                             },
                             child: Container(

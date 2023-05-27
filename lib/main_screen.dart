@@ -56,9 +56,7 @@ class _MainScreenState extends State<MainScreen>
           searchscreen(),
           HomeScreen(),
           Profile(),
-          // HistoryScreen(),
-          // AdsScreen(),
-          // SettingScreen(),
+
         ],
       ),
       bottomNavigationBar: Container(

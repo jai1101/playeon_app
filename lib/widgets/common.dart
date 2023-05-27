@@ -361,3 +361,115 @@ class _ProcessLoadingLightState extends State<ProcessLoadingLight>
         ));
   }
 }
+
+class MyDropDown extends StatefulWidget {
+  final List<String>? states;
+  final TextEditingController? cont;
+  final String? hinttext;
+  final bool? readonly, expands;
+  final double? radius;
+  final TextInputType? keytype;
+  final Function? onChange;
+  final FocusNode? focusNode;
+  Function? onTap;
+  final Color? color;
+  final int? length;
+  final String? fontFamily;
+  final FontWeight? weight;
+  final double? fontsize;
+  final String? obscuringCharacter;
+  final double? height;
+  final double? width;
+  final String? h1;
+  final String? iconPath;
+  bool? texthidden;
+  final TextInputAction? textInputAction;
+  Function? selectedValue;
+
+  MyDropDown({
+    this.states,
+    this.keytype = TextInputType.text,
+    this.color,
+    this.selectedValue,
+    this.textInputAction = TextInputAction.done,
+    this.h1 = 'Test',
+    this.onChange,
+    this.height = 50,
+    this.width = double.infinity,
+    this.cont,
+    this.iconPath,
+    this.weight,
+    this.hinttext,
+    this.texthidden = false,
+    this.readonly = false,
+    this.expands = false,
+    this.fontFamily = fontRegular,
+    this.radius = 0,
+    this.length,
+    this.obscuringCharacter = "*",
+    this.focusNode,
+    this.onTap,
+    this.fontsize = 14,
+  });
+
+  @override
+  _MyDropDownState createState() => _MyDropDownState();
+}
+
+class _MyDropDownState extends State<MyDropDown> {
+  String? _chosenValue;
+
+  @override
+  Widget build(BuildContext context) {
+    var media = MediaQuery.of(context).size;
+    return Container(
+      // height: widget.height,
+      width: media.width * 0.1,
+      padding: EdgeInsets.symmetric(
+          horizontal: media.width * 0.02, vertical: media.width * 0.0),
+      decoration: BoxDecoration(
+          // color: Colors.white,
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(color: borderColor)),
+      child: DropdownButton<String>(
+        focusColor: Colors.white,
+        value: _chosenValue,
+        isExpanded: true,
+        // onTap: widget.onTap!(),
+        underline: Container(
+          height: 0,
+          color: primaryColorB,
+        ),
+        hint: Text(
+          widget.hinttext!,
+          style: TextStyle(
+              color: fillColor2,
+              // fontSize: widget.height != null
+              //     ? widget.height
+              //     : media.height * normalTextSize,
+              fontFamily: fontRegular),
+        ),
+        style: TextStyle(color: Colors.white),
+        iconEnabledColor: Colors.white,
+        items: widget.states!.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(
+              value,
+              style: TextStyle(color: Colors.white, fontFamily: fontRegular),
+            ),
+          );
+        }).toList(),
+        onChanged: (String? value) {
+          setState(() {
+            _chosenValue = value;
+            widget.selectedValue!(value);
+          });
+        },
+      ),
+    );
+
+    //  prefix: Icon(Icons.email,color: Colors.green,),
+    // suffixIcon: icon,
+  }
+}
