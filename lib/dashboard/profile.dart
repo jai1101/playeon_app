@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:playeon/dashboard/setting.dart';
 
@@ -90,12 +88,18 @@ class _ProfileState extends State<Profile> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CircleAvatar(
-                          radius: 60,
-                          backgroundImage:
-                              NetworkImage(userdata!.profilePicture!),
-                          backgroundColor: backgroundColor,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 60,
+                              backgroundImage:
+                                  NetworkImage(userdata!.profilePicture!),
+                              backgroundColor: backgroundColor,
+                            ),
+                          ],
                         ),
+                        SizedBox(height: 20,),
                         VariableText(
                           text: userdata.name,
                           fontsize: size.height * 0.024,
@@ -105,60 +109,71 @@ class _ProfileState extends State<Profile> {
                           max_lines: 2,
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 20,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            CustomProfileBox(
-                              title: "3120",
-                              subtitle: "Likes",
-                            ),
-                            CustomProfileBox(
-                              title: "1232",
-                              subtitle: "Watching",
-                            ),
-                            InkWell(
-                              onTap: () {
-                                //Todo
-                              },
-                              child: CustomProfileBox(
-                                title: "44",
-                                subtitle: "Subscribe",
-                              ),
-                            ),
-                          ],
+                         VariableText(
+                          text: userdata.email,
+                          fontsize: size.height * 0.024,
+                          fontFamily: fontMedium,
+                          fontcolor: textColor1,
+                          weight: FontWeight.w500,
+                          max_lines: 2,
                         ),
-                        Container(
-                          width: size.width,
-                          height: size.height * 0.6,
-                          padding: EdgeInsets.symmetric(
-                              vertical: size.height * verticalPadding),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: GridView.builder(
-                                    itemCount: images.length,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 6,
-                                      crossAxisSpacing: size.width * 0.03,
-                                      mainAxisSpacing: size.height * 0.015,
-                                      // childAspectRatio: 0.63,
-                                      childAspectRatio:
-                                          size.width / (size.height * 0.9),
-                                    ),
-                                    shrinkWrap: false,
-                                    scrollDirection: Axis.vertical,
-                                    physics: ScrollPhysics(),
-                                    itemBuilder: (_, index) {
-                                      return Container(
-                                          child: Image.asset(images[index]));
-                                    }),
-                              ),
-                            ],
-                          ),
+                        SizedBox(
+                          height: 20,
                         ),
+                         VariableText(
+                        text: userdata.phoneNumber,
+                          fontsize: size.height * 0.024,
+                          fontFamily: fontMedium,
+                          fontcolor: textColor1,
+                          weight: FontWeight.w500,
+                          max_lines: 2,
+                        ),
+                        
+
+                         SizedBox(
+                          height: 20,
+                        ),
+                         VariableText(
+                        text: userdata.country,
+                          fontsize: size.height * 0.024,
+                          fontFamily: fontMedium,
+                          fontcolor: textColor1,
+                          weight: FontWeight.w500,
+                          max_lines: 2,
+                        ),
+                        
+                        // Container(
+                        //   width: size.width,
+                        //   height: size.height * 0.6,
+                        //   padding: EdgeInsets.symmetric(
+                        //       vertical: size.height * verticalPadding),
+                        //   child: Column(
+                        //     children: [
+                        //       Expanded(
+                        //         child: GridView.builder(
+                        //             itemCount: images.length,
+                        //             gridDelegate:
+                        //                 SliverGridDelegateWithFixedCrossAxisCount(
+                        //               crossAxisCount: 6,
+                        //               crossAxisSpacing: size.width * 0.03,
+                        //               mainAxisSpacing: size.height * 0.015,
+                        //               // childAspectRatio: 0.63,
+                        //               childAspectRatio:
+                        //                   size.width / (size.height * 0.9),
+                        //             ),
+                        //             shrinkWrap: false,
+                        //             scrollDirection: Axis.vertical,
+                        //             physics: ScrollPhysics(),
+                        //             itemBuilder: (_, index) {
+                        //               return Container(
+                        //                   child: Image.asset(images[index]));
+                        //             }),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
