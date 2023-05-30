@@ -432,6 +432,7 @@ class _MyDropDownState extends State<MyDropDown> {
           borderRadius: BorderRadius.circular(50),
           border: Border.all(color: borderColor)),
       child: DropdownButton<String>(
+        dropdownColor: primaryColorB,
         focusColor: Colors.white,
         value: _chosenValue,
         isExpanded: true,
@@ -449,7 +450,7 @@ class _MyDropDownState extends State<MyDropDown> {
               //     : media.height * normalTextSize,
               fontFamily: fontRegular),
         ),
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.black),
         iconEnabledColor: Colors.white,
         items: widget.states!.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(

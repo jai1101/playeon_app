@@ -29,7 +29,7 @@ class _VideoPlayersState extends State<VideoPlayers> {
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setPlaybackSpeed(1.0);
     _controller.setVolume(1.0);
-      _controller.play();
+    _controller.play();
     _controller.addListener(() {
       setState(() {
         _sliderValue = _controller.value.position.inMilliseconds.toDouble();

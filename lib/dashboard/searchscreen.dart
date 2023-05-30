@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/dashboard/movies.dart';
 import 'package:playeon/dashboard/show_all.dart';
+import 'package:playeon/models/movies_model.dart';
+import 'package:playeon/provider/filter_movies.dart';
 import 'package:playeon/widgets/style.dart';
+import 'package:provider/provider.dart';
 
+import '../auth/api_controller.dart';
 import '../widgets/common.dart';
+import 'local_preference_controller.dart';
 
 class searchscreen extends StatefulWidget {
   const searchscreen({super.key});
@@ -12,97 +18,41 @@ class searchscreen extends StatefulWidget {
 }
 
 class _searchscreenState extends State<searchscreen> {
-  List<String> imagefor = [
-    "assets/images/for1.png",
-    "assets/images/for2.png",
-    "assets/images/for3.png",
-    "assets/images/for4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
-  List<String> imagecontinue = [
-    "assets/images/cont1.png",
-    "assets/images/cont2.png",
-    "assets/images/cont3.png",
-    "assets/images/for4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
-  List<String> Action = [
-    "assets/images/act1.png",
-    "assets/images/act2.png",
-    "assets/images/act3.png",
-    "assets/images/for4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
+  List<MoviesModel> categories = [];
 
-  List<String> trend = [
-    "assets/images/trend1.png",
-    "assets/images/trend2.png",
-    "assets/images/trend3.png",
-    "assets/images/trend4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
-  List<String> Anime = [
-    "assets/images/ani1.png",
-    "assets/images/ani2.png",
-    "assets/images/ani3.png",
-    "assets/images/ani4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
-  List<String> Sci = [
-    "assets/images/sci1.png",
-    "assets/images/sci2.png",
-    "assets/images/sci3.png",
-    "assets/images/sci4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
+  bool isLoading = false;
+  setLoading(bool loading) {
+    if (mounted) {
+      setState(() {
+        isLoading = loading;
+      });
+    }
+  }
 
-  List<String> kid = [
-    "assets/images/kid1.png",
-    "assets/images/kid2.png",
-    "assets/images/kid3.png",
-    "assets/images/kid4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
-  List<String> rom = [
-    "assets/images/rom1.png",
-    "assets/images/rom2.png",
-    "assets/images/rom3.png",
-    "assets/images/rom4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
-  List<String> Horror = [
-    "assets/images/hor1.png",
-    "assets/images/hor2.png",
-    "assets/images/hor3.png",
-    "assets/images/hor4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
+  @override
+  void initState() {
+    super.initState();
+  }
 
-  List<String> adv = [
-    "assets/images/adv1.png",
-    "assets/images/adv2.png",
-    "assets/images/adv3.png",
-    "assets/images/adv4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
-  List<String> animat = [
-    "assets/images/animat1.png",
-    "assets/images/animat2.png",
-    "assets/images/animat3.png",
-    "assets/images/animat4.png",
-    "assets/images/img_hotel.png",
-    "assets/images/img_hostile.png",
-  ];
+  getCategories(String? category) async {
+    setLoading(true);
+    LocalPreference prefs = LocalPreference();
+    String token = await prefs.getUserToken();
+    var response = await ApiController().getCategories(token, category);
+
+    // print(" form api $response");
+    for (var item in response) {
+      categories.add(MoviesModel.fromJson(item));
+    }
+    Navigator.push(
+        context,
+        SwipeLeftAnimationRoute(
+            milliseconds: 300,
+            widget: Movies(
+              moviesData: categories,
+            )));
+    setLoading(false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,13 +106,7 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Action list")));
+                              getCategories("action");
                             },
                           ),
                           SizedBox(
@@ -178,13 +122,7 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Sci-Fi list")));
+                              getCategories("sci-fi");
                             },
                           ),
                           SizedBox(
@@ -200,13 +138,7 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                                          // title: "Anime list")));
+                              getCategories("anime");
                             },
                           ),
                           SizedBox(
@@ -222,13 +154,7 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Funny list")));
+                              getCategories("comedies");
                             },
                           )
                         ],
@@ -249,13 +175,7 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Horror list")));
+                              getCategories("horror");
                             },
                           ),
                           SizedBox(
@@ -270,13 +190,7 @@ class _searchscreenState extends State<searchscreen> {
                             btnTxt: "Romantic",
                             weight: FontWeight.w300,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Romantic list")));
+                              getCategories("romance");
                             },
                           ),
                           SizedBox(
@@ -291,13 +205,7 @@ class _searchscreenState extends State<searchscreen> {
                             btnTxt: "Adventure",
                             weight: FontWeight.w300,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Adventure list")));
+                              getCategories('sci-fi');
                             },
                           ),
                         ],
@@ -318,13 +226,7 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Thriller list")));
+                              getCategories("thriller");
                             },
                           ),
                           SizedBox(
@@ -340,13 +242,7 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Cartoon list")));
+                              getCategories('dramas');
                             },
                           ),
                         ],
@@ -367,13 +263,16 @@ class _searchscreenState extends State<searchscreen> {
                             weight: FontWeight.w300,
                             fontFamily: fontRegular,
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     SwipeLeftAnimationRoute(
-                              //         milliseconds: 300,
-                              //         widget: ShowAllMovies(
-                              //             showList: Action,
-                              //             title: "Movies list")));
+                              Navigator.push(
+                                  context,
+                                  SwipeLeftAnimationRoute(
+                                      milliseconds: 300,
+                                      widget: Movies(
+                                          moviesData:
+                                              Provider.of<MoviesGenraProvider>(
+                                                      context,
+                                                      listen: false)
+                                                  .moviesGenra)));
                             },
                           ),
                         ],

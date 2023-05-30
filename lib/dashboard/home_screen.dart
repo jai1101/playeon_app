@@ -5,11 +5,12 @@ import 'package:playeon/auth/api_controller.dart';
 import 'package:playeon/dashboard/movies.dart';
 import 'package:playeon/dashboard/series.dart';
 import 'package:playeon/dashboard/show_all.dart';
-import 'package:playeon/dashboard/videoplayer.dart';
 import 'package:playeon/models/movies_model.dart';
 import 'package:playeon/widgets/common.dart';
 import 'package:playeon/widgets/style.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/filter_movies.dart';
 import 'about.dart';
 import 'local_preference_controller.dart';
 
@@ -132,6 +133,8 @@ class _HomeScreenState extends State<HomeScreen> {
     "assets/images/img_hostile.png",
   ];
   List<MoviesModel> moviesData = [];
+  List<MoviesModel> categories = [];
+  List<String> categorieslist = [];
   void updateList(String value) {}
   bool isLoading = false;
   setLoading(bool loading) {
@@ -152,14 +155,47 @@ class _HomeScreenState extends State<HomeScreen> {
     for (var item in response) {
       moviesData.add(MoviesModel.fromJson(item));
     }
+    Provider.of<MoviesGenraProvider>(context, listen: false)
+        .setMovies(moviesData);
     setLoading(false);
   }
 
   @override
   void initState() {
     getMovies();
-
+    getCategories();
     super.initState();
+  }
+
+  getCategories() async {
+    setLoading(true);
+    LocalPreference prefs = LocalPreference();
+    String token = await prefs.getUserToken();
+    var response = await ApiController().getMovies(token);
+
+    // print(" form api $response");
+    for (var item in response) {
+      categories.add(MoviesModel.fromJson(item));
+      dynamic genre = item['genre'][0];
+      if (genre is List<dynamic> && genre.isNotEmpty) {
+        var m = genre;
+        print("Genre ${m[0]}");
+        addUniqueItem(m[0]);
+      } else {
+        print('Invalid genre');
+      }
+      // categorieslist.add(item['genre'][0]);
+    }
+    setLoading(false);
+  }
+
+  void addUniqueItem(String item) {
+    if (!categorieslist.contains(item)) {
+      categorieslist.add(item);
+      print('Item added: $item');
+    } else {
+      print('Item already exists: $item');
+    }
   }
 
   List listItem = ["Item 1", "Item 2"];
@@ -242,7 +278,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: MyDropDown(
                     hinttext: "Categories",
                     width: size.width * 0.2,
-                    states: categoryList,
+                    states: categorieslist,
                     radius: 50,
                     selectedValue: (value) {
                       print(value);
