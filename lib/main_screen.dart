@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playeon/widgets/common.dart';
 
 import 'dashboard/home_screen.dart';
 import 'dashboard/profile.dart';
@@ -17,9 +18,9 @@ class _MainScreenState extends State<MainScreen>
   TabController? tabController;
   var mainTab = {
     "tabs": [
-      {"icon": "assets/icons/search_ic.png"},
-      {"icon": "assets/icons/logo.png"},
-      {"icon": "assets/icons/profile_ic.png"}
+      {"title": "Seach"},
+      {"title": "Home"},
+      {"title": "Profile"}
     ],
   };
 
@@ -60,13 +61,7 @@ class _MainScreenState extends State<MainScreen>
       ),
       bottomNavigationBar: Container(
         height: size.height * 0.085,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [primaryColor1, cardBackgroundColor.withOpacity(0.8)],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
-        ),
+        decoration: BoxDecoration(color: primaryColorW),
         child: TabBar(
           controller: tabController,
           indicatorColor: primaryColor1,
@@ -74,12 +69,14 @@ class _MainScreenState extends State<MainScreen>
               border: Border(top: BorderSide(color: textColor1, width: 2))),
           tabs: List.generate(mainTab['tabs']!.length, (index) {
             return Tab(
-              child: Image.asset(
-                mainTab['tabs']![index]['icon'].toString(),
-                scale: 1,
-                color: tabController!.index == index ? primaryColorB : null,
-              ),
-            );
+                child: VariableText(
+              text: mainTab['tabs']![index]['title'],
+              fontcolor:
+                  tabController!.index == index ? primaryColor1 : primaryColorB,
+              fontsize: size.width * 0.025,
+              fontFamily: fontRegular,
+              weight: FontWeight.w500,
+            ));
           }),
         ),
       ),

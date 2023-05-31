@@ -230,14 +230,15 @@ class _VideoPlayersState extends State<VideoPlayers> {
             )
           : Center(
               child: Column(
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FutureBuilder(
                     future: _initializeVideoPlayerFuture,
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
-                        return AspectRatio(
-                          aspectRatio: _controller.value.aspectRatio,
+                        return SizedBox(
+                          height: 600,
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
@@ -332,13 +333,6 @@ class _VideoPlayersState extends State<VideoPlayers> {
                                               color: primaryColor1,
                                             ),
                                           ),
-                                          // IconButton(
-                                          //   onPressed: _stopVideo,
-                                          //   icon: Icon(
-                                          //     Icons.stop,
-                                          //     color: primaryColor1,
-                                          //   ),
-                                          // ),
                                           IconButton(
                                             onPressed: _seekForward,
                                             color: primaryColor1,

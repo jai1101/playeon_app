@@ -203,857 +203,812 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 30.0, left: 15),
-          child: Column(children: [
-            Row(
-              children: [
-                Expanded(
-                    child: VariableText(
-                  text: "MOVIES",
-                  fontcolor: primaryColorW,
-                  fontsize: size.height * 0.03,
-                  fontFamily: fontMedium,
-                  weight: FontWeight.w500,
-                )),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.search,
-                    color: textColor1,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MyButton(
-                  btnHeight: size.height * 0.05,
-                  btnWidth: size.width * 0.24,
-                  borderColor: textColor5,
-                  btnColor: textColor5,
-                  btnRadius: 200,
-                  btnTxt: "Movies",
-                  fontSize: size.height * 0.020,
-                  weight: FontWeight.w500,
-                  fontFamily: fontRegular,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        SwipeLeftAnimationRoute(
-                            milliseconds: 200,
-                            widget: Movies(moviesData: moviesData)));
-                  },
+    return Stack(
+      children: [
+        SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30.0, left: 15),
+              child: Column(children: [
+                Row(
+                  children: [
+                    Expanded(
+                        child: VariableText(
+                      text: "MOVIES",
+                      fontcolor: primaryColorW,
+                      fontsize: size.height * 0.03,
+                      fontFamily: fontMedium,
+                      weight: FontWeight.w500,
+                    )),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.search,
+                        color: textColor1,
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
-                  width: size.width * 0.02,
+                  height: 10,
                 ),
-                MyButton(
-                  btnHeight: size.height * 0.05,
-                  btnWidth: size.width * 0.24,
-                  borderColor: textColor5,
-                  btnColor: textColor5,
-                  btnRadius: 200,
-                  btnTxt: "Series",
-                  fontSize: size.height * 0.020,
-                  weight: FontWeight.w500,
-                  fontFamily: fontRegular,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Series()),
-                    );
-                  },
-                ),
-                SizedBox(
-                  width: size.width * 0.02,
-                ),
-                Expanded(
-                  child: MyDropDown(
-                    hinttext: "Categories",
-                    width: size.width * 0.2,
-                    states: categorieslist,
-                    radius: 50,
-                    selectedValue: (value) {
-                      print(value);
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MyButton(
+                      btnHeight: size.height * 0.05,
+                      btnWidth: size.width * 0.24,
+                      borderColor: textColor5,
+                      btnColor: textColor5,
+                      btnRadius: 200,
+                      btnTxt: "Movies",
+                      fontSize: size.height * 0.020,
+                      weight: FontWeight.w500,
+                      fontFamily: fontRegular,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            SwipeLeftAnimationRoute(
+                                milliseconds: 200,
+                                widget: Movies(moviesData: moviesData)));
+                      },
+                    ),
+                    SizedBox(
+                      width: size.width * 0.02,
+                    ),
+                    MyButton(
+                      btnHeight: size.height * 0.05,
+                      btnWidth: size.width * 0.24,
+                      borderColor: textColor5,
+                      btnColor: textColor5,
+                      btnRadius: 200,
+                      btnTxt: "Series",
+                      fontSize: size.height * 0.020,
+                      weight: FontWeight.w500,
+                      fontFamily: fontRegular,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Series()),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      width: size.width * 0.02,
+                    ),
+                    Expanded(
+                      child: MyDropDown(
+                        hinttext: "Categories",
+                        width: size.width * 0.2,
+                        states: categorieslist,
+                        radius: 50,
+                        selectedValue: (value) {
+                          print(value);
 
-                      categoryController = value;
+                          categoryController = value;
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                SizedBox(
+                  height: 200,
+                  width: double.infinity,
+                  child: PageView.builder(
+                    onPageChanged: (index) {
+                      setState(() {
+                        currentIndex = index % itemImages.length;
+                      });
+                    },
+
+                    // itemCount: itemImages.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                          height: 400,
+                          width: double.infinity,
+                          child: Image.asset(
+                              itemImages[index % itemImages.length],
+                              fit: BoxFit.cover),
+                        ),
+                      );
                     },
                   ),
                 ),
-                // Container(
-                //     width: size.width * 0.3,
-                //     height: size.height * 0.06,
-                //     color: textColor5,
-                //     child: InputDecorator(
-                //         decoration: InputDecoration(
-                //           enabledBorder: OutlineInputBorder(
-                //             borderSide: BorderSide(color: textColor5),
-                //             borderRadius: BorderRadius.circular(50),
-                //           ),
-                //         ),
-                //         child: DropdownButtonHideUnderline(
-                //             child: DropdownButton<String>(
-                //                 dropdownColor: Colors.black,
-                //                 hint: StreamBuilder<Object>(
-                //                     stream: null,
-                //                     builder: (context, snapshot) {
-                //                       return VariableText(
-                //                         text: "Categories",
-                //                         fontFamily: fontMedium,
-                //                         fontcolor: textColor1,
-                //                         fontsize: size.height * 0.014,
-                //                       );
-                //                     }),
-                //                 value: categoryController,
-                //                 isExpanded: true,
-                //                 onTap: () {
-                //                   FocusScope.of(context).unfocus();
-                //                 },
-                //                 onChanged: (String? value) {
-                //                   {
-                //                     setState(() {
-                //                       categoryController = value;
-                //                     });
-                //                   }
-                //                 },
-                //                 style: TextStyle(
-                //                     fontSize: size.height * 0.01,
-                //                     color: Colors.black),
-                //                 items: categoryList
-                //                     .map<DropdownMenuItem<String>>(
-                //                         (String item) {
-                //                   return DropdownMenuItem<String>(
-                //                     value: item,
-                //                     child: Column(
-                //                       crossAxisAlignment:
-                //                           CrossAxisAlignment.start,
-                //                       children: [
-                //                         VariableText(
-                //                           text: item,
-                //                           fontsize: size.height * 0.014,
-                //                           fontcolor: textColor1,
-                //                           fontFamily: fontMedium,
-                //                         ),
-                //                       ],
-                //                     ),
-                //                   );
-                //                 }).toList())))
-                //                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: PageView.builder(
-                onPageChanged: (index) {
-                  setState(() {
-                    currentIndex = index % itemImages.length;
-                  });
-                },
-
-                // itemCount: itemImages.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: SizedBox(
-                      height: 400,
-                      width: double.infinity,
-                      child: Image.asset(itemImages[index % itemImages.length],
-                          fit: BoxFit.cover),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (var i = 0; i < itemImages.length; i++)
+                      buildIndicator(currentIndex == i)
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "For You",
+                        fontcolor: primaryColorW,
+                        fontsize: size.height * 0.02,
+                        fontFamily: fontMedium,
+                        weight: FontWeight.w500,
+                      ),
                     ),
-                  );
-                },
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                for (var i = 0; i < itemImages.length; i++)
-                  buildIndicator(currentIndex == i)
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "For You",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData, title: "For You"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "For You"))),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.22,
                   child: Row(
                     children: [
-                      VariableText(
-                        text: "See All",
-                        fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
-                        fontFamily: fontMedium,
-                        weight: FontWeight.w500,
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: moviesData.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      SwipeLeftAnimationRoute(
+                                          milliseconds: 200,
+                                          widget: About(
+                                            movieData: moviesData[index],
+                                          )));
+                                },
+                                child: Container(
+                                    padding: EdgeInsets.only(right: 10),
+                                    child: Image.network(
+                                        moviesData[index].imgSmPoster!)),
+                              );
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.22,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: moviesData.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  SwipeLeftAnimationRoute(
-                                      milliseconds: 200,
-                                      widget: About(
-                                        movieData: moviesData[index],
-                                      )));
-                            },
-                            child: Container(
-                                padding: EdgeInsets.only(right: 10),
-                                child: Image.network(
-                                    moviesData[index].imgSmPoster!)),
-                          );
-                        }),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Continue Watching For",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
+                SizedBox(
+                  height: 10,
                 ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData,
-                              title: " Continue Watching"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Continue Watching For",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData,
+                                  title: " Continue Watching"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  padding: EdgeInsets.symmetric(
+                      vertical: size.height * verticalPadding),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: GridView.builder(
+                            itemCount: imagecontinue.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 1,
+                              crossAxisSpacing: size.width * 0.011,
+                              mainAxisSpacing: size.height * 0.0001,
+                              //childAspectRatio: 0.63,
+                              childAspectRatio:
+                                  size.width / (size.height * 0.50),
+                            ),
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  child: Image.asset(imagecontinue[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              padding:
-                  EdgeInsets.symmetric(vertical: size.height * verticalPadding),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: GridView.builder(
-                        itemCount: imagecontinue.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 1,
-                          crossAxisSpacing: size.width * 0.011,
-                          mainAxisSpacing: size.height * 0.0001,
-                          //childAspectRatio: 0.63,
-                          childAspectRatio: size.width / (size.height * 0.50),
-                        ),
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              child: Image.asset(imagecontinue[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Action",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Action Movies"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Action",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData,
+                                  title: "Action Movies"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: Action.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(Action[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: Action.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(Action[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Trending Now",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Now list"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Trending Now",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData, title: "Now list"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: trend.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(trend[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: trend.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(trend[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Anime",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Now list"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Anime",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData, title: "Now list"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: Anime.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(Anime[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: Anime.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(Anime[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Sci-Fi",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Sci_Fi Movies"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Sci-Fi",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData,
+                                  title: "Sci_Fi Movies"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: Sci.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(Sci[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: Sci.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(Sci[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Kids Cartoon",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Cartoons"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Kids Cartoon",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData, title: "Cartoons"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: kid.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(kid[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: kid.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(kid[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Romantic",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Romantic Movies"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Romantic",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData,
+                                  title: "Romantic Movies"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: rom.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(rom[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: rom.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(rom[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Horror",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Horror Movies"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Horror",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData,
+                                  title: "Horror Movies"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: Horror.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(Horror[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: Horror.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(Horror[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Adventure",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData,
-                              title: "Adventure Movies"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Adventure",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData,
+                                  title: "Adventure Movies"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Container(
+                  width: size.width,
+                  height: size.height * 0.18,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: adv.length,
+                            shrinkWrap: false,
+                            scrollDirection: Axis.horizontal,
+                            physics: ScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Container(
+                                  padding: EdgeInsets.only(right: 1),
+                                  child: Image.asset(adv[index]));
+                            }),
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: adv.length,
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        physics: ScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return Container(
-                              padding: EdgeInsets.only(right: 1),
-                              child: Image.asset(adv[index]));
-                        }),
-                  )
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: VariableText(
-                    text: "Animated Movies",
-                    fontcolor: primaryColorW,
-                    fontsize: size.height * 0.02,
-                    fontFamily: fontMedium,
-                    weight: FontWeight.w500,
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                      context,
-                      SwipeLeftAnimationRoute(
-                          milliseconds: 300,
-                          widget: ShowAllMovies(
-                              showList: moviesData, title: "Animated Movies"))),
-                  child: Row(
-                    children: [
-                      VariableText(
-                        text: "See All",
+                Row(
+                  children: [
+                    Expanded(
+                      child: VariableText(
+                        text: "Animated Movies",
                         fontcolor: primaryColorW,
-                        fontsize: size.height * 0.016,
+                        fontsize: size.height * 0.02,
                         fontFamily: fontMedium,
                         weight: FontWeight.w500,
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: primaryColorW,
-                        size: 17,
-                      )
-                    ],
-                  ),
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          SwipeLeftAnimationRoute(
+                              milliseconds: 300,
+                              widget: ShowAllMovies(
+                                  showList: moviesData,
+                                  title: "Animated Movies"))),
+                      child: Row(
+                        children: [
+                          VariableText(
+                            text: "See All",
+                            fontcolor: primaryColorW,
+                            fontsize: size.height * 0.016,
+                            fontFamily: fontMedium,
+                            weight: FontWeight.w500,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColorW,
+                            size: 17,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+              ]),
             ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
-          ]),
+          ),
         ),
-      ),
+        if (isLoading) ProcessLoadingLight()
+      ],
     );
   }
 
