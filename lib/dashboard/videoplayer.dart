@@ -18,7 +18,7 @@ class _VideoPlayersState extends State<VideoPlayers> {
   double _sliderValue = 0.0;
   double _brightnessValue = 0.5;
   double _volumeValue = 0.5;
-  bool _isFullScreen = false;
+  bool _isFullScreen = true;
   bool isshowbar = false;
   Duration position = Duration();
 
@@ -45,9 +45,11 @@ class _VideoPlayersState extends State<VideoPlayers> {
 
   void _playVideo() {
     if (_controller.value.isPlaying) {
+      position = _controller.value.position;
       _controller.pause();
       _controller.seekTo(position);
     } else {
+      position = _controller.value.position;
       _controller.seekTo(position);
       _controller.play();
     }
@@ -63,7 +65,6 @@ class _VideoPlayersState extends State<VideoPlayers> {
   void _seekForward() {
     position = _controller.value.position + Duration(seconds: 10);
 
-    print(position);
     _controller.seekTo(position);
     setState(() {});
   }
@@ -75,11 +76,10 @@ class _VideoPlayersState extends State<VideoPlayers> {
   }
 
   void _onSliderChanged(double value) {
-    position =
-        _controller.value.position + Duration(milliseconds: value.toInt());
-    print("My Position $position");
-
     setState(() {
+      position =
+          _controller.value.position + Duration(milliseconds: value.toInt());
+
       _controller.seekTo(position);
       _sliderValue = value;
     });
@@ -88,19 +88,19 @@ class _VideoPlayersState extends State<VideoPlayers> {
   void _changeBrightness(double value) {
     setState(() {
       _brightnessValue = value;
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+        systemNavigationBarColor: Colors.black,
+        systemNavigationBarIconBrightness:
+            _brightnessValue < 0.5 ? Brightness.light : Brightness.dark,
+      ));
     });
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-      systemNavigationBarColor: Colors.black,
-      systemNavigationBarIconBrightness:
-          _brightnessValue < 0.5 ? Brightness.light : Brightness.dark,
-    ));
-    // _controller.setVolume(value);
   }
 
   void _changeVolume(double value) {
+    print(value);
     setState(() {
       _volumeValue = value;
-      _controller.setVolume(value);
+      _controller.setVolume(_volumeValue);
     });
   }
 
@@ -225,6 +225,64 @@ class _VideoPlayersState extends State<VideoPlayers> {
                           : null,
                     ),
                   ),
+                  Positioned(
+                    top: 11,
+                    child: SizedBox(
+                      child: isshowbar
+                          ? RotatedBox(
+                              quarterTurns: 4,
+                              child: Slider(
+                                value: _brightnessValue,
+                                min: 0.0,
+                                max: 1.0,
+                                onChanged: _changeBrightness,
+                              ),
+                            )
+                          : null,
+                    ),
+                  ),
+                  RotatedBox(
+                    quarterTurns: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          width: 60,
+                        ),
+                        Expanded(
+                            child: InkWell(
+                          onDoubleTap: () {
+                            _seekBackward();
+                          },
+                          child: Container(
+                            height: 150,
+                            width: 150,
+                            // color: primaryColor1,
+                          ),
+                        )),
+                        Expanded(
+                          child: InkWell(
+                            onDoubleTap: () {
+                              _seekForward();
+                            },
+                            child: Container(
+                              height: 150,
+                              width: 150,
+                              // color: primaryColor2,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 600,
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             )
@@ -238,7 +296,7 @@ class _VideoPlayersState extends State<VideoPlayers> {
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
                         return SizedBox(
-                          height: 600,
+                          height: 250,
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
@@ -256,21 +314,6 @@ class _VideoPlayersState extends State<VideoPlayers> {
                                 colors: VideoProgressColors(
                                   playedColor: Colors.green,
                                   bufferedColor: Colors.grey,
-                                ),
-                              ),
-                              Positioned(
-                                left: 1,
-                                child: SizedBox(
-                                  child: isshowbar
-                                      ? RotatedBox(
-                                          quarterTurns: 3,
-                                          child: Slider(
-                                            value: _brightnessValue,
-                                            min: 0.0,
-                                            max: 1.0,
-                                            onChanged: _changeBrightness,
-                                          ))
-                                      : null,
                                 ),
                               ),
                               Positioned(
@@ -346,6 +389,45 @@ class _VideoPlayersState extends State<VideoPlayers> {
                                       )
                                     : null,
                               ),
+                              Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          width: 60,
+                        ),
+                        Expanded(
+                            child: InkWell(
+                          onDoubleTap: () {
+                            _seekBackward();
+                          },
+                          child: Container(
+                            height: 150,
+                            width: 150,
+                            // color: primaryColor1,
+                          ),
+                        )),
+                        Expanded(
+                          child: InkWell(
+                            onDoubleTap: () {
+                              _seekForward();
+                            },
+                            child: Container(
+                              height: 150,
+                              width: 150,
+                              // color: primaryColor2,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 600,
+                        )
+                      ],
+                    ),
                             ],
                           ),
                         );

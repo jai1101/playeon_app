@@ -61,7 +61,7 @@ class _MainScreenState extends State<MainScreen>
       ),
       bottomNavigationBar: Container(
         height: size.height * 0.085,
-        decoration: BoxDecoration(color: primaryColorW),
+        decoration: BoxDecoration(color: borderColor),
         child: TabBar(
           controller: tabController,
           indicatorColor: primaryColor1,
@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen>
                 child: VariableText(
               text: mainTab['tabs']![index]['title'],
               fontcolor:
-                  tabController!.index == index ? primaryColor1 : primaryColorB,
+                  tabController!.index == index ? primaryColor1 : primaryColorW,
               fontsize: size.width * 0.025,
               fontFamily: fontRegular,
               weight: FontWeight.w500,

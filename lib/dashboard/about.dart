@@ -41,7 +41,7 @@ class _AboutState extends State<About> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.arrow_back_ios,
                             color: textColor1,
                             size: 17,
